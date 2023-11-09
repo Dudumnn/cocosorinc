@@ -24,11 +24,14 @@ class WorkerFactory extends Factory
             'age' => fake()->numberBetween($min = 20, $max = 50),
             'gender' => fake()->randomElement(['Male', 'Female']),
             'status' => fake()->randomElement(['Regular', 'Probationary']),
-            'position' => fake()->jobTitle(),
+            'position' => fake()->randomElement(['Sheller', 'Parer', 'Hourly']),
             'date_of_employment' => fake()->date($format = 'Y-m-d', $max = 'now'),
+            'rehired_date' => fake()->date($format = 'Y-m-d', $max = 'now'),
             'year_hired' => fake()->year($max = 'now'),
             'address' => fake()->address(),
             'employment_status' => fake()->randomElement(['Active', 'AWOL', 'Resigned', 'Terminated']),
+            'date_inactive' => fake()->date($format = 'Y-m-d', $max = 'now'),
+            'shift' => fake()->randomElement(['Green', 'Red', 'Yellow']),
         ];
     }
 }

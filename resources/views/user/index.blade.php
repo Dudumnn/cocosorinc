@@ -2,7 +2,7 @@
     @dd(auth()->user())
     @dd(auth()->user()->name)
 --}}
-@include('partials.header')
+@include('partials.header', [$title])
     @php @endphp
     <x-navigation />
     <x-messages />
@@ -35,10 +35,15 @@
 
     <section class="p-4 sm:ml-64">
         <div class="overflow-x-auto relative">
-            <div class="w-full">
-                <a href="/generate-pdf">Download PDF</a>
+            <div class="w-full bg-slate-100 flex flex-space-between">
+                <div class="btn round-none bg-gray">
+                    <a href="/generate-pdf">Download PDF</a>
+                </div>
+                <div class="btn round-none bg-gray">
+                    <button>Add New Employee</button>
+                </div>
             </div>
-            <table class="w-3/4 table table-xs text-xs md:text-sm lg:text-sm mx-auto">
+            <table class="w-3/4 table table-xs text-xs md:text-xs lg:text-xs mx-auto">
                 <thead>
                     <tr class="border-b border-gray-200">
                         <th></th>
@@ -48,7 +53,6 @@
                         <th>Gender</th>
                         <th>Status</th>
                         <th>Position</th>
-                        <th>Employement Status</th>
                     </tr>
                 </thead> 
                 <tbody>
@@ -75,9 +79,6 @@
                         <td>
                             {{ $emp->position }}
                         </td>
-                        <td>
-                            {{ $emp->employment_status }}
-                        </td>
                     </tr>
                     @endforeach
                 </tbody> 
@@ -90,7 +91,6 @@
                         <th>Gender</th>
                         <th>Status</th>
                         <th>Position</th>
-                        <th>Employement Status</th>
                     </tr>
                 </tfoot>
             </table>
