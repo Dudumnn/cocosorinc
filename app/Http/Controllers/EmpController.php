@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\EmpUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use Illuminate\Validation\Rule;
 
 class EmpController extends Controller
 {
@@ -25,7 +27,16 @@ class EmpController extends Controller
     }
     
     public function store(Request $request){
-        dd($request);   
+        $validated = $request->validate([
+            "username" => ['required', 'min:4'],
+            "password" => 'required|confirmed|min:6'
+        ]);
+
+        $validated['password'] = bcrypt($validated['password']);
+
+        $emps = EmpUsers::create($validated);
+
+        auth()->login($emps);
     }
 
     public function process(Request $request){

@@ -1,4 +1,5 @@
 @include('partials.header')
+    @php @endphp
     <x-navigation />
 
     <header class="max-w-lg mx-auto mt-7">
