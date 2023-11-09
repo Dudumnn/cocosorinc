@@ -18,10 +18,8 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->unique()->name(),
             'username' => fake()->userName(),
-            'age' => fake()->numberBetween($min = 20, $max = 40),
-            'gender' => fake()->randomElement(['Male', 'Female']),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Str::random(8),

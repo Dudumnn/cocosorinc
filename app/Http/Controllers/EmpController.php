@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EmpUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class EmpController extends Controller
@@ -18,7 +19,7 @@ class EmpController extends Controller
         }
     }
     public function register(){
-        if(\View::exists('user.register')){
+        if(View::exists('user.register')){
             return view('user.register');
         }else{
             //return abort(404);
@@ -32,11 +33,11 @@ class EmpController extends Controller
             "password" => 'required|confirmed|min:6'
         ]);
 
-        $validated['password'] = bcrypt($validated['password']);
+        $validated['password'] = Hash::make($validated['password']);
 
-        $emps = EmpUsers::create($validated);
+        $user = EmpUsers::create($validated);
 
-        auth()->login($emps);
+        auth()->login($user);
     }
 
     public function process(Request $request){

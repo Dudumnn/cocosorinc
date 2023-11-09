@@ -1,19 +1,30 @@
-<nav class="fixed z-20 top-0 left-0 w-full bg-slate-700">
-    <div class="container-fluid w-full flex flex-wrap justify-between bg-slate-800 px-2 sm:px-2 py-2.5 text-white">
-        <a href="/">
-            <span class="self-center text-xl front-semibold whitespace-nowrap">Cocosor Inc.</span>
-        </a>
-        <button data-collapse-toggle="navbar-main" class="md:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-            </svg>
-        </button>
-        <div class="hidden w-full md:block md:w-auto font-sans px-2" id="navbar-main">
-            <ul>
-                <li>
-                    <a href="#">Log Out</a>
-                </li>
-            </ul>
+
+<nav class="fixed top-0 z-50 w-full bg-gray-100 border-b border-gray-300">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center justify-start">
+            <a href="/" class="flex ml-2 md:mr-24">
+                <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">Cocosor Inc.</span>
+            </a>
+            </div>
+            <div class="hidden w-full md:block md:w-auto font-sans px-2" id="navbar-main">
+                <div class="dropdown dropdown-end">
+                    <button tabindex="0" class="m-1 text-xl front-semibold">
+                        <img class="w-6 h-6 fill-slate-50" src="{{ asset('icons/user.svg') }}" alt="menu">
+                    </button>
+                    <ul tabindex="0" class="mt-3 dropdown-content z-[1] menu w-40 text-base list-none bg-white divide-y divide-gray-100 rounded shadow">
+                        <li class="block text-sm text-gray-700 hover:bg-gray-100 font-semibold">
+                            <a>Settings</a>
+                        </li>
+                        <li class="block text-sm text-gray-700 hover:bg-gray-100 font-semibold">
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button>Log Out</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

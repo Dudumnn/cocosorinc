@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\EmpController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +22,13 @@ use Illuminate\Support\Facades\Route;
 //update - update a data
 //destroy - delete a data
 
-Route::get('/', [EmpController::class, 'index']);
-Route::get('/register', [EmpController::class, 'register']);
-Route::get('/login', [EmpController::class, 'login']);
-Route::post('/store', [EmpController::class,'store']);
+Route::get('/', [UserController::class, 'index'])->middleware('auth');
+Route::get('/register', [UserController::class, 'register'])->middleware('guest');
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login/process', [UserController::class, 'process']);
 
-Route::get('/login/process', [EmpController::class, 'process']);
+Route::post('/store', [UserController::class,'store']);
+
+Route::post('/logout', [UserController::class,'logout']);
+
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
