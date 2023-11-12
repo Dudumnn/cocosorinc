@@ -11,12 +11,27 @@
          </a>
       </li>
       <li>
-         <a href="/performance" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+         <a type="button" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group" aria-controls="dropdown-example1" data-collapse-toggle="dropdown-example1">
             <svg class="bi bi-bar-chart-fill flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
                <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
-               </svg>
+            </svg>
             <span class="flex-1 ml-3 whitespace-nowrap">Performance</span>
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
          </a>
+         <ul id="dropdown-example1" class="hidden py-2 space-y-2">
+            <li>
+               <a href="/performance" class="flex items-center w-full py-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                  Weekly Performance
+               </a>
+            </li>
+            <li>
+               <a href="#" class="flex items-center w-full py-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                  Peformance Report
+               </a>
+            </li>
+         </ul>
       </li>
       <li>
          <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
@@ -32,7 +47,7 @@
             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
             </svg>
-            <span class="flex-1 ml-3 whitespace-nowrap pointer-events-none">Employees</span>
+            <span class="flex-1 ml-3 whitespace-nowrap">Employees</span>
             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>
