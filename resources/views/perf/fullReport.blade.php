@@ -7,9 +7,9 @@
     <div class="flex" id="wrapper" x-data="{isOpen:true}">
         <x-navigation />
         <x-sidebar />
-        <div id="body" class="w-full overflow-y-auto h-full transition-all duration-200 bg-white z-1">
+        <div id="body" class="w-full overflow-y-auto transition-all duration-200 ">
             <section class="p-6 pt-10 w-full">
-                <h4 class="w-full page-title font-semibold text-slate-800 text-lg text-left">Dashboard</h4>
+                <h4 class="w-full page-title font-semibold text-slate-800 text-lg text-left">Performance Information</h4>
                 <nav class="flex" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 md:space-x-3">
                         <li class="inline-flex items-center">
@@ -20,6 +20,22 @@
                             </svg>
                             Dashboard
                             </a>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                            <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                            </svg>
+                            <a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-500 md:ml-2">Performance</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                            <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                            </svg>
+                            <a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-500 md:ml-2">Full Report</a>
+                            </div>
                         </li>
                     </ol>
                 </nav>
