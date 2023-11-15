@@ -29,7 +29,7 @@ class UserController extends Controller
         if(auth()->attempt($validated)){
             $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'Welcome Back!');
+            return redirect('/dashboard')->with('message', 'Welcome Back!');
         }
 
         return back()->withErrors(['username' => 'Login failed'])->onlyInput('username');
@@ -57,7 +57,7 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('message', 'Welcome User!');
+        return redirect('/dashboard')->with('message', 'Welcome User!');
     }
 
     public function logout(Request $request){

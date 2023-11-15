@@ -25,7 +25,8 @@ use App\Http\Controllers\PDFController;
 //destroy - delete a data
 
 Route::controller(UserController::class)->group(function(){
-    Route::get('/', 'index')->middleware('auth');
+    Route::get('/', 'login')->middleware('guest');
+    Route::get('/dashboard', 'index')->middleware('auth');
     //login process
     Route::get('/login', 'login')->name('login')->middleware('guest');
     Route::post('/login/process', 'process');
@@ -45,6 +46,6 @@ Route::controller(WorkerController::class)->group(function(){
 });
 
 Route::controller(PerfController::class)->group(function(){
-    Route::get('/performance', 'performance')->middleware('auth');
+    Route::get('/weekly_performance', 'performance')->middleware('auth');
     Route::get('/fullReport', 'report')->middleware('auth');
 });
