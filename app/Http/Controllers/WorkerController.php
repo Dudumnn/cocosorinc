@@ -13,7 +13,6 @@ class WorkerController extends Controller
     }
 
     public function employees(){
-        $data = Worker::paginate(6);
-        return view('worker.index', ['users' => $data])->with('title', 'Master List');
+        return view('worker.index')->with('title', 'Master List');
     }
 }

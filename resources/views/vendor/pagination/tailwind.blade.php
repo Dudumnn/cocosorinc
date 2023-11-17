@@ -23,6 +23,7 @@
         </div>
 
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+            <div></div>
             {{--
                 <div>
                 <p class="text-sm leading-5">

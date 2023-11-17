@@ -2,7 +2,7 @@
 <nav class="fixed top-0 z-50 w-full bg-gray-100 border-b border-gray-300">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
-            <div class="flex justify-start pl-2">
+            <div class="flex justify-start pl-2 text-gray-900">
                 <button @click.prevent="isOpen = !isOpen">
                     <svg class="bi bi-list flex-shrink-0 w-7 h-8 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -28,7 +28,7 @@
 
                 <div x-show="open" class="absolute right-0 mt-2 py-2 w-40 bg-white rounded-lg shadow xl">
                     <div class="px-4 py-2 border-b border-gray-200 pointer-events-none">
-                        <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">
+                        <span class="block text-sm  text-gray-500 truncate">
                             Signed in as
                         </span>
                         <span class="block text-sm text-black">
