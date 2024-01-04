@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Worker;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Hash;
@@ -29,7 +31,7 @@ class UserController extends Controller
         if(auth()->attempt($validated)){
             $request->session()->regenerate();
 
-            return redirect('/dashboard')->with('message', 'Welcome Back!');
+            return redirect('/dashboard')->with('message', 'Welcome Back User!');
         }
 
         return back()->withErrors(['username' => 'Login failed'])->onlyInput('username');
@@ -72,7 +74,26 @@ class UserController extends Controller
     public function index(){
         //$data = User::where('id', '>', 0)->orderBy('name', 'desc')->get();
         //return view('user.index', ['users' => $data]);
+        
+        $shift = Worker::distinct('shift')->count('shift');
+        $total = Worker::count();
+        $user = Auth::user()->count();
+        $greenShift = Worker::where('shift', 'green')->count();
+        $redShift = Worker::where('shift', 'red')->count();
+        $yellowShift = Worker::where('shift', 'yellow')->count();
+        $proba = Worker::where('status', 'probationary')->count();
+        $reg = Worker::where('status', 'regular')->count();
 
-        return view('user.index');
+
+        return view('user.index', [
+            'shift' => $shift, 
+            'total' => $total, 
+            'user' => $user, 
+            'greenShift' => $greenShift,
+            'redShift' => $redShift,
+            'yellowShift' => $yellowShift,
+            'proba' => $proba,
+            'reg' => $reg
+        ]);
     }
 } 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PerfController;
+use App\Http\Controllers\SchedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkerController;
 use Illuminate\Support\Facades\Route;
@@ -34,18 +35,30 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/register', 'register')->middleware('guest');
     Route::post('/store', 'store');
     //logout
-    Route::post('/logout', 'logout');
+    Route::post('/logout', 'logout')->middleware('auth');
 });
 
-Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF'])->middleware('auth');
 
 Route::controller(WorkerController::class)->group(function(){
     Route::get('/employees', 'employees')->middleware('auth');
-    //edit employee details
     Route::get('/edit/worker', 'editWorker')->middleware('auth');
+    Route::get('/worker/profile/{id}', 'profile')->middleware('auth');
+    Route::get('/add', 'add')->middleware('auth');
+    Route::post('/addEmployee', 'addEmployee')->middleware('auth');
+    Route::get('/worker/profile/{id}', 'profile')->middleware('auth');
+    Route::put('/editWorker/profile/{id}', 'update')->middleware('auth');
 });
 
 Route::controller(PerfController::class)->group(function(){
     Route::get('/weekly_performance', 'performance')->middleware('auth');
     Route::get('/fullReport', 'report')->middleware('auth');
+    Route::post('/OutputImport', 'import')->middleware('auth');
+});
+
+Route::controller(SchedController::class)->group(function(){
+    Route::get('/schedule', 'index')->middleware('auth');
+    Route::post('/addSched', 'addSched')->middleware('auth');
+    Route::get('/editSched/{id}', 'edit')->middleware('auth');
+    Route::put('/editSched/{id}', 'update')->middleware('auth');
 });

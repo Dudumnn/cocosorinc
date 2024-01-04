@@ -27,4 +27,4 @@
       }
     </style>
 </head>
-<body class="min-h-screen pt-10 px-15 bg-white">
+<body class="min-h-fit pt-10 px-15 bg-white">

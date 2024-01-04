@@ -16,6 +16,8 @@ class WorkerTable extends Component
 
     public $sortBy = 'created_at';
     public $sortDir = 'ASC';
+    public $empId = '';
+    public $deleteID;
 
     public function setSortBy($sortByField){
         if($this->sortBy === $sortByField){
@@ -36,5 +38,18 @@ class WorkerTable extends Component
             ->orderBy($this->sortBy,$this->sortDir)
             ->paginate($this->perPage),
         ]);
+    }
+
+    /**public function setId($id) {
+        $this->empId = $id;
+    }*/
+    
+    public function deleteEmp($id) {
+        /**$employee = Worker::where('id', $this->empId)->first();
+        $employee->delete();*/
+        $employee = Worker::find($id);
+        if ($employee) {
+            $employee->delete();
+        }
     }
 }
