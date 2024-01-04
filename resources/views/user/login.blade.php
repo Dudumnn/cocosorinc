@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>{{ $title !== "" ? $title : 'Cocosor Inc.'}}</title>
-    @vite('resources/css/app.css')
-    @vite(['resources/css/app.css','resources/js/app.js'])
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link
