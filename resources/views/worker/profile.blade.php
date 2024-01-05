@@ -161,15 +161,27 @@
                                         </div>
                                         <div class="sm:col-span-6">
                                             <label class="block text-xs font-medium pl-1 text-gray-600 uppercase pb-1">Suffix</label>
-                                            <select name="extension_name" class="block w-full border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                                <option value="N/A">N/A</option>
-                                                <option value="Sr">Sr</option>
-                                                <option value="Jr">Jr</option>
-                                                <option value="III">III</option>
-                                                <option value="IV">IV</option>
-                                                <option value="V">V</option>
-                                                <option value="VI">VI</option>
-                                                <option value="VII">VII</option>
+                                            <select name="extension_name" class="block w-full border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"> 
+                                                @if ($employee->extension_name == null)
+                                                    <option value="N/A">N/A</option>
+                                                    <option value="Sr">Sr</option>
+                                                    <option value="Jr">Jr</option>
+                                                    <option value="III">III</option>
+                                                    <option value="IV">IV</option>
+                                                    <option value="V">V</option>
+                                                    <option value="VI">VI</option>
+                                                    <option value="VII">VII</option>
+                                                @else
+                                                    <option value="{{ $employee->extension_name }}">{{ $employee->extension_name }}</option>
+                                                    <option value="N/A">N/A</option>
+                                                    <option value="Sr">Sr</option>
+                                                    <option value="Jr">Jr</option>
+                                                    <option value="III">III</option>
+                                                    <option value="IV">IV</option>
+                                                    <option value="V">V</option>
+                                                    <option value="VI">VI</option>
+                                                    <option value="VII">VII</option>
+                                                @endif
                                             </select>
                                             @error('extension_name')
                                                 <p class="text-red-500 text-xs p-1">
