@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Performance;
 use App\Models\User\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -18,6 +19,14 @@ class AuthController extends Controller
             'status' => 'SUCCESS',
             'message' => 'All Users',
             'user' => $user,
+        ], 200);
+    }
+    
+    public function output(){
+        $output = Performance::all();
+
+        return response()-> json([
+            'output' => $output,
         ], 200);
     }
 
@@ -80,17 +89,5 @@ class AuthController extends Controller
         ];
 
         return response($response, 200);
-    }
-
-    public function output(){
-        $output = DB::table('workers')
-            ->join('output', 'workers.name','=','output.name')
-            ->select('output.*','workers.shift')
-            ->orderBy('output.created_at', 'desc')
-            ->get();
-
-        return response()-> json([
-            'output' => $output,
-        ], 200);
     }
 }
