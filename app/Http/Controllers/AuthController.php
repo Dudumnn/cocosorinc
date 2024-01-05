@@ -39,7 +39,7 @@ class AuthController extends Controller
         
         Performance::create($validated);
 
-        $output = Performance::all();
+        $output = Performance::orderBy('created_at', 'desc')->get();
 
         return response()-> json([
             'output' => $output,
