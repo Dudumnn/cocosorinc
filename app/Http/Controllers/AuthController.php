@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -79,5 +80,17 @@ class AuthController extends Controller
         ];
 
         return response($response, 200);
+    }
+
+    public function output(){
+        $output = DB::table('workers')
+            ->join('output', 'workers.name','=','output.name')
+            ->select('output.*','workers.shift')
+            ->orderBy('output.created_at', 'desc')
+            ->get();
+
+        return response()-> json([
+            'output' => $output,
+        ], 200);
     }
 }
