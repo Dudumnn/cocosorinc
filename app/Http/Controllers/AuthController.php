@@ -23,7 +23,7 @@ class AuthController extends Controller
     }
     
     public function output(){
-        $output = Performance::all();
+        $output = Performance::orderBy('created_at', 'desc')->get();
 
         return response()-> json([
             'output' => $output,
