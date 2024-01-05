@@ -28,7 +28,7 @@ class WorkerController extends Controller
 
     public function addEmployee(Request $request){
         $validated = $request->validate([
-            'name' => 'required',
+            'name' => ['required', 'name', Rule::unique('workers', 'name')],
             'middle_name' => 'required',
             'extension_name' => 'required',
             'birthdate' => 'required',
