@@ -136,7 +136,7 @@
                                                 name="name"  
                                                 value="{{ $employee->name }}" 
                                                 autocomplete="off" 
-                                                class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
+                                                class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
                                                 sm:leading-6">
                                                 @error('name')
                                                     <p class="text-red-500 text-xs p-1">
@@ -151,7 +151,7 @@
                                                 name="middle_name"  
                                                 value="{{ $employee->middle_name }}" 
                                                 autocomplete="off" 
-                                                class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
+                                                class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
                                                 sm:leading-6">
                                                 @error('middle_name')
                                                     <p class="text-red-500 text-xs p-1">
@@ -196,7 +196,7 @@
                                                 name="birthdate"
                                                 value="{{ $employee->birthdate }}" 
                                                 autocomplete="off" 
-                                                class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
+                                                class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
                                                 sm:leading-6">
                 
                                             @error('birthdate')
@@ -213,7 +213,7 @@
                                                 min="18"
                                                 value="{{ $employee->age }}" 
                                                 autocomplete="off" 
-                                                class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
+                                                class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
                                                 sm:leading-6">
                                             @error('age')
                                                 <p class="text-red-500 text-xs p-1">
@@ -240,7 +240,7 @@
                                                 name="address"  
                                                 value="{{ $employee->address }}" 
                                                 autocomplete="off" 
-                                                class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
+                                                class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
                                                 sm:leading-6">{{ $employee->address }}</textarea>
                                             @error('address')
                                                 <p class="text-red-500 text-xs p-1">
