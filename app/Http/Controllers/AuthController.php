@@ -33,13 +33,9 @@ class AuthController extends Controller
     public function addoutput(Request $request){
         $validated = $request->validate([
             'name' => 'required',
-            'date' => ['required', 'unique:output'],
+            'date' => 'required',
             'output' => 'required',
         ]);
-
-        if ($validated->fails()) {
-            return redirect()->action([AuthController::class, 'output']);
-        }
         
         Performance::create($validated);
 
