@@ -19,6 +19,7 @@ Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/output', [AuthController::class, 'output']);
+Route::post('/addoutput', [AuthController::class, 'addoutput']);
 
 Route::get('/users', [AuthController::class, 'index']);
 

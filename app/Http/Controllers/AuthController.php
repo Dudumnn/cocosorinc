@@ -30,6 +30,22 @@ class AuthController extends Controller
         ], 200);
     }
 
+    public function addoutput(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'date' => 'required',
+            'output' => 'required',
+        ]);
+        
+        Performance::create($validated);
+
+        $output = Performance::all();
+
+        return response()-> json([
+            'output' => $output,
+        ], 200);
+    }
+
     public function signup(Request $request){
         $validated = $request->validate([
             "name" => 'required|string',
