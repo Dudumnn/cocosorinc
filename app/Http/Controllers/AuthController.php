@@ -36,21 +36,18 @@ class AuthController extends Controller
             'date' => ['required', 'unique:output'],
             'output' => 'required',
         ]);
-        if($validated){
-            Performance::create($validated);
 
-            $output = Performance::all();
-
-            return response()-> json([
-                'output' => $output,
-            ], 200);
-        }else{
-            $output = Performance::all();
-
-            return response()-> json([
-                'output' => $output,
-            ], 200);
+        if ($validated->fails()) {
+            return redirect()->action([AuthController::class, 'output']);
         }
+        
+        Performance::create($validated);
+
+        $output = Performance::all();
+
+        return response()-> json([
+            'output' => $output,
+        ], 200);
     }
 
     public function signup(Request $request){
