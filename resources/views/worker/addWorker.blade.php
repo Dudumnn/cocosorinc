@@ -43,7 +43,8 @@
                                 <div class="sm:col-span-12">
                                     <label class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
                                     <div class="mt-2">
-                                        <input type="text" name="name"  value="{{old('name')}}" class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <input type="text" name="name"  value="{{old('name')}}" 
+                                            class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         @error('name')
                                             <p class="text-red-500 text-xs p-1">
                                                 {{$message}}
@@ -54,7 +55,8 @@
                                 <div class="sm:col-span-6">
                                     <label class="block text-sm font-medium leading-6 text-gray-900">Middle Name</label>
                                     <div class="mt-2">
-                                        <input type="text" name="middle_name" value="{{old('middle_name')}}" class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <input type="text" name="middle_name" value="{{old('middle_name')}}" 
+                                            class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         @error('middle_name')
                                             <p class="text-red-500 text-xs p-1">
                                                 {{$message}}
@@ -85,7 +87,8 @@
                                 <div class="sm:col-span-6">
                                     <label class="block text-sm font-medium leading-6 text-gray-900">Date of Birth</label>
                                     <div class="mt-2">
-                                        <input type="date" name="birthdate" value="{{old('birthdate')}}" class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <input type="date" name="birthdate" value="{{old('birthdate')}}" 
+                                            class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         @error('birthdate')
                                             <p class="text-red-500 text-xs p-1">
                                                 {{$message}}
@@ -96,7 +99,8 @@
                                 <div class="sm:col-span-3">
                                     <label class="block text-sm font-medium leading-6 text-gray-900">Age</label>
                                     <div class="mt-2">
-                                        <input type="number" name="age" value="{{old('age')}}" min="18" class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <input type="number" name="age" value="{{old('age')}}" min="18" 
+                                            class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         @error('age')
                                             <p class="text-red-500 text-xs p-1">
                                                 {{$message}}
@@ -121,7 +125,8 @@
                                 <div class="sm:col-span-12">
                                     <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Address</label>
                                     <div class="mt-2">
-                                        <textarea type="text" name="address"  value="{{old('address')}}" class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{old('address')}}
+                                        <textarea type="text" name="address"  value="{{old('address')}}" 
+                                            class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{old('address')}}
                                         </textarea>
                                         @error('address')
                                             <p class="text-red-500 text-xs p-1">
@@ -181,7 +186,8 @@
                                 <div class="sm:col-span-12">
                                     <label class="block text-sm font-medium leading-6 text-gray-900">Date of Joining</label>
                                     <div class="mt-2">
-                                        <input type="date" name="date_of_employment" value="{{old('date_of_employment')}}" class="block w-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <input type="date" name="date_of_employment" value="{{old('date_of_employment')}}" 
+                                            class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         @error('date_of_employment')
                                             <p class="text-red-500 text-xs p-1">
                                                 {{$message}}
