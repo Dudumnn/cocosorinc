@@ -46,7 +46,7 @@
                     <div class="flex justify-between border-b-2 border-gray-500 pb-3">
                         <p class="font-bold text-xl">{{$employee->name}}</p>
                         <a x-data x-on:click="$dispatch('open-modal')" class="text-sm mt-1 cursor-pointer">Edit</a>
-                        @livewire('edit-profile', ['employee' => $employee])
+                        <livewire:schedule/>
                         
                     </div>
                     <div class="flex flex-row gap-2 pt-3 pb-4">
