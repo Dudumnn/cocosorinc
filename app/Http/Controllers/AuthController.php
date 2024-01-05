@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Performance;
 use App\Models\User\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -23,7 +22,11 @@ class AuthController extends Controller
     }
     
     public function output(){
-        $output = Performance::all();
+        $output = DB::table('workers')
+            ->join('output', 'workers.name','=','output.name')
+            ->select('output.*','workers.shift')
+            ->orderBy('output.created_at', 'desc')
+            ->get();
 
         return response()-> json([
             'output' => $output,
