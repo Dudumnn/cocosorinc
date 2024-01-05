@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Model
 {
     use HasFactory, SoftDeletes, HasApiTokens;
-    protected $table = "mobileUsers";
+    protected $table = "mobileusers";
     protected $fillable = [
         'name',
         'username',
