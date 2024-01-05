@@ -33,7 +33,7 @@ class AuthController extends Controller
     public function addoutput(Request $request){
         $validated = $request->validate([
             'name' => 'required',
-            'date' => 'required',
+            'date' => ['required', 'unique:output'],
             'output' => 'required',
         ]);
         
