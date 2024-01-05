@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Worker;
 use View;
-use Illuminate\Validation\Rule;
 
 class WorkerController extends Controller
 {
@@ -28,7 +27,7 @@ class WorkerController extends Controller
 
     public function addEmployee(Request $request){
         $validated = $request->validate([
-            'name' => ['required', 'name', Rule::unique('workers', 'name')],
+            'name' => ['required', 'min:4', 'unique:workers'],
             'middle_name' => 'required',
             'extension_name' => 'required',
             'birthdate' => 'required',
