@@ -45,6 +45,26 @@ class AuthController extends Controller
             'output' => $output,
         ], 200);
     }
+
+    public function editOutput(Request $request, Performance $perf,$id){
+        $data = Performance::findorfail($id);
+
+        $validated = $request->validate([
+            'name' => 'required',
+            'date' => 'required',
+            'output' => 'required',
+        ]);
+
+        $data->update($validated);
+
+        $output = Performance::orderBy('created_at', 'desc')->get();
+
+        return response()-> json([
+            'output' => $output,
+        ], 200);
+    }
+
+
     public function editProfile(Request $request, User $user,$id){
         $data = User::findorfail($id);
 

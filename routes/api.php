@@ -20,6 +20,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/output', [AuthController::class, 'output']);
 Route::post('/addoutput', [AuthController::class, 'addoutput']);
+Route::put('/editOutput/{id}', [AuthController::class, 'editOutput']);
 
 Route::get('/users', [AuthController::class, 'index']);
 Route::put('/editProfile/{id}', [AuthController::class, 'editProfile']);
