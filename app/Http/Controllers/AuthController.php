@@ -45,6 +45,25 @@ class AuthController extends Controller
             'output' => $output,
         ], 200);
     }
+    public function editProfile(Request $request, User $user,$id){
+        $data = User::findorfail($id);
+
+        $validated = $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $data->update($validated);
+
+        $response = [
+            'status' => 'SUCCESS',
+            'message' => 'Login Successful',
+            'user' => $data,
+        ];
+
+        return response($response, 200);
+    }
 
     public function signup(Request $request){
         $validated = $request->validate([
