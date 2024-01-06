@@ -63,7 +63,12 @@ class AuthController extends Controller
         $response = [
             'status' => 'SUCCESS',
             'message' => 'Login Successful',
-            'user' => $data,
+            'user' => [
+                'id' => $id,
+                'name' => $validated['name'],
+                'username' => $validated['username'],
+                'password' => bcrypt($validated['password']),
+            ]
         ];
 
         return response($response, 200);
