@@ -54,7 +54,11 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        $data->update($validated);
+        $data = User::where('id', $id)->update([
+            'name' => $validated['name'],
+            'username' => $validated['username'],
+            'password' => bcrypt($validated['password']),
+        ]);
 
         $response = [
             'status' => 'SUCCESS',
