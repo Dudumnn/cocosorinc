@@ -68,7 +68,7 @@ class WorkerController extends Controller
 
         return back()->with('message', 'Successfully Updated!');
     }
-    public function detroy(Request $request, Worker $worker,$id){
+    public function destroy(Request $request, Worker $worker,$id){
         $data = Worker::findorfail($id);
         dd($request);
 
