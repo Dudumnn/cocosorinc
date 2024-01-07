@@ -38,7 +38,6 @@
             </section>
     
             <section class="flex w-full">
-                <livewire:perf-track/>
             </section>
         </div>
     </div>
