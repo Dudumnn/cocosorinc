@@ -97,7 +97,7 @@
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Parer Employees</span>
                 </div>
-                <div class="w-full">
+                <div class="w-full p-2">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">Range</div>
                         <div class="sm:col-span-5">No. of Employees</div>
@@ -128,7 +128,7 @@
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Sheller Employees</span>
                 </div>
-                <div class="w-full">
+                <div class="w-full p-2">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">Range</div>
                         <div class="sm:col-span-5">No. of Employees</div>
