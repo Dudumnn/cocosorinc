@@ -10,6 +10,9 @@ class BarChart extends Component
     public $barVar;
     public function render()
     {
-        return view('livewire.bar-chart');
+        return view('livewire.bar-chart', [
+            'bar' => $this->bar,
+            'barVar' => $this->barVar
+        ]);
     }
 }
