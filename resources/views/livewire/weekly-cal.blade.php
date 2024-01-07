@@ -3,76 +3,42 @@
     <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12">
         <div class="sm:col-span-4 shadow-lg border border-gray-200 rounded-sm">
             <div class="w-full border-b px-3 py-2 ">
-                <span class="text-sm font-medium text-gray-500">Employees per Shift</span>
+                <span class="text-sm font-medium text-gray-500">Employees</span>
             </div>
-            <table class="w-full p-3">
-                <thead class="text-xs uppercase text-white bg-gray-700">
-                    <tr>
-                        <th scope="col" class="px-4 py-3">
-                            ID
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            Employee
-                        </th>
-                        @php
-                            $currentDate = \Carbon\Carbon::parse($date->start_date);
-                            $endDate = \Carbon\Carbon::parse($date->end_date);
-                        @endphp
-    
-                        @while ($currentDate->lte($endDate))
-                            <th scope="col" class="px-4 py-3">
-                                {{ $currentDate->format('M d, Y') }}
-                            </th>
-    
-                            @php
-                                $currentDate->addDay();
-                            @endphp
-                        @endwhile
-                        <th scope="col" class="px-4 py-3">
-                            Average
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            Total
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            Count
-                        </th>
-                    </tr>
-                </thead>
-                <thead class="text-xs uppercase text-white bg-gray-700">
-                    <tr>
-                        <th scope="col" class="px-4 py-3">
-                            ID
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            Employee
-                        </th>
-                        @php
-                            $currentDate = \Carbon\Carbon::parse($date->start_date);
-                            $endDate = \Carbon\Carbon::parse($date->end_date);
-                        @endphp
-    
-                        @while ($currentDate->lte($endDate))
-                            <th scope="col" class="px-4 py-3">
-                                {{ $currentDate->format('M d, Y') }}
-                            </th>
-    
-                            @php
-                                $currentDate->addDay();
-                            @endphp
-                        @endwhile
-                        <th scope="col" class="px-4 py-3">
-                            Average
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            Total
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            Count
-                        </th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="w-full p-3">
+                <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
+                    <div class="sm:col-span-7">Range</div>
+                    <div class="sm:col-span-5">No. of Employees</div>
+                </div>
+                <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                    <div class="sm:col-span-7">100 - 400</div>
+                    <div class="sm:col-span-5"></div>
+                </div>
+                <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                    <div class="sm:col-span-7">401 - 600</div>
+                    <div class="sm:col-span-5"></div>
+                </div>
+                <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                    <div class="sm:col-span-7">800 - 874</div>
+                    <div class="sm:col-span-5"></div>
+                </div>
+                <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                    <div class="sm:col-span-7">875 - 1000</div>
+                    <div class="sm:col-span-5"></div>
+                </div>
+                <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                    <div class="sm:col-span-7">1001 - 1200</div>
+                    <div class="sm:col-span-5"></div>
+                </div>
+                <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                    <div class="sm:col-span-7">1201 - 1400</div>
+                    <div class="sm:col-span-5"></div>
+                </div>
+                <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                    <div class="sm:col-span-7">1401 - 1600</div>
+                    <div class="sm:col-span-5"></div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="flex items-center justify-between d p-4">
