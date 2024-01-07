@@ -127,7 +127,7 @@
                         <td class="px-4 py-3">
                             {{ $sched->time_out }}
                         </td>
-                        {{--<td class="px-4 py-3">
+                        <td class="px-4 py-3">
                             @php
                                 $recordDate = \Carbon\Carbon::parse($sched->end_date);
                                 $now = \Carbon\Carbon::now();
@@ -138,7 +138,6 @@
                                 <span class="p-1 bg-blue-400 text-white rounded-md">Ongoing</span>
                             @endif
                         </td>
-                        --}}
                         <td class="px-4 py-3 flex gap-2 items-center justify-end">
                             <a href="/editSched/{{ $sched->id }}"class="p-2 bg-blue-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-pencil-square" viewBox="0 0 16 16">
