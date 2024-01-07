@@ -51,7 +51,7 @@ class WeeklyCal extends Component
             'outputs' => DB::table('schedules')
             ->join('output', function ($join) {
                 $join->on('output.date', '>=', 'schedules.start_date')
-                     ->where('output.date', '<=', 'schedules.end_date');
+                     ->orOn('output.date', '<=', 'schedules.end_date');
             })
             ->where('schedules.id',  $this->sched)
             ->select('output.*')
