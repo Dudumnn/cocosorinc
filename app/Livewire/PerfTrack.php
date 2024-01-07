@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Models\Sched;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Sched;
 
 class PerfTrack extends Component
 {
@@ -14,10 +14,9 @@ class PerfTrack extends Component
     public $perPage = 5;
 
     public $shift = '';
-    
     public function render()
     {
-        return view('livewire.schedule',
+        return view('livewire.perf-track',
         [
             'scheds' => Sched::search($this->search)
             ->when($this->shift !== '',function($query){
