@@ -54,7 +54,7 @@
                     <th scope="col" class="px-4 py-3">
                         <button class="flex items-center gap-1">
                             @php
-                                $start = \Carbon\Carbon::parse($sched->start_date);
+                                $start = \Carbon\Carbon::parse($scheds->start_date);
                                 $formattedDate = $start->format('M d, Y');
                                 echo $formattedDate;
                             @endphp
@@ -64,8 +64,8 @@
                         </button>
                     </th>
                     @php
-                        $currentDate = \Carbon\Carbon::parse($sched->start_date);
-                        $endDate = \Carbon\Carbon::parse($sched->end_date);
+                        $currentDate = \Carbon\Carbon::parse($scheds->start_date);
+                        $endDate = \Carbon\Carbon::parse($scheds->end_date);
                     @endphp
 
                     @while ($currentDate->lte($endDate))
@@ -80,7 +80,7 @@
                     <th scope="col" class="px-4 py-3">
                         <button class="flex items-center gap-1">
                             @php
-                                $start = \Carbon\Carbon::parse($sched->end_date);
+                                $start = \Carbon\Carbon::parse($scheds->end_date);
                                 $formattedDate = $start->format('M d, Y');
                                 echo $formattedDate;
                             @endphp
@@ -95,8 +95,6 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($scheds as $sched)
-                @endforeach
                 {{--@forelse ($scheds as $sched)
                     <tr class="border-b">
                         <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
