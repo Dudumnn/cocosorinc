@@ -123,12 +123,14 @@
                         </td>
                     </tr>
                 @endforelse
+            </tbody>
+            <tfoot class="text-xs uppercase text-white bg-gray-700">
                 <tr>
                     <th scope="col" class="px-4 py-3">
-                        
+                        ID
                     </th>
                     <th scope="col" class="px-4 py-3">
-                        Total
+                        Employee
                     </th>
                     @php
                         $currentDate = \Carbon\Carbon::parse($date->start_date);
@@ -154,7 +156,7 @@
                         Count
                     </th>
                 </tr>
-            </tbody>
+            </tfoot>
         </table>
     </div>
 
