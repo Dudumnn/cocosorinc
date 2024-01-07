@@ -95,8 +95,10 @@
                             <td class="px-4 py-3">
                                 @foreach ($outputs as $output)
                                     @if ($output->name == $emp->name)
-                                        {{ $output->output }}
-                                        @php $found = true; break; @endphp
+                                        @if ($output->date == $currentDate->format('Y-m-d'))
+                                            {{ $output->output }}
+                                            @php $found = true; break; @endphp
+                                        @endif
                                     @endif
                                 @endforeach
 
