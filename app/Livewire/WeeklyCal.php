@@ -50,8 +50,8 @@ class WeeklyCal extends Component
             //getting the workers output throughout the whole shift
             'outputs' => DB::table('output')
             ->join('schedules', function ($join) {
-                $join->on('output.date', '>=', 'schedules.start_date')
-                    ->on('output.date', '<=', 'schedules.end_date');
+                $join->on('schedules.start_date', '<=', 'output.date')
+                     ->where('schedules.end_date', '>=', 'output.date');
             })
             ->select('output.*')
             ->get()
