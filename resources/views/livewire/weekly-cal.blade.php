@@ -17,19 +17,6 @@
                     placeholder="Search" required="">
             </div>
         </div>
-        <div class="flex space-x-3">
-            <div class="flex space-x-3 items-center">
-                <label class="w-40 text-sm font-medium text-gray-900">Shift :</label>
-                <select 
-                    wire:model.live="shift"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                    <option value="">All</option>
-                    <option value="Green">Green</option>
-                    <option value="Red">Red</option>
-                    <option value="Yellow">Yellow</option>
-                </select>
-            </div>
-        </div>
     </div>
     <div class="overflow-x-auto">
         <table class="w-full border border-gray-200 text-sm text-left text-gray-500">
