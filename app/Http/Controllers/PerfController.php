@@ -19,14 +19,14 @@ class PerfController extends Controller
         return view('perf.fullReport')->with('title', 'Full Report');
     }
 
-    public function weekly($id){
-        return view('perf.visualiserMain', [
-            'sched' => $id, 
-        ])->with('title', 'Performance Track');
+    public function weekly(){
+        return view('perf.visualiserMain')->with('title', 'Performance Track');
     }
 
-    public function calculate(){
-        return view('perf.weekly')->with('title', 'Performance');
+    public function calculate($id){
+        return view('perf.weekly', [
+            'sched' => $id, 
+        ])->with('title', 'Performance');
     }
 
     public function import(Request $request){
