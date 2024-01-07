@@ -91,7 +91,7 @@
                         </td>
                         <td class="px-4 py-3">
                             @php
-                                $start = \Carbon\Carbon::parse($sched->date);
+                                $start = \Carbon\Carbon::parse($sched->start_date);
                                 $formattedDate = $start->format('M d, Y');
                                 echo $formattedDate;
                             @endphp
