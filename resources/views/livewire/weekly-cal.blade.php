@@ -100,7 +100,6 @@
                             {{ $sched->shift }}
                         </td>
                         <td class="px-4 py-3">
-                            {{ $sched->output }}
                         </td>
                         <td class="px-4 py-3 flex gap-2 items-center justify-end">
                             <a class="p-2 bg-blue-500">
