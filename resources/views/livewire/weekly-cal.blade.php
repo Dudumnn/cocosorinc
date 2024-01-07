@@ -1,69 +1,71 @@
 <div>
-    @php
-        $no1 = 0;
-        $no2 = 0;
-        $no3 = 0;
-        $no4 = 0;
-        $no5 = 0;
-        $no6 = 0;
-        $no7 = 0;
-        $no8 = 0;
-    @endphp
-    @foreach ($emps as $emp)
+    <div class="hidden">
         @php
-            $currentDate = \Carbon\Carbon::parse($date->start_date);
-            $endDate = \Carbon\Carbon::parse($date->end_date);
-            $dayCount = 0;
-            $sum = 0;
-            $max = 0;
-            $outputValue = 0;
+            $no1 = 0;
+            $no2 = 0;
+            $no3 = 0;
+            $no4 = 0;
+            $no5 = 0;
+            $no6 = 0;
+            $no7 = 0;
+            $no8 = 0;
         @endphp
-
-        @while ($currentDate->lte($endDate))
-            @foreach ($outputs as $output)
-                @if ($output->name == $emp->name)
-                    @if ($output->date == $currentDate->format('Y-m-d'))
-                        @php $max++; $outputValue = $output->output; break; @endphp
-                    @else
-                    @endif
-                @endif
-            @endforeach
-
+        @foreach ($emps as $emp)
             @php
-                $currentDate->addDay();
-                $dayCount++;
-                $sum += $outputValue;
+                $currentDate = \Carbon\Carbon::parse($date->start_date);
+                $endDate = \Carbon\Carbon::parse($date->end_date);
+                $dayCount = 0;
+                $sum = 0;
+                $max = 0;
+                $outputValue = 0;
             @endphp
-        @endwhile
-        
-        @php
-            $average = ($dayCount > 0) ? number_format($sum / $dayCount, 3) : 0;
-        @endphp
-        @if ($average >= 100 && $average <= 400)
-            {{$no1++}}
-        @endif
-        @if ($average >= 401 && $average <= 600)
-            {{$no2++}}
-        @endif
-        @if ($average >= 601 && $average <= 800)
-            {{$no3++}}
-        @endif
-        @if ($average >= 800 && $average <= 874)
-            {{$no4++}}
-        @endif
-        @if ($average >= 875 && $average <= 1000)
-            {{$no5++}}
-        @endif
-        @if ($average >= 1001 && $average <= 1200)
-            {{$no6++}}
-        @endif
-        @if ($average >= 1201 && $average <= 1400)
-            {{$no7++}}
-        @endif
-        @if ($average >= 1401 && $average <= 1600)
-            {{$no8++}}
-        @endif
-    @endforeach
+
+            @while ($currentDate->lte($endDate))
+                @foreach ($outputs as $output)
+                    @if ($output->name == $emp->name)
+                        @if ($output->date == $currentDate->format('Y-m-d'))
+                            @php $max++; $outputValue = $output->output; break; @endphp
+                        @else
+                        @endif
+                    @endif
+                @endforeach
+
+                @php
+                    $currentDate->addDay();
+                    $dayCount++;
+                    $sum += $outputValue;
+                @endphp
+            @endwhile
+            
+            @php
+                $average = ($dayCount > 0) ? number_format($sum / $dayCount, 3) : 0;
+            @endphp
+            @if ($average >= 100 && $average <= 400)
+                {{$no1++}}
+            @endif
+            @if ($average >= 401 && $average <= 600)
+                {{$no2++}}
+            @endif
+            @if ($average >= 601 && $average <= 800)
+                {{$no3++}}
+            @endif
+            @if ($average >= 800 && $average <= 874)
+                {{$no4++}}
+            @endif
+            @if ($average >= 875 && $average <= 1000)
+                {{$no5++}}
+            @endif
+            @if ($average >= 1001 && $average <= 1200)
+                {{$no6++}}
+            @endif
+            @if ($average >= 1201 && $average <= 1400)
+                {{$no7++}}
+            @endif
+            @if ($average >= 1401 && $average <= 1600)
+                {{$no8++}}
+            @endif
+        @endforeach
+    </div>
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
             <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
