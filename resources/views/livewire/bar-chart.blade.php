@@ -57,7 +57,7 @@
             fontWeight: 400,
         },
         },
-        categories: $bar,
+        categories: {!! json_encode($bar) !!},
     },
     yaxis: {
         labels: {
