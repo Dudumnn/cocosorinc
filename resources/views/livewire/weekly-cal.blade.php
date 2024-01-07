@@ -79,6 +79,9 @@
                                 $currentDate->addDay();
                             @endphp
                         @endwhile
+                    @endforeach
+
+                    @foreach ($scheds as $sched)
                         <th scope="col" class="px-4 py-3">
                             <button class="flex items-center gap-1">
                                 @php
@@ -92,7 +95,6 @@
                             </button>
                         </th>
                     @endforeach
-                    
                     <th scope="col" class="px-4 py-3">
                         <span class="sr-only">Actions</span>
                     </th>
