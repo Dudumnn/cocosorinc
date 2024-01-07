@@ -17,7 +17,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
-    <link rel="stylesheet" href="./node_modules/apexcharts/dist/apexcharts.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
       .active{
         background-color: rgb(243 244 246);

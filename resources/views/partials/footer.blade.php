@@ -1,7 +1,4 @@
     <x-messages />
-    <script src="./node_modules/lodash/lodash.min.js"></script>
-    <script src="./node_modules/apexcharts/dist/apexcharts.min.js"></script>
-    <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
     <!-- Your Livewire component view content -->
     <script>
         // JavaScript to toggle password visibility
