@@ -1,5 +1,4 @@
-<div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3">
-
+<div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
     <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12">
         <div class="sm:col-span-6 shadow-lg border border-gray-200 rounded-sm">
             <div class="w-full border-b px-3 py-2 ">
@@ -41,6 +40,9 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3">
     <div class="flex items-center justify-between d p-4">
         <div class="flex">
             <div class="relative w-full">
