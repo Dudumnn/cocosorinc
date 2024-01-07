@@ -8,15 +8,15 @@
     const ctx = document.getElementById('myChart');
     const subscriptions=$wire.subscriptions;
 
-    const label=subscriptions.map(item=>item.range);
-    const values=subscriptions.map(item=>item.Value);
+    const label=$range->one;
+    const values=;
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: label,
+        labels: [$range->one, $range->two ],
         datasets: [{
           label: '# of Votes',
-          data: values,
+          data: [ $values[0], $values[1]],
           borderWidth: 1
         }]
       },

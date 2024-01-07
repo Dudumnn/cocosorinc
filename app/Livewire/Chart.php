@@ -13,13 +13,14 @@ class Chart extends Component
         $this->second = $second;
     }
 
-    public $subscriptions=[
-        ['range'=>'500 - 1000','Value'=> $this->first[0]],
-        ['range'=>'1001 - 1499','Value'=> $this->first[1]],
-    ];
-
     public function render()
     {
-        return view('livewire.chart');
+        return view('livewire.chart', [
+            'range' => [
+                'one' => '500 - 1000',
+                'two' => '1001 - 1499'
+            ],
+            'values' => $this->first,
+        ]);
     }
 }

@@ -106,9 +106,9 @@
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Parer Employees</span>
                 </div>
-                {{--<div class="w-full">
+                <div class="w-full">
                     <livewire:chart :first="$first" :second="$second"/>
-                </div>--}}
+                </div>
             </div>
             <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
