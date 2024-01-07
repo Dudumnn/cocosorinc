@@ -143,7 +143,7 @@
                         </td>
 
                         <td class="px-4 py-4">
-                            {{ $dayCount }}
+                            {{ $max }}
                         </td>
                     </tr>
                 @empty
