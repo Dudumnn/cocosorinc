@@ -37,6 +37,7 @@ class WeeklyCal extends Component
             ->paginate($this->perPage),*/
 
             'date' => Sched::findorfail($this->sched),
+            //getting the workers for this shift
             'emps' => DB::table('schedules')
             ->join('workers', 'schedules.shift','=','workers.shift')
             ->select('workers.*')
@@ -46,6 +47,14 @@ class WeeklyCal extends Component
             })
             ->orderBy('created_at', 'asc')
             ->paginate($this->perPage),
+            //getting the workers output throughout the whole shift
+            'outputs' => DB::table('output')
+            ->join('schedules', function ($join) {
+                $join->on('output.date', '>=', 'schedules.start_date')
+                    ->on('output.date', '<=', 'schedules.end_date');
+            })
+            ->select('output.*')
+            ->get()
         ]
         );
     }
