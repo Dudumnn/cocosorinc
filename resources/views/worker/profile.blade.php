@@ -50,7 +50,7 @@
                     </div>
                     <div class="flex flex-row gap-2 pt-3 pb-4">
                         <div class="w-2/5">
-                            {{ QrCode::format('png')->size(250)->generate("$employee->name") }}
+                            {{ QrCode::size(250)->generate("$employee->name") }}
                         </div>
                         <div class="w-3/5 grid grid-cols-1 gap-x-3 gap-y-2 sm:grid-cols-12">
                             <div class="sm:col-span-12 p-3 h-fit bg-gray-200 rounded-md">
