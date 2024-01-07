@@ -105,15 +105,19 @@
                             $currentDate = \Carbon\Carbon::parse($date->start_date);
                             $endDate = \Carbon\Carbon::parse($date->end_date);
                             $dayCount = 0;
+                            $sum = 0;
                         @endphp
 
                         @while ($currentDate->lte($endDate))
                             <td class="px-4 py-3">
+                                @php
+                                    $outputValue = 0;
+                                @endphp
                                 @foreach ($outputs as $output)
                                     @if ($output->name == $emp->name)
                                         @if ($output->date == $currentDate->format('Y-m-d'))
                                             {{ $output->output }}
-                                            @php $found = true; break; @endphp
+                                            @php $outputValue = $output->output; $found = true; break; @endphp
                                         @endif
                                     @endif
                                 @endforeach
@@ -125,12 +129,17 @@
                                     unset($found);
                                     $currentDate->addDay();
                                     $dayCount++;
+                                    $sum += $outputValue;
                                 @endphp
                             </td>
                         @endwhile
 
                         <td class="px-4 py-3">
                             {{ $dayCount }}
+                        </td>
+
+                        <td class="px-4 py-3">
+                            {{ $sum }}
                         </td>
                         
                         <td class="px-4 py-3 flex gap-2 items-center justify-end">
