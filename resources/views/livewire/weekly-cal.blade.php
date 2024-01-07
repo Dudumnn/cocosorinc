@@ -94,7 +94,7 @@
                         @while ($currentDate->lte($endDate))
                             <td class="px-4 py-3">
                                 @foreach ($outputs as $output)
-                                    @if ($output->name == $emp->name)
+                                    @if ($output->name == $emp->name && \Carbon\Carbon::parse($output->date)->format('Y-m-d') == $currentDate->format('Y-m-d'))
                                         {{ $output->output }}
                                         @php $found = true; break; @endphp
                                     @endif
