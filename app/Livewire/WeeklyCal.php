@@ -52,7 +52,7 @@ class WeeklyCal extends Component
             ->where('schedules.id',  $this->sched)
             ->join('output', function ($join) {
                 $join->on('output.date', '>=', 'schedules.start_date')
-                     ->orOn('output.date', '<=', 'schedules.end_date');
+                     ->on('output.date', '<=', 'schedules.end_date');
             })
             ->select('output.*')
             ->get()
