@@ -24,7 +24,7 @@
     ],
     chart: {
         type: "bar",
-        height: 300,
+        height: 400,
         toolbar: {
         show: false,
         },
