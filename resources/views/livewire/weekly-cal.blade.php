@@ -123,7 +123,37 @@
                         </td>
                     </tr>
                 @endforelse
-                
+                <tr>
+                    <th scope="col" class="px-4 py-3">
+                        ID
+                    </th>
+                    <th scope="col" class="px-4 py-3">
+                        Employee
+                    </th>
+                    @php
+                        $currentDate = \Carbon\Carbon::parse($date->start_date);
+                        $endDate = \Carbon\Carbon::parse($date->end_date);
+                    @endphp
+
+                    @while ($currentDate->lte($endDate))
+                        <th scope="col" class="px-4 py-3">
+                            {{ $currentDate->format('M d, Y') }}
+                        </th>
+
+                        @php
+                            $currentDate->addDay();
+                        @endphp
+                    @endwhile
+                    <th scope="col" class="px-4 py-3">
+                        Average
+                    </th>
+                    <th scope="col" class="px-4 py-3">
+                        Potential
+                    </th>
+                    <th scope="col" class="px-4 py-3">
+                        <span class="sr-only">Count</span>
+                    </th>
+                </tr>
             </tbody>
         </table>
     </div>
