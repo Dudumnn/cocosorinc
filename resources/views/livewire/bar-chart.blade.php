@@ -49,17 +49,7 @@
           fontWeight: 400,
         },
       },
-      categories: [
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      categories: $bar,
     },
     yaxis: {
       labels: {

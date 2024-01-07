@@ -100,6 +100,13 @@
             $second[] = $na3;
             $second[] = $na4;
             $second[] = $na5;
+
+            $bar = [
+                '500 - 1000', '1001 - 1499', '1500 - 2000', '2001 - 2500', '2501 - 3000'
+            ];
+            $barVar = [
+                $na1, $na2, $na3, $na4, $na5
+            ]
         @endphp
     </div>
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
@@ -170,7 +177,7 @@
             </div>
             <div class="sm:col-span-5 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full">
-                    <livewire:bar-chart/>
+                    <livewire:bar-chart :bar="$bar" :barVar="$barVar"/>
                 </div>
             </div>
             <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
