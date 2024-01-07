@@ -9,6 +9,12 @@
             $no6 = 0;
             $no7 = 0;
             $no8 = 0;
+
+            $na1 = 0;
+            $na2 = 0;
+            $na3 = 0;
+            $na4 = 0;
+            $na5 = 0;
         @endphp
         @foreach ($emps as $emp)
             @php
@@ -40,37 +46,87 @@
             @php
                 $average = ($dayCount > 0) ? number_format($sum / $dayCount, 2) : 0;
             @endphp
-            @if ($average >= 100 && $average <= 400)
-                {{$no1++}}
+            @if ($emp->position == 'Sheller')
+                @if ($average >= 100 && $average <= 400)
+                    {{$no1++}}
+                @endif
+                @if ($average >= 401 && $average <= 600)
+                    {{$no2++}}
+                @endif
+                @if ($average >= 601 && $average <= 800)
+                    {{$no3++}}
+                @endif
+                @if ($average >= 800 && $average <= 874)
+                    {{$no4++}}
+                @endif
+                @if ($average >= 875 && $average <= 1000)
+                    {{$no5++}}
+                @endif
+                @if ($average >= 1001 && $average <= 1200)
+                    {{$no6++}}
+                @endif
+                @if ($average >= 1201 && $average <= 1400)
+                    {{$no7++}}
+                @endif
+                @if ($average >= 1401 && $average <= 1600)
+                    {{$no8++}}
+                @endif
+            @else
+                @if ($average >= 500 && $average <= 1000)
+                    {{$na1++}}
+                @endif
+                @if ($average >= 1001 && $average <= 1499)
+                    {{$na2++}}
+                @endif
+                @if ($average >= 1500 && $average <= 2000)
+                    {{$na3++}}
+                @endif
+                @if ($average >= 2001 && $average <= 2500)
+                    {{$na4++}}
+                @endif
+                @if ($average >= 2501 && $average <= 3000)
+                    {{$na5++}}
+                @endif
             @endif
-            @if ($average >= 401 && $average <= 600)
-                {{$no2++}}
-            @endif
-            @if ($average >= 601 && $average <= 800)
-                {{$no3++}}
-            @endif
-            @if ($average >= 800 && $average <= 874)
-                {{$no4++}}
-            @endif
-            @if ($average >= 875 && $average <= 1000)
-                {{$no5++}}
-            @endif
-            @if ($average >= 1001 && $average <= 1200)
-                {{$no6++}}
-            @endif
-            @if ($average >= 1201 && $average <= 1400)
-                {{$no7++}}
-            @endif
-            @if ($average >= 1401 && $average <= 1600)
-                {{$no8++}}
-            @endif
+            
         @endforeach
     </div>
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
             <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Employees</span>
+                    <span class="text-sm font-medium text-gray-500">Parer Employees</span>
+                </div>
+                <div class="w-full">
+                    <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">Range</div>
+                        <div class="sm:col-span-5">No. of Employees</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">500 - 1000</div>
+                        <div class="sm:col-span-5">{{ $na1 }}</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">1001 - 1499</div>
+                        <div class="sm:col-span-5">{{ $na2 }}</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">1500 - 2000</div>
+                        <div class="sm:col-span-5">{{ $na3 }}</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">2001 - 2500</div>
+                        <div class="sm:col-span-5">{{ $na4 }}</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">2501 - 3000</div>
+                        <div class="sm:col-span-5">{{ $na5 }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
+                <div class="w-full border-b px-3 py-2 ">
+                    <span class="text-sm font-medium text-gray-500">Sheller Employees</span>
                 </div>
                 <div class="w-full">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
@@ -111,14 +167,7 @@
                     </div>
                 </div>
             </div>
-            <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
-                <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Employees</span>
-                </div>
-                <div class="w-full">
-                    {{--<livewire:chart :sched="$date->id"/>--}}
-                </div>
-            </div>
+            
         </div>
     </div>
     
