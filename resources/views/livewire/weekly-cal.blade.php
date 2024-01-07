@@ -149,10 +149,10 @@
                         <th scope="col" class="px-4 py-3">
                             ID
                         </th>
-                        <th scope="col" class="px-4 py-3 min-w-32">
+                        <th scope="col" class="px-4 py-3 min-w-24">
                             Employee
                         </th>
-                        <th scope="col" class="px-4 py-3 min-w-32">
+                        <th scope="col" class="px-4 py-3 min-w-24">
                             Position
                         </th>
                         @php
@@ -161,7 +161,7 @@
                         @endphp
     
                         @while ($currentDate->lte($endDate))
-                            <th scope="col" class="px-4 py-3 min-w-32">
+                            <th scope="col" class="px-4 py-3 min-w-24">
                                 {{ $currentDate->format('M d, Y') }}
                             </th>
     
@@ -169,10 +169,10 @@
                                 $currentDate->addDay();
                             @endphp
                         @endwhile
-                        <th scope="col" class="px-4 py-3 min-w-32">
+                        <th scope="col" class="px-4 py-3 min-w-24">
                             Average
                         </th>
-                        <th scope="col" class="px-4 py-3 min-w-32">
+                        <th scope="col" class="px-4 py-3 min-w-24">
                             Total
                         </th>
                         <th scope="col" class="px-4 py-3">
