@@ -7,11 +7,11 @@
    
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 @php
-    $bar = [];
+    $barr = [];
 @endphp
 @foreach ($bar as $item)
     @php
-        $bar[] = $item;
+        $barr[] = $item;
     @endphp
 @endforeach
 <script>
@@ -19,7 +19,7 @@
     series: [
         {
         name: "Sales",
-        data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+        data: [50, 40, 300, 320, 500],
         },
     ],
     chart: {
@@ -57,7 +57,7 @@
             fontWeight: 400,
         },
         },
-        categories: {!! json_encode($bar) !!},
+        categories: {!! json_encode($barr) !!},
     },
     yaxis: {
         labels: {
