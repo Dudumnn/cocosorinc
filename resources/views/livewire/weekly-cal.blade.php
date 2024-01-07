@@ -1,9 +1,9 @@
 <div>
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12">
-            <div class="sm:col-span-6 border border-gray-200 rounded-sm">
+            <div class="sm:col-span-6 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Employees</span>
+                    <span class="text-xs font-medium text-gray-500">Employees</span>
                 </div>
                 <div class="w-full p-3">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
@@ -171,7 +171,7 @@
                         </tr>
                     @endforelse
                 </tbody>
-                <tfoot class="text-xs uppercase text-white bg-gray-200">
+                <tfoot class="text-xs uppercase text-white bg-gray-700">
                     <tr>
                         <th scope="col" class="px-4 py-3">
                             ID
