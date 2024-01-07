@@ -1,4 +1,80 @@
 <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3">
+
+    <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12">
+        <div class="sm:col-span-4 shadow-lg border border-gray-200 rounded-sm">
+            <div class="w-full border-b px-3 py-2 ">
+                <span class="text-sm font-medium text-gray-500">Employees per Shift</span>
+            </div>
+            <table class="w-full p-3">
+                <thead class="text-xs uppercase text-white bg-gray-700">
+                    <tr>
+                        <th scope="col" class="px-4 py-3">
+                            ID
+                        </th>
+                        <th scope="col" class="px-4 py-3">
+                            Employee
+                        </th>
+                        @php
+                            $currentDate = \Carbon\Carbon::parse($date->start_date);
+                            $endDate = \Carbon\Carbon::parse($date->end_date);
+                        @endphp
+    
+                        @while ($currentDate->lte($endDate))
+                            <th scope="col" class="px-4 py-3">
+                                {{ $currentDate->format('M d, Y') }}
+                            </th>
+    
+                            @php
+                                $currentDate->addDay();
+                            @endphp
+                        @endwhile
+                        <th scope="col" class="px-4 py-3">
+                            Average
+                        </th>
+                        <th scope="col" class="px-4 py-3">
+                            Total
+                        </th>
+                        <th scope="col" class="px-4 py-3">
+                            Count
+                        </th>
+                    </tr>
+                </thead>
+                <thead class="text-xs uppercase text-white bg-gray-700">
+                    <tr>
+                        <th scope="col" class="px-4 py-3">
+                            ID
+                        </th>
+                        <th scope="col" class="px-4 py-3">
+                            Employee
+                        </th>
+                        @php
+                            $currentDate = \Carbon\Carbon::parse($date->start_date);
+                            $endDate = \Carbon\Carbon::parse($date->end_date);
+                        @endphp
+    
+                        @while ($currentDate->lte($endDate))
+                            <th scope="col" class="px-4 py-3">
+                                {{ $currentDate->format('M d, Y') }}
+                            </th>
+    
+                            @php
+                                $currentDate->addDay();
+                            @endphp
+                        @endwhile
+                        <th scope="col" class="px-4 py-3">
+                            Average
+                        </th>
+                        <th scope="col" class="px-4 py-3">
+                            Total
+                        </th>
+                        <th scope="col" class="px-4 py-3">
+                            Count
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
     <div class="flex items-center justify-between d p-4">
         <div class="flex">
             <div class="relative w-full">
@@ -126,7 +202,7 @@
                     </tr>
                 @endforelse
             </tbody>
-            <tfoot class="text-xs uppercase text-white bg-gray-700">
+            <tfoot class="text-xs uppercase text-white bg-gray-200">
                 <tr>
                     <th scope="col" class="px-4 py-3">
                         ID
@@ -152,7 +228,7 @@
                         Average
                     </th>
                     <th scope="col" class="px-4 py-3">
-                        {{ $total }}
+                        Total
                     </th>
                     <th scope="col" class="px-4 py-3">
                         Count
