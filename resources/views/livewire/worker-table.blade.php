@@ -105,7 +105,7 @@
                             <form method="POST" action="/delete/profile/{{ $emp->id }}">
                                 @method('delete')
                                 @csrf
-                                <button type="submit" x-show="open" class="flex p-2 items-center text-red-500 underline" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+                                <button type="submit" x-show="open" class="flex p-1.5 items-center text-red-500 underline" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
                                     Proceed to Delete?
                                 </button>
                             </form>
