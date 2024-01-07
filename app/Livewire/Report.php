@@ -23,7 +23,7 @@ class Report extends Component
         [
             'scheds' => DB::table('workers')
             ->join('output', 'workers.name','=','output.name')
-            ->select('output.*','workers.shift')
+            ->select('output.*','workers.shift','workers.position')
             ->when($this->shift !== '',function($query){
                 $query->where('shift',$this->shift);
             })
