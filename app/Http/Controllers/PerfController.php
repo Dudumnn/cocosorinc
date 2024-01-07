@@ -19,7 +19,7 @@ class PerfController extends Controller
     }
 
     public function weekly(){
-        return view('perf.visualiserMain')->with('title', 'Reports');
+        return view('perf.visualiserMain')->with('title', 'Performance Track');
     }
 
     public function import(Request $request){
