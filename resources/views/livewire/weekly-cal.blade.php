@@ -149,14 +149,17 @@
                         </td>
                         
                         @php
-                            $average = ($dayCount > 0) ? number_format($sum / $dayCount, 4) : 0;
+                            $average = ($dayCount > 0) ? number_format($sum / $dayCount, 3) : 0;
                         @endphp
                         <td class="px-4 py-3">
                             {{ $average }}
                         </td>
-
+                        
+                        @php
+                            $potential = ($dayCount > 0) ? number_format($sum / $max, 3) : 0;
+                        @endphp
                         <td class="px-4 py-3">
-                            {{ number_format($max, 4) }}
+                            {{ $potential }}
                         </td>
                         
                         <td class="px-4 py-3 flex gap-2 items-center justify-end">
@@ -166,27 +169,6 @@
                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                                   </svg>
                             </a>
-                            <div x-data="{ open: false }" class="flex space-x-3">
-                                <button id="myButton" onclick="disableButton()" x-on:click="open = ! open" class="p-2 bg-red-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-trash" viewBox="0 0 16 16">
-                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                                        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                                    </svg>
-                                </button>
-                                <form>
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit" x-show="open" class="flex p-1.5 items-center text-red-500 underline" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
-                                        Proceed to Delete?
-                                    </button>
-                                </form>
-                                <a x-show="open" class="flex items-center" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
-                                    or
-                                </a>
-                                <button onclick="enableButton()" x-on:click="open = ! open" x-show="open" class="flex items-center underline" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
-                                    Cancel?
-                                </button>
-                            </div>
                         </td>
                     </tr>
                 @empty
