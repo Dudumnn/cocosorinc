@@ -109,13 +109,13 @@
                 <span class="text-base">{{ \Carbon\Carbon::parse($date->start_date)->format('M d, Y')}}, {{\Carbon\Carbon::parse($date->end_date)->format('M d, Y')}}</span>
                 <span class="text-base">{{$date->time_in}}, {{$date->time_out}}</span>
             </div>
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
+            <div class="sm:col-span-5 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full">
                     <livewire:chart :first="$first" :second="$second"/>
                 </div>
             </div>
             
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
+            <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Sheller Employees</span>
                 </div>
@@ -168,12 +168,12 @@
                 <span class="text-base">{{ \Carbon\Carbon::parse($date->start_date)->format('M d, Y')}}, {{\Carbon\Carbon::parse($date->end_date)->format('M d, Y')}}</span>
                 <span class="text-base">{{$date->time_in}}, {{$date->time_out}}</span>
             </div>
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
+            <div class="sm:col-span-5 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full">
                     <livewire:bar-chart/>
                 </div>
             </div>
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
+            <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Parer Employees</span>
                 </div>
