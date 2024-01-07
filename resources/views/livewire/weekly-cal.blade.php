@@ -166,7 +166,7 @@
                             <td class="px-4 py-4 bg-red-200">
                                 {{ $average }}
                                 @if ($average >= 100 && $average <= 400 || $average < 100)
-                                    {{$no++}}
+                                    {{$no1++}}
                                 @endif
                             </td>
                             @php
