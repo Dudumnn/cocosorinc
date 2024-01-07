@@ -114,37 +114,7 @@
                     <livewire:chart :first="$first" :second="$second"/>
                 </div>
             </div>
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
-                <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Parer Employees</span>
-                </div>
-                <div class="w-full p-2">
-                    <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">Range</div>
-                        <div class="sm:col-span-5">No. of Employees</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">500 - 1000</div>
-                        <div class="sm:col-span-5">{{ $na1 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">1001 - 1499</div>
-                        <div class="sm:col-span-5">{{ $na2 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">1500 - 2000</div>
-                        <div class="sm:col-span-5">{{ $na3 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">2001 - 2500</div>
-                        <div class="sm:col-span-5">{{ $na4 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">2501 - 3000</div>
-                        <div class="sm:col-span-5">{{ $na5 }}</div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Sheller Employees</span>
@@ -185,6 +155,42 @@
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">1401 - 1600</div>
                         <div class="sm:col-span-5">{{ $no8 }}</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
+        <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
+                <div class="w-full border-b px-3 py-2 ">
+                    <span class="text-sm font-medium text-gray-500">Parer Employees</span>
+                </div>
+                <div class="w-full p-2">
+                    <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">Range</div>
+                        <div class="sm:col-span-5">No. of Employees</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">500 - 1000</div>
+                        <div class="sm:col-span-5">{{ $na1 }}</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">1001 - 1499</div>
+                        <div class="sm:col-span-5">{{ $na2 }}</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">1500 - 2000</div>
+                        <div class="sm:col-span-5">{{ $na3 }}</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">2001 - 2500</div>
+                        <div class="sm:col-span-5">{{ $na4 }}</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">2501 - 3000</div>
+                        <div class="sm:col-span-5">{{ $na5 }}</div>
                     </div>
                 </div>
             </div>
