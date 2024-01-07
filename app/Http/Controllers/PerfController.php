@@ -27,4 +27,10 @@ class PerfController extends Controller
 
         return redirect('/fullReport');
     }
+
+    public function destroy(Request $request, Performance $sched,$id){
+        $data = Performance::findorfail($id);
+        $data->delete();
+        return back()->with('message', 'Successfully Deleted!');
+    }
 }
