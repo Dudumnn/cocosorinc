@@ -57,7 +57,7 @@ Route::controller(PerfController::class)->group(function(){
     Route::get('/report', 'weekly')->middleware('auth');
     Route::post('/OutputImport', 'import')->middleware('auth');
     Route::delete('/delete/output/{id}', 'destroy')->middleware('auth');
-    Route::get('/calculated', 'calculate')->middleware('auth');
+    Route::get('/calculated/{id}', 'calculate')->middleware('auth');
 });
 
 Route::controller(SchedController::class)->group(function(){
