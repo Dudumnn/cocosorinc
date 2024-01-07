@@ -70,7 +70,7 @@ class WorkerController extends Controller
     }
     public function detroy(Request $request, Worker $worker,$id){
         $data = Worker::findorfail($id);
-        dd($data);
+        dd($request);
 
         //return back()->with('message', 'Successfully Deleted!');
     }
