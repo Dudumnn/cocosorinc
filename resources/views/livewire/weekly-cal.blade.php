@@ -104,6 +104,7 @@
     </div>
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full">
                     <livewire:chart :first="$first" :second="$second"/>
                 </div>
