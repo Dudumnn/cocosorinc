@@ -137,9 +137,12 @@
                         <td class="px-4 py-3">
                             {{ $dayCount }}
                         </td>
-
+                        
+                        @php
+                            $average = ($dayCount > 0) ? $sum / $dayCount : 0;
+                        @endphp
                         <td class="px-4 py-3">
-                            {{ $sum }}
+                            {{ $average }}
                         </td>
                         
                         <td class="px-4 py-3 flex gap-2 items-center justify-end">
