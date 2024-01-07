@@ -38,7 +38,7 @@
             </section>
     
             <section class="flex w-full">
-                @livewire('track')
+                <livewire:perf-track/>
             </section>
         </div>
     </div>
