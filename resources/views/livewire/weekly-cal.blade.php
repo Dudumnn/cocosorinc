@@ -64,23 +64,23 @@
                                 </svg>
                             </button>
                         </th>
-                        {{-- The date giver --}}
-                        @php
-                            $currentDate = \Carbon\Carbon::parse($sched->start_date);
-                            $endDate = \Carbon\Carbon::parse($sched->end_date);
-                        @endphp
-
-                        @while ($currentDate->lte($endDate))
-                            <th scope="col" class="px-4 py-3">
-                                {{ $currentDate->format('Y-m-d') }}
-                            </th>
-
-                            @php
-                                $currentDate->addDay();
-                            @endphp
-                        @endwhile
+                        
                     @endforeach
+                    {{-- The date giver --}}
+                    @php
+                        $currentDate = \Carbon\Carbon::parse($sched->start_date);
+                        $endDate = \Carbon\Carbon::parse($sched->end_date);
+                    @endphp
 
+                    @while ($currentDate->lte($endDate))
+                        <th scope="col" class="px-4 py-3">
+                            {{ $currentDate->format('M d, Y') }}
+                        </th>
+
+                        @php
+                            $currentDate->addDay();
+                        @endphp
+                    @endwhile
                     @foreach ($scheds as $sched)
                         <th scope="col" class="px-4 py-3">
                             <button class="flex items-center gap-1">
