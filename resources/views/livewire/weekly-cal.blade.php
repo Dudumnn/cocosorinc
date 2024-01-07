@@ -92,15 +92,12 @@
             @endif
         @endforeach
         @php
-            $first = [];
-            $first[] = $na1;
-            $first[] = $na2;
-
-            $second = [];
-            $second[] = $na3;
-            $second[] = $na4;
-            $second[] = $na5;
-
+            $chart = [
+                '100 - 400', '401 - 600', '601 - 800', '801 - 874', '875 - 1000', '1001 - 1200', '1201 - 1400', '1401 - 1600'
+            ]
+            $chartVar = [
+                $no1, $no2, $no3, $no4, $no5, $no6, $no7, $no8
+            ]
             $bar = [
                 '500 - 1000', '1001 - 1499', '1500 - 2000', '2001 - 2500', '2501 - 3000'
             ];
@@ -144,7 +141,7 @@
                         <div class="sm:col-span-5">{{ $no3 }}</div>
                     </div>
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">800 - 874</div>
+                        <div class="sm:col-span-7">801 - 874</div>
                         <div class="sm:col-span-5">{{ $no4 }}</div>
                     </div>
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">

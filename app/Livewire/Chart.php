@@ -6,11 +6,13 @@ use Livewire\Component;
 
 class Chart extends Component
 {
-    public $first;
-    public $second;
-
+    public $chart;
+    public $chartVar;
     public function render()
     {
-        return view('livewire.chart');
+        return view('livewire.chart',[
+            'chart' => $this->chart,
+            'chartVar' => $this->chartVar
+        ]);
     }
 }

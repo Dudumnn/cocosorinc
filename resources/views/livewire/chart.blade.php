@@ -1,75 +1,90 @@
-
-<div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-    <!-- Radial Chart -->
-    <div class="py-6" id="radial-chart"></div>
+<div class="relative w-full flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+    
+  <div class="w-full pt-6 px-2 pb-0">
+      <div id="bar-chart" class="w-full"></div>
+  </div>
 </div>
-  
-  <script>
-    // ApexCharts options and config
-    window.addEventListener("load", function() {
-      const getChartOptions = () => {
-          return {
-            series: [90, 85, 70],
-            colors: ["#1C64F2", "#16BDCA", "#FDBA8C"],
-            chart: {
-              height: "380px",
-              width: "100%",
-              type: "radialBar",
-              sparkline: {
-                enabled: true,
-              },
-            },
-            plotOptions: {
-              radialBar: {
-                track: {
-                  background: '#E5E7EB',
-                },
-                dataLabels: {
-                  show: false,
-                },
-                hollow: {
-                  margin: 0,
-                  size: "32%",
-                }
-              },
-            },
-            grid: {
-              show: false,
-              strokeDashArray: 4,
-              padding: {
-                left: 2,
-                right: 2,
-                top: -23,
-                bottom: -20,
-              },
-            },
-            labels: ["Done", "In progress", "To do"],
-            legend: {
-              show: true,
-              position: "bottom",
-              fontFamily: "Inter, sans-serif",
-            },
-            tooltip: {
-              enabled: true,
-              x: {
-                show: false,
-              },
-            },
-            yaxis: {
-              show: false,
-              labels: {
-                formatter: function (value) {
-                  return value + '%';
-                }
-              }
-            }
-          }
-        }
-        
-        if (document.getElementById("radial-chart") && typeof ApexCharts !== 'undefined') {
-          var chart = new ApexCharts(document.querySelector("#radial-chart"), getChartOptions());
-          chart.render();
-        }
-    });
-  </script>
-  
+ 
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<script>
+  const chartConfig = {
+  series: [
+      {
+      name: "No. of Employee/s",
+      data: {!! json_encode($chartVar) !!},
+      },
+  ],
+  chart: {
+      type: "bar",
+      height: 400,
+      toolbar: {
+      show: false,
+      },
+  },
+  title: {
+      show: "",
+  },
+  dataLabels: {
+      enabled: false,
+  },
+  colors: ["#020617"],
+  plotOptions: {
+      bar: {
+      columnWidth: "40%",
+      borderRadius: 2,
+      },
+  },
+  xaxis: {
+      axisTicks: {
+      show: false,
+      },
+      axisBorder: {
+      show: false,
+      },
+      labels: {
+      style: {
+          colors: "#616161",
+          fontSize: "12px",
+          fontFamily: "inherit",
+          fontWeight: 400,
+      },
+      },
+      categories: {!! json_encode($chart) !!},
+  },
+  yaxis: {
+      labels: {
+      style: {
+          colors: "#616161",
+          fontSize: "12px",
+          fontFamily: "inherit",
+          fontWeight: 400,
+      },
+      },
+  },
+  grid: {
+      show: true,
+      borderColor: "#dddddd",
+      strokeDashArray: 5,
+      xaxis: {
+      lines: {
+          show: true,
+      },
+      },
+      padding: {
+      top: 5,
+      right: 20,
+      },
+  },
+  fill: {
+      opacity: 0.8,
+  },
+  tooltip: {
+      theme: "dark",
+  },
+  };
+
+  const chart = new ApexCharts(document.querySelector("#bar-chart"), chartConfig);
+
+  chart.render();
+</script>
