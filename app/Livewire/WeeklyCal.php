@@ -49,11 +49,11 @@ class WeeklyCal extends Component
             ->paginate($this->perPage),
             //getting the workers output throughout the whole shift
             'outputs' => DB::table('schedules')
-            ->where('schedules.id',  $this->sched)
             ->join('output', function ($join) {
                 $join->on('output.date', '>=', 'schedules.start_date')
-                     ->on('output.date', '<=', 'schedules.end_date');
+                     ->where('output.date', '<=', 'schedules.end_date');
             })
+            ->where('schedules.id',  $this->sched)
             ->select('output.*')
             ->get()
         ]
