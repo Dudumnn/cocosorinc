@@ -1,9 +1,19 @@
 <div>
+    @php
+        $no1 = 0;
+        $no2 = 0;
+        $no3 = 0;
+        $no4 = 0;
+        $no5 = 0;
+        $no6 = 0;
+        $no7 = 0;
+        $no8 = 0;
+    @endphp
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
             <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-xs font-medium text-gray-500">Employees</span>
+                    <span class="text-sm font-medium text-gray-500">Employees</span>
                 </div>
                 <div class="w-full p-3">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
@@ -12,31 +22,35 @@
                     </div>
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">100 - 400</div>
-                        <div class="sm:col-span-5"></div>
+                        <div class="sm:col-span-5">{{ $no1 }}</div>
                     </div>
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">401 - 600</div>
-                        <div class="sm:col-span-5"></div>
+                        <div class="sm:col-span-5">{{ $no2 }}</div>
+                    </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">601 - 800</div>
+                        <div class="sm:col-span-5">{{ $no3 }}</div>
                     </div>
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">800 - 874</div>
-                        <div class="sm:col-span-5"></div>
+                        <div class="sm:col-span-5">{{ $no4 }}</div>
                     </div>
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">875 - 1000</div>
-                        <div class="sm:col-span-5"></div>
+                        <div class="sm:col-span-5">{{ $no5 }}</div>
                     </div>
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">1001 - 1200</div>
-                        <div class="sm:col-span-5"></div>
+                        <div class="sm:col-span-5">{{ $no6 }}</div>
                     </div>
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">1201 - 1400</div>
-                        <div class="sm:col-span-5"></div>
+                        <div class="sm:col-span-5">{{ $no7 }}</div>
                     </div>
                     <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">1401 - 1600</div>
-                        <div class="sm:col-span-5"></div>
+                        <div class="sm:col-span-5">{{ $no8 }}</div>
                     </div>
                 </div>
             </div>
@@ -151,6 +165,9 @@
                             @endphp
                             <td class="px-4 py-4 bg-red-200">
                                 {{ $average }}
+                                @if ($average >= 100 && $average <= 400 || $average < 100)
+                                    {{$no++}}
+                                @endif
                             </td>
                             @php
                                 $total += $sum;
