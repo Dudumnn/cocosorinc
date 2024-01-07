@@ -9,6 +9,46 @@
         $no7 = 0;
         $no8 = 0;
     @endphp
+    @foreach ($emps as $emp)
+        @php
+            $currentDate = \Carbon\Carbon::parse($date->start_date);
+            $endDate = \Carbon\Carbon::parse($date->end_date);
+            $dayCount = 0;
+            $sum = 0;
+            $max = 0;
+        @endphp
+
+        @while ($currentDate->lte($endDate))
+            @php
+                $outputValue = 0;
+            @endphp
+            @foreach ($outputs as $output)
+                @if ($output->name == $emp->name)
+                    @if ($output->date == $currentDate->format('Y-m-d'))
+                        @php $max++; $outputValue = $output->output; $found = true; break; @endphp
+                    @else
+                    @endif
+                @endif
+            @endforeach
+
+            @php
+                if (!isset($found)) {
+                    echo '0';
+                }
+                unset($found);
+                $currentDate->addDay();
+                $dayCount++;
+                $sum += $outputValue;
+            @endphp
+        @endwhile
+        
+        @php
+            $average = ($dayCount > 0) ? number_format($sum / $dayCount, 3) : 0;
+        @endphp
+        @if ($average >= 100 && $average <= 400 || $average < 100)
+            {{$no1++}}
+        @endif
+    @endforeach
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
             <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
