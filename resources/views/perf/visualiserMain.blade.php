@@ -30,7 +30,6 @@
             </section>
     
             <section class="flex w-full">
-                <livewire:schedule/>
             </section>
         </div>
     </div>

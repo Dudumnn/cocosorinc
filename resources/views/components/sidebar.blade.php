@@ -66,7 +66,7 @@
             </li>--}}
             <li>
                <a href="/report" class="{{ request()->segment(1) === 'report' ? 'active' : '' }} flex items-center w-full py-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">
-                  Full Report
+                  Reports
                </a>
             </li>
             <li>
