@@ -10,6 +10,12 @@ class WeeklyCal extends Component
 {
     use WithPagination;
 
+    public $sched;
+
+    public function mount($sched){
+        $this->sched = $sched;
+    }
+
     public $shift = '';
 
     public $search = '';
@@ -19,9 +25,9 @@ class WeeklyCal extends Component
     {
         return view('livewire.weekly-cal',
         [
-            'scheds' => DB::table('workers')
-            ->join('output', 'workers.name','=','output.name')
-            ->select('output.*','workers.shift')
+            'scheds' => DB::table('schedules')
+            ->join('workers', 'schedules.shift','=','workers.shift')
+            ->select('workers.*','schedules.time_in','schedules.time_out','schedules.start_date','schedules.end_date',)
             ->when($this->shift !== '',function($query){
                 $query->where('shift',$this->shift);
             })
