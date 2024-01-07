@@ -6,6 +6,8 @@ use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 use App\Models\Sched;
+use App\Models\Performance;
+use Carbon\Carbon;
 
 class WeeklyCal extends Component
 {
@@ -24,6 +26,13 @@ class WeeklyCal extends Component
     public $perPage = 5;
     public function render()
     {
+        $start = Sched::findOrFail($this->sched)->start_date;
+        $end = Sched::findOrFail($this->sched)->end_date;
+
+        $outputRows = Performance::where('date', $start)
+            ->orWhere('date', $end)
+            ->get();
+
         return view('livewire.weekly-cal',
         [
             /**'scheds' => DB::table('schedules')
@@ -48,14 +57,7 @@ class WeeklyCal extends Component
             ->orderBy('created_at', 'asc')
             ->paginate($this->perPage),
             //getting the workers output throughout the whole shift
-            'outputs' => DB::table('schedules')
-            ->where('schedules.id',  $this->sched)
-            ->join('output', function ($join) {
-                $join->on('output.date', '>=', 'schedules.start_date')
-                     ->on('output.date', '<=', 'schedules.end_date');
-            })
-            ->select('output.*')
-            ->get()
+            'outputs' => $outputRows
         ]
         );
     }
