@@ -116,7 +116,7 @@
                     <span class="text-sm font-medium text-gray-500">Employees</span>
                 </div>
                 <div class="w-full">
-                    <livewire:chart :sched="$date->id"/>
+                    {{--<livewire:chart :sched="$date->id"/>--}}
                 </div>
             </div>
         </div>
@@ -151,6 +151,9 @@
                         </th>
                         <th scope="col" class="px-4 py-3">
                             Employee
+                        </th>
+                        <th scope="col" class="px-4 py-3">
+                            Position
                         </th>
                         @php
                             $currentDate = \Carbon\Carbon::parse($date->start_date);
@@ -188,6 +191,9 @@
                             </th>
                             <td class="px-4 py-4">
                                 {{ $emp->name }}
+                            </td>
+                            <td class="px-4 py-4">
+                                {{ $emp->position }}
                             </td>
     
                             @php
@@ -260,6 +266,9 @@
                         </th>
                         <th scope="col" class="px-4 py-3">
                             Employee
+                        </th>
+                        <th scope="col" class="px-4 py-3">
+                            Position
                         </th>
                         @php
                             $currentDate = \Carbon\Carbon::parse($date->start_date);
