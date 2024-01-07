@@ -38,7 +38,7 @@
             </section>
     
             <section class="flex w-full">
-                <livewire:track/>
+                <livewire: track/>
             </section>
         </div>
     </div>
