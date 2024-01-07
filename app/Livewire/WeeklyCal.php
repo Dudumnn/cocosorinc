@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
+use App\Models\Sched;
 
 class WeeklyCal extends Component
 {
@@ -33,7 +34,9 @@ class WeeklyCal extends Component
                 $query->where('workers.name', 'like', '%' . $this->search . '%');
             })
             ->orderBy('created_at', 'desc')
-            ->paginate($this->perPage)
+            ->paginate($this->perPage),
+
+            'date' => Sched::findorfail($this->sched)
         ]
         );
     }
