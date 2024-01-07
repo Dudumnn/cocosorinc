@@ -30,6 +30,7 @@ class Report extends Component
             ->when($this->search !== '',function($query){
                 $query->where('workers.name', 'like', '%' . $this->search . '%');
             })
+            ->orderBy('created_at', 'desc')
             ->paginate($this->perPage)
         ]
         );
