@@ -205,7 +205,7 @@
                             @endphp
     
                             @while ($currentDate->lte($endDate))
-                                <td class="px-4 py-4">
+                                <td class="px-4 py-4 min-w-32">
                                     @php
                                         $outputValue = 0;
                                     @endphp
