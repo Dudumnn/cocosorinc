@@ -3,102 +3,95 @@
     <div class="pt-6 px-2 pb-0">
         <div id="bar-chart"></div>
     </div>
-    <div>
-        @foreach ($bar as $item)
-            {{$item}}
-        @endforeach
-    </div>
 </div>
    
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <script>
-  const chartConfig = {
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+@php
+    $bar = [];
+@endphp
+@foreach ($bar as $item)
+    @php
+        $bar[] = $item;
+    @endphp
+@endforeach
+<script>
+    const chartConfig = {
     series: [
-      {
+        {
         name: "Sales",
         data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-      },
+        },
     ],
     chart: {
-      type: "bar",
-      height: 240,
-      toolbar: {
+        type: "bar",
+        height: 240,
+        toolbar: {
         show: false,
-      },
+        },
     },
     title: {
-      show: "",
+        show: "",
     },
     dataLabels: {
-      enabled: false,
+        enabled: false,
     },
     colors: ["#020617"],
     plotOptions: {
-      bar: {
+        bar: {
         columnWidth: "40%",
         borderRadius: 2,
-      },
+        },
     },
     xaxis: {
-      axisTicks: {
+        axisTicks: {
         show: false,
-      },
-      axisBorder: {
-        show: false,
-      },
-      labels: {
-        style: {
-          colors: "#616161",
-          fontSize: "12px",
-          fontFamily: "inherit",
-          fontWeight: 400,
         },
-      },
-      categories: [
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+        axisBorder: {
+        show: false,
+        },
+        labels: {
+        style: {
+            colors: "#616161",
+            fontSize: "12px",
+            fontFamily: "inherit",
+            fontWeight: 400,
+        },
+        },
+        categories: $bar,
     },
     yaxis: {
-      labels: {
+        labels: {
         style: {
-          colors: "#616161",
-          fontSize: "12px",
-          fontFamily: "inherit",
-          fontWeight: 400,
+            colors: "#616161",
+            fontSize: "12px",
+            fontFamily: "inherit",
+            fontWeight: 400,
         },
-      },
+        },
     },
     grid: {
-      show: true,
-      borderColor: "#dddddd",
-      strokeDashArray: 5,
-      xaxis: {
+        show: true,
+        borderColor: "#dddddd",
+        strokeDashArray: 5,
+        xaxis: {
         lines: {
-          show: true,
+            show: true,
         },
-      },
-      padding: {
+        },
+        padding: {
         top: 5,
         right: 20,
-      },
+        },
     },
     fill: {
-      opacity: 0.8,
+        opacity: 0.8,
     },
     tooltip: {
-      theme: "dark",
+        theme: "dark",
     },
-  };
-   
-  const chart = new ApexCharts(document.querySelector("#bar-chart"), chartConfig);
-   
-  chart.render();
-  </script>
+    };
+
+    const chart = new ApexCharts(document.querySelector("#bar-chart"), chartConfig);
+
+    chart.render();
+</script>
