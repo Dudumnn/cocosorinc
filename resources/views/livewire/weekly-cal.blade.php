@@ -146,9 +146,6 @@
             <table class="w-full border border-gray-200 text-sm text-left text-gray-500">
                 <thead class="text-xs uppercase text-white bg-gray-700">
                     <tr>
-                        <th scope="col" class="px-4 py-3">
-                            ID
-                        </th>
                         <th scope="col" class="px-4 py-3 min-w-24">
                             Employee
                         </th>
@@ -186,9 +183,6 @@
                     @endphp
                     @forelse ($emps as $emp)
                         <tr class="border-b">
-                            <th class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                {{ $emp->id }}
-                            </th>
                             <td class="px-4 py-4">
                                 {{ $emp->name }}
                             </td>
@@ -261,9 +255,6 @@
                 </tbody>
                 <tfoot class="text-xs uppercase text-white bg-gray-700">
                     <tr>
-                        <th scope="col" class="px-4 py-3">
-                            ID
-                        </th>
                         <th scope="col" class="px-4 py-3">
                             Employee
                         </th>
