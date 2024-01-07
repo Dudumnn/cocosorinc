@@ -1,4 +1,6 @@
-<div id="hs-single-bar-chart"></div>
+<div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div id="hs-single-bar-chart"></div>
+</div>
 
 <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
 
