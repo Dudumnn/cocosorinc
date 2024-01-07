@@ -19,7 +19,7 @@
     series: [
         {
         name: "Sales",
-        data: [50, 40, 300, 320, 500],
+        data: {!! json_encode($barVar) !!},
         },
     ],
     chart: {
