@@ -41,7 +41,7 @@
         @php
             $average = ($dayCount > 0) ? number_format($sum / $dayCount, 3) : 0;
         @endphp
-        @if ($average >= 100 && $average <= 400 || $average < 100)
+        @if ($average >= 100 && $average <= 400)
             {{$no1++}}
         @endif
         @if ($average >= 401 && $average <= 600)
