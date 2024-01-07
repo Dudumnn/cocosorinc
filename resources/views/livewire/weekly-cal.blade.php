@@ -76,26 +76,15 @@
                 </tr>
             </thead>
             <tbody>
-                {{--@forelse ($scheds as $sched)
+                @forelse ($emps as $emp)
                     <tr class="border-b">
                         <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
-                            {{ $sched->id }}
+                            {{ $emp->id }}
                         </th>
                         <td class="px-4 py-3">
-                            {{ $sched->name }}
+                            {{ $emp->name }}
                         </td>
-                        <td class="px-4 py-3">
-                            @php
-                                $start = \Carbon\Carbon::parse($sched->start_date);
-                                $formattedDate = $start->format('M d, Y');
-                                echo $formattedDate;
-                            @endphp
-                        </td>
-                        <td class="px-4 py-3">
-                            {{ $sched->shift }}
-                        </td>
-                        <td class="px-4 py-3">
-                        </td>
+                        
                         <td class="px-4 py-3 flex gap-2 items-center justify-end">
                             <a class="p-2 bg-blue-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -132,7 +121,7 @@
                             No items found.
                         </td>
                     </tr>
-                @endforelse--}}
+                @endforelse
             </tbody>
         </table>
     </div>
