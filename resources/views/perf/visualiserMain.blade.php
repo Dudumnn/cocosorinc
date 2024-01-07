@@ -38,6 +38,7 @@
             </section>
     
             <section class="flex w-full">
+                <livewire:track/>
             </section>
         </div>
     </div>
