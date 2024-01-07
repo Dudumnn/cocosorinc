@@ -46,7 +46,7 @@
                         Average
                     </th>
                     <th scope="col" class="px-4 py-3">
-                        Potential
+                        Total
                     </th>
                     <th scope="col" class="px-4 py-3">
                         Count
@@ -105,11 +105,8 @@
                             {{ $average }}
                         </td>
                         
-                        @php
-                            $potential = ($max > 0) ? number_format($sum / $max, 3) : 0;
-                        @endphp
                         <td class="px-4 py-4 bg-orange-200">
-                            {{ $potential }}
+                            {{ number_format($sum, 3) }}
                         </td>
 
                         <td class="px-4 py-4">
@@ -150,7 +147,7 @@
                         Average
                     </th>
                     <th scope="col" class="px-4 py-3">
-                        Potential
+                        Total
                     </th>
                     <th scope="col" class="px-4 py-3">
                         Count
