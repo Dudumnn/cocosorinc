@@ -3,6 +3,11 @@
     <div class="pt-6 px-2 pb-0">
         <div id="bar-chart"></div>
     </div>
+    <div>
+        @foreach ($bar as $item)
+            {{$item}}
+        @endforeach
+    </div>
 </div>
    
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -49,7 +54,17 @@
           fontWeight: 400,
         },
       },
-      categories: [ $bar[0], $bar[1], $bar[2], $bar[3], $bar[4], ],
+      categories: [
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
     },
     yaxis: {
       labels: {
