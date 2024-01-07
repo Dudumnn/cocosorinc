@@ -49,7 +49,7 @@
                         Potential
                     </th>
                     <th scope="col" class="px-4 py-3">
-                        <span class="sr-only">Count</span>
+                        Count
                     </th>
                 </tr>
             </thead>
@@ -125,10 +125,10 @@
                 @endforelse
                 <tr>
                     <th scope="col" class="px-4 py-3">
-                        ID
+                        
                     </th>
                     <th scope="col" class="px-4 py-3">
-                        Employee
+                        Total
                     </th>
                     @php
                         $currentDate = \Carbon\Carbon::parse($date->start_date);
@@ -151,7 +151,7 @@
                         Potential
                     </th>
                     <th scope="col" class="px-4 py-3">
-                        <span class="sr-only">Count</span>
+                        Count
                     </th>
                 </tr>
             </tbody>
