@@ -28,9 +28,7 @@ class WeeklyCal extends Component
             'scheds' => DB::table('schedules')
             ->join('workers', 'schedules.shift','=','workers.shift')
             ->select('workers.*','schedules.time_in','schedules.time_out','schedules.start_date','schedules.end_date',)
-            ->when($this->shift !== '',function($query){
-                $query->where('shift',$this->shift);
-            })
+            ->where('schedules.id',  $this->sched)
             ->when($this->search !== '',function($query){
                 $query->where('workers.name', 'like', '%' . $this->search . '%');
             })
