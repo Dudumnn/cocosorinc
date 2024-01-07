@@ -92,24 +92,22 @@
                         @endphp
 
                         @while ($currentDate->lte($endDate))
-                            @foreach ($outputs as $output)
-                                @if ($output->name == $emp->name)
-                                    @if ($output->date == $need)
-                                        <td class="px-4 py-3">
-                                            {{ $output->output }}
-                                        </td>
-                                    @else
-                                        <td class="px-4 py-3">
-                                            0
-                                        </td>
+                            <td class="px-4 py-3">
+                                @foreach ($outputs as $output)
+                                    @if ($output->name == $emp->name && \Carbon\Carbon::parse($output->date)->format('Y-m-d') == $currentDate->format('Y-m-d'))
+                                        {{ $output->output }}
+                                        @php $found = true; break; @endphp
                                     @endif
-                                @endif
-                            @endforeach
+                                @endforeach
 
-                            @php
-                                $currentDate->addDay();
-                                $need = $currentDate->format('Y-m-d');
-                            @endphp
+                                @php
+                                    if (!isset($found)) {
+                                        echo '0';
+                                    }
+                                    unset($found);
+                                    $currentDate->addDay();
+                                @endphp
+                            </td>
                         @endwhile
                         
                         <td class="px-4 py-3 flex gap-2 items-center justify-end">
