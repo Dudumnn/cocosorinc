@@ -45,4 +45,9 @@ class SchedController extends Controller
 
         return back()->with('message', 'Schedule Successfully Updated!');
     }
+    public function destroy(Request $request, Sched $sched,$id){
+        $data = Sched::findorfail($id);
+        $data->delete();
+        return back()->with('message', 'Successfully Deleted!');
+    }
 }

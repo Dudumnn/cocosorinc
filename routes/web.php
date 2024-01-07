@@ -63,4 +63,5 @@ Route::controller(SchedController::class)->group(function(){
     Route::post('/addSched', 'addSched')->middleware('auth');
     Route::get('/editSched/{id}', 'edit')->middleware('auth');
     Route::put('/editSched/{id}', 'update')->middleware('auth');
+    Route::delete('/delete/sched/{id}', 'destroy')->middleware('auth');
 });
