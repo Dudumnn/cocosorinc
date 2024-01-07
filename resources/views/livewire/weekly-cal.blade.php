@@ -25,17 +25,13 @@
             @foreach ($outputs as $output)
                 @if ($output->name == $emp->name)
                     @if ($output->date == $currentDate->format('Y-m-d'))
-                        @php $max++; $outputValue = $output->output; $found = true; break; @endphp
+                        @php $max++; $outputValue = $output->output; break; @endphp
                     @else
                     @endif
                 @endif
             @endforeach
 
             @php
-                if (!isset($found)) {
-                    echo '0';
-                }
-                unset($found);
                 $currentDate->addDay();
                 $dayCount++;
                 $sum += $outputValue;
@@ -46,6 +42,27 @@
             $average = ($dayCount > 0) ? number_format($sum / $dayCount, 3) : 0;
         @endphp
         @if ($average >= 100 && $average <= 400 || $average < 100)
+            {{$no1++}}
+        @endif
+        @if ($average >= 401 && $average <= 600)
+            {{$no1++}}
+        @endif
+        @if ($average >= 601 && $average <= 800)
+            {{$no1++}}
+        @endif
+        @if ($average >= 800 && $average <= 874)
+            {{$no1++}}
+        @endif
+        @if ($average >= 875 && $average <= 1000)
+            {{$no1++}}
+        @endif
+        @if ($average >= 1001 && $average <= 1200)
+            {{$no1++}}
+        @endif
+        @if ($average >= 1201 && $average <= 1400)
+            {{$no1++}}
+        @endif
+        @if ($average >= 1401 && $average <= 1600)
             {{$no1++}}
         @endif
     @endforeach
