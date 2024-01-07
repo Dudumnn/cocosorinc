@@ -91,14 +91,7 @@
                             $need = '';
                         @endphp
 
-                        @foreach ($outputs as $output)
-                            
-                            <td class="px-4 py-3">
-                                {{ $output->output }}
-                            </td>
-                        @endforeach
-
-                        {{--@while ($currentDate->lte($endDate))
+                        @while ($currentDate->lte($endDate))
                             <td class="px-4 py-3">
                                 @foreach ($outputs as $output)
                                     @if ($output->name == $emp->name)
@@ -115,7 +108,7 @@
                                     $currentDate->addDay();
                                 @endphp
                             </td>
-                        @endwhile--}}
+                        @endwhile
                         
                         <td class="px-4 py-3 flex gap-2 items-center justify-end">
                             <a class="p-2 bg-blue-500">
