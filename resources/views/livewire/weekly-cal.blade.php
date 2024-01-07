@@ -54,6 +54,9 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $total = 0;
+                @endphp
                 @forelse ($emps as $emp)
                     <tr class="border-b">
                         <th class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">
@@ -104,7 +107,9 @@
                         <td class="px-4 py-4 bg-red-200">
                             {{ $average }}
                         </td>
-                        
+                        @php
+                            $total += $sum;
+                        @endphp
                         <td class="px-4 py-4 bg-orange-200">
                             {{ number_format($sum, 3) }}
                         </td>
@@ -147,7 +152,7 @@
                         Average
                     </th>
                     <th scope="col" class="px-4 py-3">
-                        Total
+                        {{ $total }}
                     </th>
                     <th scope="col" class="px-4 py-3">
                         Count
