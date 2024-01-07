@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Performance;
+use App\Models\Sched;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\OutputImport;
 use View;
@@ -18,8 +19,10 @@ class PerfController extends Controller
         return view('perf.fullReport')->with('title', 'Full Report');
     }
 
-    public function weekly(){
-        return view('perf.visualiserMain')->with('title', 'Performance Track');
+    public function weekly($id){
+        return view('perf.visualiserMain', [
+            'sched' => $id, 
+        ])->with('title', 'Performance Track');
     }
 
     public function calculate(){

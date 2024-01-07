@@ -38,6 +38,7 @@
             </section>
     
             <section class="flex w-full">
+                @livewire('weekly-cal', ['sched' => $sched])
             </section>
         </div>
     </div>
