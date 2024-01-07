@@ -18,6 +18,10 @@ class PerfController extends Controller
         return view('perf.fullReport')->with('title', 'Full Report');
     }
 
+    public function weekly(){
+        return view('perf.visualiserMain')->with('title', 'Reports');
+    }
+
     public function import(Request $request){
         Excel::import(new OutputImport, $request->file('file'));
 

@@ -53,6 +53,7 @@ Route::controller(WorkerController::class)->group(function(){
 Route::controller(PerfController::class)->group(function(){
     Route::get('/weekly_performance', 'performance')->middleware('auth');
     Route::get('/fullReport', 'report')->middleware('auth');
+    Route::get('/report', 'weekly')->middleware('auth');
     Route::post('/OutputImport', 'import')->middleware('auth');
 });
 

@@ -58,12 +58,17 @@
                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>
          </a>
-         <ul id="dropdown-example1" class="{{ request()->segment(1) === 'weekly_performance' ? '' : 'hidden' }} py-2 space-y-2">
+         <ul id="dropdown-example1" class="{{ request()->segment(1) === 'report' || request()->segment(1) === 'fullReport' ? '' : 'hidden' }} py-2 space-y-2">
             {{--<li>
                <a href="/weekly_performance" class="{{ request()->segment(1) === 'weekly_performance' ? 'active' : '' }} flex items-center w-full py-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">
                   Weekly Performance
                </a>
             </li>--}}
+            <li>
+               <a href="/report" class="{{ request()->segment(1) === 'report' ? 'active' : '' }} flex items-center w-full py-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">
+                  Full Report
+               </a>
+            </li>
             <li>
                <a href="/fullReport" class="{{ request()->segment(1) === 'fullReport' ? 'active' : '' }} flex items-center w-full py-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">
                   Full Report
