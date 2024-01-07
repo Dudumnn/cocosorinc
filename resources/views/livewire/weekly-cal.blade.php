@@ -87,6 +87,14 @@
                         </button>
                     </th>
                     <th scope="col" class="px-4 py-3">
+                        <button class="flex items-center gap-1">
+                            Potential
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                        </button>
+                    </th>
+                    <th scope="col" class="px-4 py-3">
                         <span class="sr-only">Actions</span>
                     </th>
                 </tr>
@@ -106,6 +114,7 @@
                             $endDate = \Carbon\Carbon::parse($date->end_date);
                             $dayCount = 0;
                             $sum = 0;
+                            $max = 0;
                         @endphp
 
                         @while ($currentDate->lte($endDate))
@@ -117,7 +126,8 @@
                                     @if ($output->name == $emp->name)
                                         @if ($output->date == $currentDate->format('Y-m-d'))
                                             {{ $output->output }}
-                                            @php $outputValue = $output->output; $found = true; break; @endphp
+                                            @php $max++; $outputValue = $output->output; $found = true; break; @endphp
+                                        @else
                                         @endif
                                     @endif
                                 @endforeach
@@ -139,10 +149,14 @@
                         </td>
                         
                         @php
-                            $average = ($dayCount > 0) ? $sum / $dayCount : 0;
+                            $average = ($dayCount > 0) ? number_format($sum / $dayCount, 4) : 0;
                         @endphp
                         <td class="px-4 py-3">
                             {{ $average }}
+                        </td>
+
+                        <td class="px-4 py-3">
+                            {{ number_format($max, 4) }}
                         </td>
                         
                         <td class="px-4 py-3 flex gap-2 items-center justify-end">
