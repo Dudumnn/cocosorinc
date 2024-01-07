@@ -1,7 +1,7 @@
 <div>
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12">
-            <div class="sm:col-span-6 shadow-lg border border-gray-200 rounded-sm">
+            <div class="sm:col-span-6 border border-gray-200 rounded-sm">
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Employees</span>
                 </div>
