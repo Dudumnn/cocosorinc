@@ -48,6 +48,7 @@ Route::controller(WorkerController::class)->group(function(){
     Route::post('/addEmployee', 'addEmployee')->middleware('auth');
     Route::get('/worker/profile/{id}', 'profile')->middleware('auth');
     Route::put('/editWorker/profile/{id}', 'update')->middleware('auth');
+    Route::delete('/delete/profile/{id}', 'destroy')->middleware('auth');
 });
 
 Route::controller(PerfController::class)->group(function(){
