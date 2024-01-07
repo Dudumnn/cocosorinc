@@ -86,10 +86,10 @@
             <tbody>
                 @forelse ($emps as $emp)
                     <tr class="border-b">
-                        <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
+                        <th class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {{ $emp->id }}
                         </th>
-                        <td class="px-4 py-3">
+                        <td class="px-4 py-4">
                             {{ $emp->name }}
                         </td>
 
@@ -102,7 +102,7 @@
                         @endphp
 
                         @while ($currentDate->lte($endDate))
-                            <td class="px-4 py-3">
+                            <td class="px-4 py-4">
                                 @php
                                     $outputValue = 0;
                                 @endphp
@@ -128,27 +128,27 @@
                             </td>
                         @endwhile
 
-                        <td class="px-4 py-3">
+                        <td class="px-4 py-4">
                             {{ $dayCount }}
                         </td>
                         
                         @php
                             $average = ($dayCount > 0) ? number_format($sum / $dayCount, 3) : 0;
                         @endphp
-                        <td class="px-4 py-3">
+                        <td class="px-4 py-4">
                             {{ $average }}
                         </td>
                         
                         @php
                             $potential = ($max > 0) ? number_format($sum / $max, 3) : 0;
                         @endphp
-                        <td class="px-4 py-3">
+                        <td class="px-4 py-4">
                             {{ $potential }}
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="px-4 py-3 text-center text-gray-500">
+                        <td colspan="6" class="px-4 py-4 text-center text-gray-500">
                             No items found.
                         </td>
                     </tr>
