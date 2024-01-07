@@ -156,7 +156,7 @@
                         </td>
                         
                         @php
-                            $potential = ($dayCount > 0) ? number_format($sum / $max, 3) : 0;
+                            $potential = ($max > 0) ? number_format($sum / $max, 3) : 0;
                         @endphp
                         <td class="px-4 py-3">
                             {{ $potential }}
