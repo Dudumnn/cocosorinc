@@ -49,7 +49,7 @@
           fontWeight: 400,
         },
       },
-      categories: $bar,
+      categories: {{$bar}},
     },
     yaxis: {
       labels: {
