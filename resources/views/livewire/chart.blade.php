@@ -12,7 +12,7 @@
         data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
-            label: '# of Votes',
+            label: '# of employees above qouta',
             data: [12, 19, 3, 5, 2, 3],
             borderWidth: 1
         }]
