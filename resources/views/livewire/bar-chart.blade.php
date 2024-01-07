@@ -1,4 +1,4 @@
-<div class="relative w-full flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+<div class="relative w-full flex flex-col rounded-xl bg-white bg-clip-border h-80 text-gray-700 shadow-md">
     
     <div class="w-full pt-6 px-2 pb-0">
         <div id="bar-chart" class="w-full"></div>
