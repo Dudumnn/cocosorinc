@@ -22,6 +22,10 @@ class PerfController extends Controller
         return view('perf.visualiserMain')->with('title', 'Performance Track');
     }
 
+    public function calculate(){
+        return view('perf.weekly')->with('title', 'Performance');
+    }
+
     public function import(Request $request){
         Excel::import(new OutputImport, $request->file('file'));
 
