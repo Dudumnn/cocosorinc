@@ -16,12 +16,10 @@
             $dayCount = 0;
             $sum = 0;
             $max = 0;
+            $outputValue = 0;
         @endphp
 
         @while ($currentDate->lte($endDate))
-            @php
-                $outputValue = 0;
-            @endphp
             @foreach ($outputs as $output)
                 @if ($output->name == $emp->name)
                     @if ($output->date == $currentDate->format('Y-m-d'))
