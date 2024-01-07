@@ -30,7 +30,7 @@
                 @foreach ($outputs as $output)
                     @if ($output->name == $emp->name)
                         @if ($output->date == $currentDate->format('Y-m-d'))
-                            @php $max++; $outputValue = $output->output; break; @endphp
+                            @php  $datee[] = $currentDate->format('Y-m-d'); $max++; $outputValue = $output->output; break; @endphp
                         @else
                         @endif
                     @endif
@@ -88,11 +88,28 @@
                     {{$na5++}}
                 @endif
             @endif
-            
         @endforeach
+        @php
+            $first = [];
+            $first[] = $na1;
+            $first[] = $na2;
+
+            $second = [];
+            $second[] = $na3;
+            $second[] = $na4;
+            $second[] = $na5;
+        @endphp
     </div>
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
+                <div class="w-full border-b px-3 py-2 ">
+                    <span class="text-sm font-medium text-gray-500">Parer Employees</span>
+                </div>
+                <div class="w-full">
+                    <livewire:chart :first="$first" :second="$second"/>
+                </div>
+            </div>
             <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Parer Employees</span>
