@@ -59,6 +59,7 @@
                 @if ($average >= 800 && $average <= 874)
                     {{$no4++}}
                 @endif
+                {{--Below Quota--}}
                 @if ($average >= 875 && $average <= 1000)
                     {{$no5++}}
                 @endif
@@ -78,6 +79,7 @@
                 @if ($average >= 1001 && $average <= 1499)
                     {{$na2++}}
                 @endif
+                {{--Below Quota--}}
                 @if ($average >= 1500 && $average <= 2000)
                     {{$na3++}}
                 @endif
@@ -102,10 +104,6 @@
     </div>
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
-                <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Parer Employees</span>
-                </div>
                 <div class="w-full">
                     <livewire:chart :first="$first" :second="$second"/>
                 </div>
