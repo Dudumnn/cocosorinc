@@ -45,25 +45,25 @@
             {{$no1++}}
         @endif
         @if ($average >= 401 && $average <= 600)
-            {{$no1++}}
+            {{$no2++}}
         @endif
         @if ($average >= 601 && $average <= 800)
-            {{$no1++}}
+            {{$no3++}}
         @endif
         @if ($average >= 800 && $average <= 874)
-            {{$no1++}}
+            {{$no4++}}
         @endif
         @if ($average >= 875 && $average <= 1000)
-            {{$no1++}}
+            {{$no5++}}
         @endif
         @if ($average >= 1001 && $average <= 1200)
-            {{$no1++}}
+            {{$no6++}}
         @endif
         @if ($average >= 1201 && $average <= 1400)
-            {{$no1++}}
+            {{$no7++}}
         @endif
         @if ($average >= 1401 && $average <= 1600)
-            {{$no1++}}
+            {{$no8++}}
         @endif
     @endforeach
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
