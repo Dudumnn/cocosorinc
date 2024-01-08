@@ -49,14 +49,16 @@
                     $sum += $outputValue;
                 @endphp
             @endwhile
+            @if ($emp->position == 'Sheller')
+                @php
+                    $average = ($dayCount > 0) ? number_format($sum / $dayCount, 2) : 0;
+                    $row[] = [
+                        'gname' => $emp->name,
+                        'gave' => $average
+                    ];
+                @endphp
+            @endif
             
-            @php
-                $average = ($dayCount > 0) ? number_format($sum / $dayCount, 2) : 0;
-                $row[] = [
-                    'gname' => $emp->name,
-                    'gave' => $average
-                ];
-            @endphp
             @if ($emp->position == 'Sheller')
                 @if ($average >= 100 && $average <= 400)
                     @php
