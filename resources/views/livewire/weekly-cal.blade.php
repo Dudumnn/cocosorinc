@@ -155,12 +155,16 @@
                         <div class="sm:col-span-7">Range</div>
                         <div class="sm:col-span-5">No. of Employees</div>
                     </div>
-                    @foreach ($q as $itemm)
+                    @forelse ($q as $itemm)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                             <div class="sm:col-span-7">{{$itemm->name}}</div>
                             <div class="sm:col-span-5">{{$itemm->ave}}</div>
                         </div>
-                    @endforeach
+                    @empty
+                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                            <div class="sm:col-span-12">Nothing to show</div>
+                        </div>
+                    @endforelse
                 </div>
             </div>
             
