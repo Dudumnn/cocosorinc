@@ -114,9 +114,9 @@
                 <span class="text-base">{{$date->time_in}}, {{$date->time_out}}</span>
             </div>
             <div class="sm:col-span-5 border border-gray-200 rounded-sm text-xs">
-                {{--<div class="w-full">
+                <div class="w-full">
                     <livewire:chart :chart="$chart" :chartVar="$chartVar"/>
-                </div>--}}
+                </div>
             </div>
             
             <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
