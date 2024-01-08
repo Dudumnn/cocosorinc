@@ -1,90 +1,89 @@
-<div class="relative w-full flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-    
-  <div class="w-full pt-6 px-2 pb-0">
-      <div id="bar-chart1" class="w-full"></div>
+<div class="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+  <div class="pt-6 px-2 pb-0">
+    <div id="line-chart"></div>
   </div>
 </div>
  
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
 <script>
   const chartConfig = {
-  series: [
+    series: [
       {
-      name: "No. of Employee/s",
-      data: {!! json_encode($chartVar) !!},
+        name: "Sales",
+        data: {!! json_encode($chartVar) !!},
       },
-  ],
-  chart: {
-      type: "bar",
-      height: 400,
+    ],
+    chart: {
+      type: "line",
+      height: 240,
       toolbar: {
-      show: false,
+        show: false,
       },
-  },
-  title: {
+    },
+    title: {
       show: "",
-  },
-  dataLabels: {
+    },
+    dataLabels: {
       enabled: false,
-  },
-  colors: ["#020617"],
-  plotOptions: {
-      bar: {
-      columnWidth: "40%",
-      borderRadius: 2,
-      },
-  },
-  xaxis: {
+    },
+    colors: ["#020617"],
+    stroke: {
+      lineCap: "round",
+      curve: "smooth",
+    },
+    markers: {
+      size: 0,
+    },
+    xaxis: {
       axisTicks: {
-      show: false,
+        show: false,
       },
       axisBorder: {
-      show: false,
+        show: false,
       },
       labels: {
-      style: {
+        style: {
           colors: "#616161",
           fontSize: "12px",
           fontFamily: "inherit",
           fontWeight: 400,
-      },
+        },
       },
       categories: {!! json_encode($chart) !!},
-  },
-  yaxis: {
+    },
+    yaxis: {
       labels: {
-      style: {
+        style: {
           colors: "#616161",
           fontSize: "12px",
           fontFamily: "inherit",
           fontWeight: 400,
+        },
       },
-      },
-  },
-  grid: {
+    },
+    grid: {
       show: true,
       borderColor: "#dddddd",
       strokeDashArray: 5,
       xaxis: {
-      lines: {
+        lines: {
           show: true,
-      },
+        },
       },
       padding: {
-      top: 5,
-      right: 20,
+        top: 5,
+        right: 20,
       },
-  },
-  fill: {
+    },
+    fill: {
       opacity: 0.8,
-  },
-  tooltip: {
+    },
+    tooltip: {
       theme: "dark",
-  },
+    },
   };
-
-  const chart = new ApexCharts(document.querySelector("#bar-chart1"), chartConfig);
-
+  
+  const chart = new ApexCharts(document.querySelector("#chart"), chartConfig);
+  
   chart.render();
 </script>
