@@ -1,6 +1,8 @@
 <div>
     <div class="hidden">
         @php
+            $row = [];
+            $nn = [];
             $no1 = 0;
             $no2 = 0;
             $no3 = 0;
@@ -50,6 +52,10 @@
             
             @php
                 $average = ($dayCount > 0) ? number_format($sum / $dayCount, 2) : 0;
+                $row[] = [
+                    'gname' => $emp->name,
+                    'gave' => $average
+                ];
             @endphp
             @if ($emp->position == 'Sheller')
                 @if ($average >= 100 && $average <= 400)
@@ -233,11 +239,13 @@
                         <div class="sm:col-span-7">Employee Name</div>
                         <div class="sm:col-span-5">Average Output</div>
                     </div>
-                    @forelse ($a as $emm)
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$emm['nam']}}</div>
-                            <div class="sm:col-span-5">{{$emm['av']}}</div>
-                        </div>
+                    @forelse ($row as $emm)
+                        @if ($emm >= 1500)
+                            <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                                <div class="sm:col-span-7">{{$emm['gname']}}</div>
+                                <div class="sm:col-span-5">{{$emm['gave']}}</div>
+                            </div>
+                        @endif
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                             <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
