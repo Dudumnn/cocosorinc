@@ -53,8 +53,9 @@
             @endphp
             @if ($emp->position == 'Sheller')
                 @if ($average >= 100 && $average <= 400)
-                    {{$no1++}}
+                    {{}}
                     @php
+                        $no1++;
                         $q[] = [
                             'name' => $emp->name,
                             'ave' => $average
@@ -62,8 +63,9 @@
                     @endphp
                 @endif
                 @if ($average >= 401 && $average <= 600)
-                    {{$no2++}}
+                    {{}}
                     @php
+                        $no2++;
                         $q[] = [
                             'name' => $emp->name,
                             'ave' => $average
@@ -71,8 +73,9 @@
                     @endphp
                 @endif
                 @if ($average >= 601 && $average <= 800)
-                    {{$no3++}}
+                    {{}}
                     @php
+                        $no3++;
                         $q[] = [
                             'name' => $emp->name,
                             'ave' => $average
@@ -80,8 +83,9 @@
                     @endphp
                 @endif
                 @if ($average >= 800 && $average <= 874)
-                    {{$no4++}}
+                    {{}}
                     @php
+                        $no4++;
                         $q[] = [
                             'name' => $emp->name,
                             'ave' => $average
@@ -90,8 +94,9 @@
                 @endif
                 {{--Below Quota--}}
                 @if ($average >= 875 && $average <= 1000)
-                    {{$no5++}}
+                    {{}}
                     @php
+                        $no5++;
                         $a[] = [
                             'nam' => $emp->name,
                             'av' => $average
@@ -99,8 +104,9 @@
                     @endphp
                 @endif
                 @if ($average >= 1001 && $average <= 1200)
-                    {{$no6++}}
+                    {{}}
                     @php
+                        $no6++;
                         $a[] = [
                             'nam' => $emp->name,
                             'av' => $average
@@ -108,8 +114,9 @@
                     @endphp
                 @endif
                 @if ($average >= 1201 && $average <= 1400)
-                    {{$no7++}}
+                    {{}}
                     @php
+                        $no7++;
                         $a[] = [
                             'nam' => $emp->name,
                             'av' => $average
@@ -117,8 +124,9 @@
                     @endphp
                 @endif
                 @if ($average >= 1401 && $average <= 1600)
-                    {{$no8++}}
+                    {{}}
                     @php
+                        $no8++;
                         $a[] = [
                             'nam' => $emp->name,
                             'av' => $average
