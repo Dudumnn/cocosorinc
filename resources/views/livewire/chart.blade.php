@@ -1,104 +1,76 @@
+
+
 <div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-
-  <div id="bar-chart"></div>
-    
+    <!-- Radial Chart -->
+    <div class="py-6" id="radial-chart"></div>
 </div>
-
-<script>
-  // ApexCharts options and config
-  window.addEventListener("load", function() {
-    var options = {
-      series: [
-        {
-          name: "Income",
-          color: "#31C48D",
-          data: {!! json_encode($chartVar) !!},
-        },
-      ],
-      chart: {
-        sparkline: {
-          enabled: false,
-        },
-        type: "bar",
-        width: "100%",
-        height: 400,
-        toolbar: {
-          show: false,
-        }
-      },
-      fill: {
-        opacity: 1,
-      },
-      plotOptions: {
-        bar: {
-          horizontal: true,
-          columnWidth: "100%",
-          borderRadiusApplication: "end",
-          borderRadius: 6,
-          dataLabels: {
-            position: "top",
-          },
-        },
-      },
-      legend: {
-        show: true,
-        position: "bottom",
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      tooltip: {
-        shared: true,
-        intersect: false,
-        formatter: function (value) {
-          return "$" + value
-        }
-      },
-      xaxis: {
-        labels: {
-          show: true,
-          style: {
-            fontFamily: "Inter, sans-serif",
-            cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-          },
-          formatter: function(value) {
-            return "$" + value
-          }
-        },
-        categories: {!! json_encode($chart) !!},
-        axisTicks: {
-          show: false,
-        },
-        axisBorder: {
-          show: false,
-        },
-      },
-      yaxis: {
-        labels: {
-          show: true,
-          style: {
-            fontFamily: "Inter, sans-serif",
-            cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+  
+  <script>
+    // ApexCharts options and config
+    window.addEventListener("load", function() {
+      const getChartOptions = () => {
+          return {
+            series: {!! json_encode($chartVar) !!},
+            colors: ["#1C64F2", "#16BDCA", "#FDBA8C"],
+            chart: {
+              height: "380px",
+              width: "100%",
+              type: "radialBar",
+              sparkline: {
+                enabled: true,
+              },
+            },
+            plotOptions: {
+              radialBar: {
+                track: {
+                  background: '#E5E7EB',
+                },
+                dataLabels: {
+                  show: false,
+                },
+                hollow: {
+                  margin: 0,
+                  size: "32%",
+                }
+              },
+            },
+            grid: {
+              show: false,
+              strokeDashArray: 4,
+              padding: {
+                left: 2,
+                right: 2,
+                top: -23,
+                bottom: -20,
+              },
+            },
+            labels: {!! json_encode($chart) !!},
+            legend: {
+              show: true,
+              position: "bottom",
+              fontFamily: "Inter, sans-serif",
+            },
+            tooltip: {
+              enabled: true,
+              x: {
+                show: false,
+              },
+            },
+            yaxis: {
+              show: false,
+              labels: {
+                formatter: function (value) {
+                  return value + '%';
+                }
+              }
+            }
           }
         }
-      },
-      grid: {
-        show: true,
-        strokeDashArray: 4,
-        padding: {
-          left: 2,
-          right: 2,
-          top: -20
-        },
-      },
-      fill: {
-        opacity: 1,
-      }
-    }
-
-    if(document.getElementById("bar-chart") && typeof ApexCharts !== 'undefined') {
-      const chart = new ApexCharts(document.getElementById("bar-chart"), options);
-      chart.render();
-    }
-  });
-</script>
+        
+        if (document.getElementById("radial-chart") && typeof ApexCharts !== 'undefined') {
+          var chart = new ApexCharts(document.querySelector("#radial-chart"), getChartOptions());
+          chart.render();
+        }
+    });
+  </script>
+  
