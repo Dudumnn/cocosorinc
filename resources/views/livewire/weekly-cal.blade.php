@@ -11,7 +11,7 @@
             $no8 = 0;
 
             $q = [];
-            $qq = [];
+            $ford = [];
 
             $na1 = 0;
             $na2 = 0;
@@ -91,7 +91,7 @@
                 @if ($average >= 500 && $average <= 1000)
                     {{$na1++}}
                     @php
-                        $qq[] = [
+                        $ford[] = [
                             'name' => $emp->name,
                             'ave' => $average
                         ];
@@ -100,7 +100,7 @@
                 @if ($average >= 1001 && $average <= 1499)
                     {{$na2++}}
                     @php
-                        $qq[] = [
+                        $ford[] = [
                             'name' => $emp->name,
                             'ave' => $average
                         ];
@@ -187,7 +187,7 @@
                         <div class="sm:col-span-7">Range</div>
                         <div class="sm:col-span-5">No. of Employees</div>
                     </div>
-                    @foreach ($qq as $fore)
+                    @foreach ($ford as $fore)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                             <div class="sm:col-span-7">{{$fore->name}}</div>
                             <div class="sm:col-span-5">{{$fore->ave}}</div>
