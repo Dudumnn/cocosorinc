@@ -1,7 +1,7 @@
 <div class="relative w-full flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
     
     <div class="w-full pt-6 px-2 pb-0">
-        <div id="bar-chart2" class="w-full"></div>
+        <div id="bar-chart" class="w-full"></div>
     </div>
 </div>
    
@@ -91,7 +91,7 @@
     },
     };
 
-    const chart = new ApexCharts(document.querySelector("#bar-chart2"), chartConfig);
+    const chart = new ApexCharts(document.querySelector("#bar-chart"), chartConfig);
 
     chart.render();
 </script>
