@@ -11,6 +11,7 @@
             $no8 = 0;
 
             $q = [];
+            $qq = [];
 
             $na1 = 0;
             $na2 = 0;
@@ -88,22 +89,58 @@
                 {{--Below Quota--}}
                 @if ($average >= 875 && $average <= 1000)
                     {{$no5++}}
+                    @php
+                        $qq[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 1001 && $average <= 1200)
                     {{$no6++}}
+                    @php
+                        $qq[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 1201 && $average <= 1400)
                     {{$no7++}}
+                    @php
+                        $qq[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 1401 && $average <= 1600)
                     {{$no8++}}
+                    @php
+                        $qq[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
             @else
                 @if ($average >= 500 && $average <= 1000)
                     {{$na1++}}
+                    @php
+                        $qq[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 1001 && $average <= 1499)
                     {{$na2++}}
+                    @php
+                        $qq[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 {{--Below Quota--}}
                 @if ($average >= 1500 && $average <= 2000)
@@ -186,26 +223,12 @@
                         <div class="sm:col-span-7">Range</div>
                         <div class="sm:col-span-5">No. of Employees</div>
                     </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">500 - 1000</div>
-                        <div class="sm:col-span-5">{{ $na1 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">1001 - 1499</div>
-                        <div class="sm:col-span-5">{{ $na2 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">1500 - 2000</div>
-                        <div class="sm:col-span-5">{{ $na3 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">2001 - 2500</div>
-                        <div class="sm:col-span-5">{{ $na4 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">2501 - 3000</div>
-                        <div class="sm:col-span-5">{{ $na5 }}</div>
-                    </div>
+                    @foreach ($qq as $itemmm)
+                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                            <div class="sm:col-span-7">{{$itemmm->name}}</div>
+                            <div class="sm:col-span-5">{{$itemmm->ave}}</div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
             
