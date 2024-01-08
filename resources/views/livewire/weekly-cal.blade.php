@@ -53,7 +53,6 @@
             @endphp
             @if ($emp->position == 'Sheller')
                 @if ($average >= 100 && $average <= 400)
-                    {{}}
                     @php
                         $no1++;
                         $q[] = [
@@ -63,7 +62,6 @@
                     @endphp
                 @endif
                 @if ($average >= 401 && $average <= 600)
-                    {{}}
                     @php
                         $no2++;
                         $q[] = [
@@ -73,7 +71,6 @@
                     @endphp
                 @endif
                 @if ($average >= 601 && $average <= 800)
-                    {{}}
                     @php
                         $no3++;
                         $q[] = [
@@ -83,7 +80,6 @@
                     @endphp
                 @endif
                 @if ($average >= 800 && $average <= 874)
-                    {{}}
                     @php
                         $no4++;
                         $q[] = [
@@ -94,7 +90,6 @@
                 @endif
                 {{--Below Quota--}}
                 @if ($average >= 875 && $average <= 1000)
-                    {{}}
                     @php
                         $no5++;
                         $a[] = [
@@ -104,7 +99,6 @@
                     @endphp
                 @endif
                 @if ($average >= 1001 && $average <= 1200)
-                    {{}}
                     @php
                         $no6++;
                         $a[] = [
@@ -114,7 +108,6 @@
                     @endphp
                 @endif
                 @if ($average >= 1201 && $average <= 1400)
-                    {{}}
                     @php
                         $no7++;
                         $a[] = [
@@ -124,7 +117,6 @@
                     @endphp
                 @endif
                 @if ($average >= 1401 && $average <= 1600)
-                    {{}}
                     @php
                         $no8++;
                         $a[] = [
@@ -222,7 +214,7 @@
                     @forelse ($q as $itemm)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                             <div class="sm:col-span-7">{{$itemm['name']}}</div>
-                            <div class="sm:col-span-5">{{$itemm[['ave']]}}</div>
+                            <div class="sm:col-span-5">{{$itemm['ave']}}</div>
                         </div>
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
