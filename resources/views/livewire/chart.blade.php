@@ -6,7 +6,7 @@
  
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
-  const chartConfig = {
+  const chartConfig1 = {
     series: [
       {
         name: "Sales",
@@ -83,7 +83,7 @@
     },
   };
   
-  const chart = new ApexCharts(document.querySelector("#chart"), chartConfig);
+  const chart = new ApexCharts(document.querySelector("#chart"), chartConfig1);
   
   chart.render();
 </script>
