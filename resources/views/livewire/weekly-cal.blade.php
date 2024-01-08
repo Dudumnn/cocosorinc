@@ -115,8 +115,9 @@
             </div>
             <div class="sm:col-span-5 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full">
-                    <livewire:chart :chart="$chart" :chartVar="$chartVar"/>
+                    <livewire:bar-chart :bar="$bar" :barVar="$barVar"/>
                 </div>
+                
             </div>
             
             <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
@@ -174,7 +175,7 @@
             </div>
             <div class="sm:col-span-5 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full">
-                    <livewire:bar-chart :bar="$bar" :barVar="$barVar"/>
+                    <livewire:chart :chart="$chart" :chartVar="$chartVar"/>
                 </div>
             </div>
             <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
