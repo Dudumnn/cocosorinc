@@ -1,89 +1,74 @@
-<div class="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-  <div class="pt-6 px-2 pb-0">
-    <div id="line-chart"></div>
-  </div>
+<div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <!-- Radial Chart -->
+    <div class="py-6" id="radial-chart"></div>
 </div>
- 
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script>
-  const chartConfig1 = {
-    series: [
-      {
-        name: "Sales",
-        data: {!! json_encode($chartVar) !!},
-      },
-    ],
-    chart: {
-      type: "line",
-      height: 240,
-      toolbar: {
-        show: false,
-      },
-    },
-    title: {
-      show: "",
-    },
-    dataLabels: {
-      enabled: false,
-    },
-    colors: ["#020617"],
-    stroke: {
-      lineCap: "round",
-      curve: "smooth",
-    },
-    markers: {
-      size: 0,
-    },
-    xaxis: {
-      axisTicks: {
-        show: false,
-      },
-      axisBorder: {
-        show: false,
-      },
-      labels: {
-        style: {
-          colors: "#616161",
-          fontSize: "12px",
-          fontFamily: "inherit",
-          fontWeight: 400,
-        },
-      },
-      categories: {!! json_encode($chart) !!},
-    },
-    yaxis: {
-      labels: {
-        style: {
-          colors: "#616161",
-          fontSize: "12px",
-          fontFamily: "inherit",
-          fontWeight: 400,
-        },
-      },
-    },
-    grid: {
-      show: true,
-      borderColor: "#dddddd",
-      strokeDashArray: 5,
-      xaxis: {
-        lines: {
-          show: true,
-        },
-      },
-      padding: {
-        top: 5,
-        right: 20,
-      },
-    },
-    fill: {
-      opacity: 0.8,
-    },
-    tooltip: {
-      theme: "dark",
-    },
-  };
   
-  const chart = new ApexCharts(document.querySelector("#chart"), chartConfig1);
+  <script>
+    // ApexCharts options and config
+    window.addEventListener("load", function() {
+      const getChartOptions = () => {
+          return {
+            series: [90, 85, 70],
+            colors: ["#1C64F2", "#16BDCA", "#FDBA8C"],
+            chart: {
+              height: "380px",
+              width: "100%",
+              type: "radialBar",
+              sparkline: {
+                enabled: true,
+              },
+            },
+            plotOptions: {
+              radialBar: {
+                track: {
+                  background: '#E5E7EB',
+                },
+                dataLabels: {
+                  show: false,
+                },
+                hollow: {
+                  margin: 0,
+                  size: "32%",
+                }
+              },
+            },
+            grid: {
+              show: false,
+              strokeDashArray: 4,
+              padding: {
+                left: 2,
+                right: 2,
+                top: -23,
+                bottom: -20,
+              },
+            },
+            labels: {!! json_encode($chart) !!},
+            legend: {
+              show: true,
+              position: "bottom",
+              fontFamily: "Inter, sans-serif",
+            },
+            tooltip: {
+              enabled: true,
+              x: {
+                show: false,
+              },
+            },
+            yaxis: {
+              show: false,
+              labels: {
+                formatter: function (value) {
+                  return value + '%';
+                }
+              }
+            }
+          }
+        }
+        
+        if (document.getElementById("radial-chart") && typeof ApexCharts !== 'undefined') {
+          var chart = new ApexCharts(document.querySelector("#radial-chart"), getChartOptions());
+          chart.render();
+        }
+    });
+  </script>
   
-  chart.render();
-</script>
