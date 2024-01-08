@@ -41,7 +41,7 @@
                             <h2 class="bg-gray-50 rounded-t-md text-base font-semibold leading-7 text-gray-900 px-6 py-3 border-b">Personal Detail</h2>
                             <div class="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-12 px-6 pt-6 pb-10">
                                 <div class="sm:col-span-12">
-                                    <label class="block text-sm font-medium leading-6 text-gray-900">Full Name <span class="pl-3 text-red-300">*first and last name</span></label>
+                                    <label class="block text-sm font-medium leading-6 text-gray-900">Full Name <span class="pl-3 text-red-400">*first and last name</span></label>
                                     <div class="mt-2">
                                         <input type="text" name="name"  value="{{old('name')}}" 
                                             class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
