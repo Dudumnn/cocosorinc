@@ -193,8 +193,8 @@
                     </div>
                     @forelse ($ford as $for)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$itemm->fname}}</div>
-                            <div class="sm:col-span-5">{{$itemm->aver}}</div>
+                            <div class="sm:col-span-7">{{$for->fname}}</div>
+                            <div class="sm:col-span-5">{{$for->aver}}</div>
                         </div>
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
