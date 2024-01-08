@@ -11,7 +11,7 @@
       const getChartOptions = () => {
           return {
             series: {!! json_encode($chartVar) !!},
-            colors: ["#1C64F2", "#16BDCA", "#FDBA8C"],
+            colors: ["#020617", "#020617", "#020617", "#020617", "#020617", "#020617", "#020617", "#020617"],
             chart: {
               height: "380px",
               width: "100%",
