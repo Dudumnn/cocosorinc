@@ -60,7 +60,7 @@
               show: false,
               labels: {
                 formatter: function (value) {
-                  return value + '%';
+                  return value + 'employee/s';
                 }
               }
             }
