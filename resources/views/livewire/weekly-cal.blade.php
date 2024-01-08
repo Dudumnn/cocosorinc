@@ -10,6 +10,8 @@
             $no7 = 0;
             $no8 = 0;
 
+            $q = [];
+
             $na1 = 0;
             $na2 = 0;
             $na3 = 0;
@@ -49,15 +51,39 @@
             @if ($emp->position == 'Sheller')
                 @if ($average >= 100 && $average <= 400)
                     {{$no1++}}
+                    @php
+                        $q[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 401 && $average <= 600)
                     {{$no2++}}
+                    @php
+                        $q[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 601 && $average <= 800)
                     {{$no3++}}
+                    @php
+                        $q[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 800 && $average <= 874)
                     {{$no4++}}
+                    @php
+                        $q[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 {{--Below Quota--}}
                 @if ($average >= 875 && $average <= 1000)
@@ -109,7 +135,7 @@
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
             <div class="sm:col-span-12 sm:flex sm:flex-col sm:items-center text-center text-lg font-bold mb-6">
-                <span>{{$emp->shift}} Shift Sheller Below Quota</span>
+                <span>{{$emp->shift}} Shift Sheller Quota</span>
                 <span class="text-base">{{ \Carbon\Carbon::parse($date->start_date)->format('M d, Y')}}, {{\Carbon\Carbon::parse($date->end_date)->format('M d, Y')}}</span>
                 <span class="text-base">{{$date->time_in}}, {{$date->time_out}}</span>
             </div>
@@ -121,45 +147,19 @@
             
             <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Sheller Employees</span>
+                    <span class="text-sm font-medium text-gray-500">Employees Below Quota</span>
                 </div>
                 <div class="w-full p-2">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">Range</div>
                         <div class="sm:col-span-5">No. of Employees</div>
                     </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">100 - 400</div>
-                        <div class="sm:col-span-5">{{ $no1 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">401 - 600</div>
-                        <div class="sm:col-span-5">{{ $no2 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">601 - 800</div>
-                        <div class="sm:col-span-5">{{ $no3 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">801 - 874</div>
-                        <div class="sm:col-span-5">{{ $no4 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">875 - 1000</div>
-                        <div class="sm:col-span-5">{{ $no5 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">1001 - 1200</div>
-                        <div class="sm:col-span-5">{{ $no6 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">1201 - 1400</div>
-                        <div class="sm:col-span-5">{{ $no7 }}</div>
-                    </div>
-                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">1401 - 1600</div>
-                        <div class="sm:col-span-5">{{ $no8 }}</div>
-                    </div>
+                    @foreach ($q[] as $itemm)
+                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                            <div class="sm:col-span-7">{{$itemm->name}}</div>
+                            <div class="sm:col-span-5">{{$itemm->ave}}</div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
             
@@ -168,7 +168,7 @@
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
         <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
             <div class="sm:col-span-12 sm:flex sm:flex-col sm:items-center text-center text-lg font-bold mb-6">
-                <span>{{$emp->shift}} Shift Parer Below Quota</span>
+                <span>{{$emp->shift}} Shift Parer Quota</span>
                 <span class="text-base">{{ \Carbon\Carbon::parse($date->start_date)->format('M d, Y')}}, {{\Carbon\Carbon::parse($date->end_date)->format('M d, Y')}}</span>
                 <span class="text-base">{{$date->time_in}}, {{$date->time_out}}</span>
             </div>
@@ -179,7 +179,7 @@
             </div>
             <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Parer Employees</span>
+                    <span class="text-sm font-medium text-gray-500">Employees Below Quota</span>
                 </div>
                 <div class="w-full p-2">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
