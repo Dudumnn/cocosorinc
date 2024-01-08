@@ -233,10 +233,10 @@
                         <div class="sm:col-span-7">Employee Name</div>
                         <div class="sm:col-span-5">Average Output</div>
                     </div>
-                    @forelse ($gord as $fame)
+                    @forelse ($a as $emm)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$fame['fame']}}</div>
-                            <div class="sm:col-span-5">{{$fame['rave']}}</div>
+                            <div class="sm:col-span-7">{{$emm['nam']}}</div>
+                            <div class="sm:col-span-5">{{$emm['av']}}</div>
                         </div>
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
@@ -255,12 +255,12 @@
                 <span class="text-base">{{ \Carbon\Carbon::parse($date->start_date)->format('M d, Y')}}, {{\Carbon\Carbon::parse($date->end_date)->format('M d, Y')}}</span>
                 <span class="text-base">{{$date->time_in}}, {{$date->time_out}}</span>
             </div>
-            <div class="sm:col-span-5 border border-gray-200 rounded-sm text-xs">
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full">
                     <livewire:bar-chart :bar="$bar" :barVar="$barVar"/>
                 </div>
             </div>
-            <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Employees Below Quota</span>
                 </div>
@@ -281,7 +281,7 @@
                     @endforelse
                 </div>
             </div>
-            <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Employees Above Quota</span>
                 </div>
@@ -290,10 +290,10 @@
                         <div class="sm:col-span-7">Employee Name</div>
                         <div class="sm:col-span-5">Average Output</div>
                     </div>
-                    @forelse ($ford as $for)
+                    @forelse ($gord as $fame)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$for['fname']}}</div>
-                            <div class="sm:col-span-5">{{$for['aver']}}</div>
+                            <div class="sm:col-span-7">{{$fame['fame']}}</div>
+                            <div class="sm:col-span-5">{{$fame['rave']}}</div>
                         </div>
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
