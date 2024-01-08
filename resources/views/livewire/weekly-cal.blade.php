@@ -70,9 +70,21 @@
                 @endif
                 @if ($average >= 601 && $average <= 800)
                     {{$no3++}}
+                    @php
+                        $q[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 800 && $average <= 874)
                     {{$no4++}}
+                    @php
+                        $q[] = [
+                            'name' => $emp->name,
+                            'ave' => $average
+                        ];
+                    @endphp
                 @endif
                 {{--Below Quota--}}
                 @if ($average >= 875 && $average <= 1000)
@@ -92,8 +104,8 @@
                     {{$na1++}}
                     @php
                         $ford[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
+                            'fname' => $emp->name,
+                            'aver' => $average
                         ];
                     @endphp
                 @endif
