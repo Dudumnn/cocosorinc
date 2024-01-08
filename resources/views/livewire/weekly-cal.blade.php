@@ -164,8 +164,8 @@
                 </div>
                 <div class="w-full p-2">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">Range</div>
-                        <div class="sm:col-span-5">No. of Employees</div>
+                        <div class="sm:col-span-7">Employee Name</div>
+                        <div class="sm:col-span-5">Average Output</div>
                     </div>
                     @forelse ($q as $itemm)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
@@ -200,8 +200,8 @@
                 </div>
                 <div class="w-full p-2">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">Range</div>
-                        <div class="sm:col-span-5">No. of Employees</div>
+                        <div class="sm:col-span-7">Employee Name</div>
+                        <div class="sm:col-span-5">Average Output</div>
                     </div>
                     @forelse ($ford as $for)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
