@@ -223,10 +223,10 @@
                         <div class="sm:col-span-7">Range</div>
                         <div class="sm:col-span-5">No. of Employees</div>
                     </div>
-                    @foreach ($qq as $itemmm)
+                    @foreach ($qq as $fore)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$itemmm->name}}</div>
-                            <div class="sm:col-span-5">{{$itemmm->ave}}</div>
+                            <div class="sm:col-span-7">{{$fore->name}}</div>
+                            <div class="sm:col-span-5">{{$fore->ave}}</div>
                         </div>
                     @endforeach
                 </div>
