@@ -271,11 +271,21 @@
                         <div class="sm:col-span-7">Employee Name</div>
                         <div class="sm:col-span-5">Average Output</div>
                     </div>
+                    <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">{{$for['fname']}}</div>
+                        <div class="sm:col-span-5">{{$for['aver']}}</div>
+                    </div>
                     @forelse ($ford as $for)
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                        @if (isset($item['fname']) && isset($item['aver']))
+                            <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                                <div class="sm:col-span-7">{{$for['fname']}}</div>
+                                <div class="sm:col-span-5">{{$for['aver']}}</div>
+                            </div>
+                        @endif
+                        {{--<div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                             <div class="sm:col-span-7">{{$for['fname']}}</div>
                             <div class="sm:col-span-5">{{$for['aver']}}</div>
-                        </div>
+                        </div>--}}
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                             <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
