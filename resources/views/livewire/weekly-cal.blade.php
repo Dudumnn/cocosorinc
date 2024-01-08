@@ -94,7 +94,7 @@
         @php
             $chart = [
                 '100 - 400', '401 - 600', '601 - 800', '801 - 874', '875 - 1000', '1001 - 1200', '1201 - 1400', '1401 - 1600'
-            ]
+            ];
             $chartVar = [
                 $no1, $no2, $no3, $no4, $no5, $no6, $no7, $no8
             ];
@@ -103,7 +103,7 @@
             ];
             $barVar = [
                 $na1, $na2, $na3, $na4, $na5
-            ]
+            ];
         @endphp
     </div>
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
@@ -115,7 +115,7 @@
             </div>
             <div class="sm:col-span-5 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full">
-                    <livewire:chart :first="$first" :second="$second"/>
+                    <livewire:chart :chart="$chart" :chartVar="$chartVar"/>
                 </div>
             </div>
             
