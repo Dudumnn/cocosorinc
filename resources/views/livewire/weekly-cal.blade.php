@@ -70,58 +70,22 @@
                 @endif
                 @if ($average >= 601 && $average <= 800)
                     {{$no3++}}
-                    @php
-                        $q[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
                 @endif
                 @if ($average >= 800 && $average <= 874)
                     {{$no4++}}
-                    @php
-                        $q[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
                 @endif
                 {{--Below Quota--}}
                 @if ($average >= 875 && $average <= 1000)
                     {{$no5++}}
-                    @php
-                        $qq[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
                 @endif
                 @if ($average >= 1001 && $average <= 1200)
                     {{$no6++}}
-                    @php
-                        $qq[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
                 @endif
                 @if ($average >= 1201 && $average <= 1400)
                     {{$no7++}}
-                    @php
-                        $qq[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
                 @endif
                 @if ($average >= 1401 && $average <= 1600)
                     {{$no8++}}
-                    @php
-                        $qq[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
                 @endif
             @else
                 @if ($average >= 500 && $average <= 1000)
