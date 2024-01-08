@@ -240,7 +240,7 @@
                         <div class="sm:col-span-5">Average Output</div>
                     </div>
                     @forelse ($row as $emm)
-                        @if ($emm->gave >= 1500)
+                        @if ($emm['gave'] >= 1500)
                             <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                                 <div class="sm:col-span-7">{{$emm['gname']}}</div>
                                 <div class="sm:col-span-5">{{$emm['gave']}}</div>
