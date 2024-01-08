@@ -213,8 +213,8 @@
                     </div>
                     @forelse ($q as $itemm)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$itemm->name}}</div>
-                            <div class="sm:col-span-5">{{$itemm->ave}}</div>
+                            <div class="sm:col-span-7">{{$itemm['name']}}</div>
+                            <div class="sm:col-span-5">{{$itemm[['ave']]}}</div>
                         </div>
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
