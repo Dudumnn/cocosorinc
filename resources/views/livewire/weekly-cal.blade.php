@@ -226,17 +226,17 @@
 
             <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Employees Below Quota</span>
+                    <span class="text-sm font-medium text-gray-500">Employees Above Quota</span>
                 </div>
                 <div class="w-full p-2">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
                         <div class="sm:col-span-7">Employee Name</div>
                         <div class="sm:col-span-5">Average Output</div>
                     </div>
-                    @forelse ($a as $emm)
+                    @forelse ($gord as $fame)
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$emm['nam']}}</div>
-                            <div class="sm:col-span-5">{{$emm['av']}}</div>
+                            <div class="sm:col-span-7">{{$fame['fame']}}</div>
+                            <div class="sm:col-span-5">{{$fame['rave']}}</div>
                         </div>
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
@@ -263,6 +263,27 @@
             <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Employees Below Quota</span>
+                </div>
+                <div class="w-full p-2">
+                    <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">Employee Name</div>
+                        <div class="sm:col-span-5">Average Output</div>
+                    </div>
+                    @forelse ($ford as $for)
+                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                            <div class="sm:col-span-7">{{$for['fname']}}</div>
+                            <div class="sm:col-span-5">{{$for['aver']}}</div>
+                        </div>
+                    @empty
+                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                            <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+            <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
+                <div class="w-full border-b px-3 py-2 ">
+                    <span class="text-sm font-medium text-gray-500">Employees Above Quota</span>
                 </div>
                 <div class="w-full p-2">
                     <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
