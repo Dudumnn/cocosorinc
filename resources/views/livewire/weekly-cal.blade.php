@@ -91,18 +91,18 @@
                 @if ($average >= 500 && $average <= 1000)
                     {{$na1++}}
                     @php
-                        $ford[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
+                        $q[] = [
+                            'name1' => $emp->name,
+                            'ave1' => $average
                         ];
                     @endphp
                 @endif
                 @if ($average >= 1001 && $average <= 1499)
                     {{$na2++}}
                     @php
-                        $ford[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
+                        $q[] = [
+                            'name1' => $emp->name,
+                            'ave1' => $average
                         ];
                     @endphp
                 @endif
@@ -162,7 +162,7 @@
                         </div>
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-12">Nothing to show</div>
+                            <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
                         </div>
                     @endforelse
                 </div>
@@ -191,6 +191,16 @@
                         <div class="sm:col-span-7">Range</div>
                         <div class="sm:col-span-5">No. of Employees</div>
                     </div>
+                    @forelse ($q as $itemm)
+                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                            <div class="sm:col-span-7">{{$itemm->name1}}</div>
+                            <div class="sm:col-span-5">{{$itemm->ave1}}</div>
+                        </div>
+                    @empty
+                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                            <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
+                        </div>
+                    @endforelse
                 </div>
             </div>
             
