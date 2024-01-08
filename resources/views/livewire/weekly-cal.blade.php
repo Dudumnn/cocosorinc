@@ -11,7 +11,9 @@
             $no8 = 0;
 
             $q = [];
+            $a = [];
             $ford = [];
+            $gord = [];
 
             $na1 = 0;
             $na2 = 0;
@@ -89,15 +91,39 @@
                 {{--Below Quota--}}
                 @if ($average >= 875 && $average <= 1000)
                     {{$no5++}}
+                    @php
+                        $a[] = [
+                            'nam' => $emp->name,
+                            'av' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 1001 && $average <= 1200)
                     {{$no6++}}
+                    @php
+                        $a[] = [
+                            'nam' => $emp->name,
+                            'av' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 1201 && $average <= 1400)
                     {{$no7++}}
+                    @php
+                        $a[] = [
+                            'nam' => $emp->name,
+                            'av' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 1401 && $average <= 1600)
                     {{$no8++}}
+                    @php
+                        $a[] = [
+                            'nam' => $emp->name,
+                            'av' => $average
+                        ];
+                    @endphp
                 @endif
             @else
                 @if ($average >= 500 && $average <= 1000)
@@ -121,12 +147,30 @@
                 {{--Below Quota--}}
                 @if ($average >= 1500 && $average <= 2000)
                     {{$na3++}}
+                    @php
+                        $gord[] = [
+                            'fame' => $emp->name,
+                            'rave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 2001 && $average <= 2500)
                     {{$na4++}}
+                    @php
+                        $gord[] = [
+                            'fame' => $emp->name,
+                            'rave' => $average
+                        ];
+                    @endphp
                 @endif
                 @if ($average >= 2501 && $average <= 3000)
                     {{$na5++}}
+                    @php
+                        $gord[] = [
+                            'fame' => $emp->name,
+                            'rave' => $average
+                        ];
+                    @endphp
                 @endif
             @endif
         @endforeach
@@ -152,13 +196,13 @@
                 <span class="text-base">{{ \Carbon\Carbon::parse($date->start_date)->format('M d, Y')}}, {{\Carbon\Carbon::parse($date->end_date)->format('M d, Y')}}</span>
                 <span class="text-base">{{$date->time_in}}, {{$date->time_out}}</span>
             </div>
-            <div class="sm:col-span-5 border border-gray-200 rounded-sm text-xs">
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full">
                     <livewire:chart :chart="$chart" :chartVar="$chartVar"/>
                 </div>
             </div>
             
-            <div class="sm:col-span-7 border border-gray-200 rounded-sm text-xs">
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
                 <div class="w-full border-b px-3 py-2 ">
                     <span class="text-sm font-medium text-gray-500">Employees Below Quota</span>
                 </div>
@@ -171,6 +215,28 @@
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
                             <div class="sm:col-span-7">{{$itemm->name}}</div>
                             <div class="sm:col-span-5">{{$itemm->ave}}</div>
+                        </div>
+                    @empty
+                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                            <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+
+            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
+                <div class="w-full border-b px-3 py-2 ">
+                    <span class="text-sm font-medium text-gray-500">Employees Below Quota</span>
+                </div>
+                <div class="w-full p-2">
+                    <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
+                        <div class="sm:col-span-7">Employee Name</div>
+                        <div class="sm:col-span-5">Average Output</div>
+                    </div>
+                    @forelse ($a as $emm)
+                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
+                            <div class="sm:col-span-7">{{$emm['nam']}}</div>
+                            <div class="sm:col-span-5">{{$emm['av']}}</div>
                         </div>
                     @empty
                         <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
