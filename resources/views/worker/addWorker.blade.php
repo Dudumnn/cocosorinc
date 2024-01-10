@@ -126,7 +126,7 @@
                                     <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Address</label>
                                     <div class="mt-2">
                                         <textarea type="text" name="address"  value="{{old('address')}}" 
-                                            class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{old('address')}}
+                                            class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         </textarea>
                                         @error('address')
                                             <p class="text-red-500 text-xs p-1">
