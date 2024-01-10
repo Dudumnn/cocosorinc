@@ -326,8 +326,8 @@
                 </div>
             </div>
         </div>
-        <div class="overflow-x-auto">
-            <table class="w-full border border-gray-200 text-xs text-left text-gray-500">
+        <div>
+            <table class="w-full border border-gray-200 text-xs text-left text-gray-500 overflow-auto">
                 <thead class="text-xs uppercase text-white bg-gray-700">
                     <tr>
                         <th scope="col" class="px-4 py-3 min-w-24">
