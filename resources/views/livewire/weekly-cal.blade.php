@@ -1,4 +1,4 @@
-<div>
+<div class="relative">
     <div class="hidden">
         @php
             $row = [];
