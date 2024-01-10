@@ -1,5 +1,5 @@
 <div class="relative">
-    <div class="hidden">
+    {{--<div class="hidden">
         @php
             $row = [];
             $nn = [];
@@ -90,7 +90,6 @@
                         ];
                     @endphp
                 @endif
-                {{--Below Quota--}}
                 @if ($average >= 875 && $average <= 1000)
                     @php
                         $no5++;
@@ -146,7 +145,6 @@
                         ];
                     @endphp
                 @endif
-                {{--Below Quota--}}
                 @if ($average >= 1500 && $average <= 2000)
                     {{$na3++}}
                     @php
@@ -306,7 +304,7 @@
             </div>
             
         </div>
-    </div>
+    </div>--}}
     
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3">
         <div class="flex items-center justify-between d p-4">
