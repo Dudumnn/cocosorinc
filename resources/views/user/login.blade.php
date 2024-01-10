@@ -64,4 +64,24 @@
             </form>
         </div>
     </section>
-@include('partials.footer')
+    <x-messages />
+    <!-- Your Livewire component view content -->
+    <script>
+        // JavaScript to toggle password visibility
+        const passwordInput = document.getElementById('password');
+        const passwordInput2 = document.getElementById('password_confirmation');
+        const showPasswordCheckbox = document.getElementById('show-password');
+    
+        showPasswordCheckbox.addEventListener('change', () => {
+            passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
+            passwordInput2.type = showPasswordCheckbox.checked ? 'text' : 'password';
+        });
+    </script>
+    <script>
+        // Listen for the $refresh event and reload the page
+        Livewire.on('$refresh', function () {
+            location.reload();
+        });
+    </script>
+</body>
+</html>
