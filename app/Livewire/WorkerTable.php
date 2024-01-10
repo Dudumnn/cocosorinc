@@ -48,6 +48,14 @@ class WorkerTable extends Component
         ]);
     }
 
+    /**public function resetFilters()
+    {
+        $this->search = '';
+        $this->position = '';
+        $this->status = '';
+        $this->shift = '';
+    }*/
+
     /**public function setId($id) {
         $this->empId = $id;
     }*/
