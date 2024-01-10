@@ -12,6 +12,8 @@ class WorkerTable extends Component
 
     public $search = '';
     public $perPage = 5;
+    public $position = '';
+    public $status = '';
     public $shift = '';
 
     public $sortBy = 'created_at';
@@ -32,6 +34,12 @@ class WorkerTable extends Component
     {
         return view('livewire.worker-table', [
             'users' => Worker::search($this->search)
+            ->when($this->position !== '',function($query){
+                $query->where('position',$this->position);
+            })
+            ->when($this->status !== '',function($query){
+                $query->where('status',$this->status);
+            })
             ->when($this->shift !== '',function($query){
                 $query->where('shift',$this->shift);
             })

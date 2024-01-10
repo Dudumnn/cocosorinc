@@ -1,16 +1,33 @@
 <div class="relative overflow-hidden w-full px-6 py-6">
-    <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mb-6">
-        <div class="flex justify-end space-x-10 px-4 pt-3">
+    <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mb-3">
+        <div class="flex items-center justify-between py-4 px-4 ">
+            <div class="flex">
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500"
+                            fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input 
+                        wire:model.live.debounce.300ms="search" 
+                        type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 "
+                        placeholder="Search" required="">
+                </div>
+            </div>
             <div class="flex flex-row space-x-1 items-center">
                 <label class="w-24 text-sm font-medium text-gray-900">Position :</label>
                 <div class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
                     <select 
-                        {{--wire:model.live="shift"--}}
+                        wire:model.live="position"
                         class="w-full h-full p-2.5 bg-transparent border-r-8 border-r-transparent rounded-lg"
                     >
                         <option value="">All</option>
-                        <option value="Green">Parer</option>
-                        <option value="Red">Sheller</option>
+                        <option value="Parer">Parer</option>
+                        <option value="Sheller">Sheller</option>
                     </select>
                 </div>
             </div>
@@ -18,12 +35,12 @@
                 <label class="w-24 text-sm font-medium text-gray-900">Status :</label>
                 <div class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
                     <select 
-                        {{--wire:model.live="shift"--}}
+                        wire:model.live="status"
                         class="w-full h-full p-2.5 bg-transparent border-r-8 border-r-transparent rounded-lg"
                     >
                         <option value="">All</option>
-                        <option value="Green">Parer</option>
-                        <option value="Red">Sheller</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Probationary">Probationary</option>
                     </select>
                 </div>
             </div>
@@ -39,37 +56,6 @@
                         <option value="Red">Red</option>
                         <option value="Yellow">Yellow</option>
                     </select>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mb-3">
-        <div class="flex items-center justify-between d pt-4 px-4">
-            <div class="flex space-x-4 items-center mb-3">
-                <label class="w-32 text-sm font-medium text-gray-900">Per Page</label>
-                <select wire:model.live='perPage' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2 ">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-            </div>
-            <div class="flex mb-3">
-                <div class="relative w-full">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500"
-                            fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </div>
-                    <input 
-                        wire:model.live.debounce.300ms="search" 
-                        type="text"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 "
-                        placeholder="Search" required="">
                 </div>
             </div>
         </div>
@@ -171,7 +157,17 @@
             </table>
         </div>
     
-        <div class="py-4 px-3 w-full flex justify-end">
+        <div class="py-4 pt-3 px-3 w-full flex justify-between">
+            <div class="flex space-x-4 items-center mb-3">
+                <label class="w-32 text-sm font-medium text-gray-900">Per Page</label>
+                <select wire:model.live='perPage' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2 ">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
             {{ $users->links()}}
         </div>
     </div>
