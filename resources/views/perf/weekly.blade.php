@@ -37,7 +37,7 @@
                 </nav>
             </section>
     
-            <section class="flex w-full overflow-x-scroll">
+            <section class="flex w-full overflow-hidden overflow-x-scroll">
                 <livewire:weekly-cal :sched="$sched"/>
             </section>
         </div>
