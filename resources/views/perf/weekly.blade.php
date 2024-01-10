@@ -6,7 +6,7 @@
         <div id="body" class="w-full overflow-y-auto transition-all duration-200 ">
             <section class="p-6 pt-10 w-full">
                 <h4 class="w-full page-title font-semibold text-slate-800 text-lg text-left">Schedules</h4>
-                <nav class="flex" aria-label="Breadcrumb">
+                <nav class="flex w-full" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 md:space-x-3">
                         <li class="inline-flex items-center">
                             <a href="/" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-500">
