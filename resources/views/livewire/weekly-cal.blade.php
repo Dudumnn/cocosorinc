@@ -412,11 +412,11 @@
                             @php
                                 $average = ($dayCount > 0) ? number_format($sum / $dayCount, 2) : 0;
                             @endphp
-                            <p class="hidden">
+                            {{--<p class="hidden">
                                 @if ($average >= 100 && $average <= 400 || $average < 100)
                                     {{$no1++}}
                                 @endif
-                            </p>
+                            </p>--}}
                             <td class="px-4 py-4 bg-red-200">
                                 {{ $average }}
                             </td>
