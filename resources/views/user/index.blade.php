@@ -49,7 +49,6 @@
                 @php
                     $shift = 0;
                     $total = 0;
-                    $user = 0;
                     $greenShift = 0;
                     $redShift = 0;
                     $yellowShift = 0;
