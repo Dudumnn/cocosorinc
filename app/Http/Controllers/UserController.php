@@ -72,28 +72,32 @@ class UserController extends Controller
     }
 
     public function index(){
-        //$data = User::where('id', '>', 0)->orderBy('name', 'desc')->get();
-        //return view('user.index', ['users' => $data]);
-        
-        $shift = Worker::distinct('shift')->count('shift');
-        $total = Worker::count();
-        $user = Auth::user()->count();
-        $greenShift = Worker::where('shift', 'green')->count();
-        $redShift = Worker::where('shift', 'red')->count();
-        $yellowShift = Worker::where('shift', 'yellow')->count();
-        $proba = Worker::where('status', 'probationary')->count();
-        $reg = Worker::where('status', 'regular')->count();
-
-
+        $user = User::all();
+        $worker = Worker::all();
         return view('user.index', [
-            'shift' => $shift, 
-            'total' => $total, 
-            'user' => $user, 
-            'greenShift' => $greenShift,
-            'redShift' => $redShift,
-            'yellowShift' => $yellowShift,
-            'proba' => $proba,
-            'reg' => $reg
+            'users' => $user,
+            'workers' => $worker
         ]);
+        
+        //$shift = Worker::distinct('shift')->count('shift');
+        //$total = Worker::count();
+        //$user = Auth::user()->count();
+        //$greenShift = Worker::where('shift', 'green')->count();
+        //$redShift = Worker::where('shift', 'red')->count();
+        //$yellowShift = Worker::where('shift', 'yellow')->count();
+        //$proba = Worker::where('status', 'probationary')->count();
+        //$reg = Worker::where('status', 'regular')->count();
+
+
+        //return view('user.index', [
+        //    'shift' => $shift, 
+        //    'total' => $total, 
+        //    'user' => $user, 
+        //    'greenShift' => $greenShift,
+        //    'redShift' => $redShift,
+        //    'yellowShift' => $yellowShift,
+        //    'proba' => $proba,
+        //    'reg' => $reg
+        //]);
     }
 } 

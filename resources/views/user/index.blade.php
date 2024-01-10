@@ -46,11 +46,59 @@
                 This is the body for Dashboard Page
             --}}
             <section class="flex flex-col gap-5 p-4">
+                @php
+                    $shift = 0;
+                    $total = 0;
+                    $user = 0;
+                    $greenShift = 0;
+                    $redShift = 0;
+                    $yellowShift = 0;
+                    $proba = 0;
+                    $reg = 0;
+                @endphp
+                @foreach ($workers as $stat)
+                    @if ($stat->status == 'probationary')
+                        @php
+                            $proba++;
+                        @endphp
+                    @else
+                        @php
+                            $reg++;
+                        @endphp
+                    @endif
+                @endforeach
+                @foreach ($workers as $data)
+                    @php
+                        $total++;
+                    @endphp
+                    @if ($data->shift == 'green')
+                        @php
+                            $greenShift++;
+                        @endphp
+                    @endif
+                    @if ($data->shift == 'red')
+                        @php
+                            $redShift++;
+                        @endphp
+                    @endif
+                    @if ($data->shift == 'yellow')
+                        @php
+                            $yellowShift++;
+                        @endphp
+                    @endif
+                @endforeach
+                {{-- Counts users--}}
+                @foreach ($users as $item)
+                    @php
+                        $user++;
+                    @endphp
+                @endforeach
+
                 <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12">
                     <div class="sm:col-span-3 flex justify-between px-3 py-5 shadow-lg border border-l-4 border-gray-200 rounded-md">
                         <div class="w-3/5">
                             <span class="text-sm font-medium text-gray-500">Working Shifts</span>
-                            <h5 class="font-bold text-gray-700 text-lg">{{ $shift }} Shifts</h5>
+                            <h5 class="font-bold text-gray-700 text-lg">3 Shifts</h5>
                         </div>
                         <div class="w-1/5 grid place-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#D1D5DB" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
