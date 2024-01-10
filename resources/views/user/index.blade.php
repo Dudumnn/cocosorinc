@@ -57,7 +57,7 @@
                     $reg = 0;
                 @endphp
                 @foreach ($workers as $stat)
-                    @if ($stat->status == 'probationary')
+                    @if ($stat->status == 'Probationary')
                         @php
                             $proba++;
                         @endphp
@@ -71,27 +71,21 @@
                     @php
                         $total++;
                     @endphp
-                    @if ($data->shift == 'green')
+                    @if ($data->shift == 'Green')
                         @php
                             $greenShift++;
                         @endphp
                     @endif
-                    @if ($data->shift == 'red')
+                    @if ($data->shift == 'Red')
                         @php
                             $redShift++;
                         @endphp
                     @endif
-                    @if ($data->shift == 'yellow')
+                    @if ($data->shift == 'Yellow')
                         @php
                             $yellowShift++;
                         @endphp
                     @endif
-                @endforeach
-                {{-- Counts users--}}
-                @foreach ($users as $item)
-                    @php
-                        $user++;
-                    @endphp
                 @endforeach
 
                 <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12">
@@ -120,10 +114,10 @@
                     <div class="sm:col-span-3 flex justify-between px-3 py-5 shadow-lg border border-l-4 border-gray-200 rounded-md">
                         <div class="w-3/5">
                             <span class="text-sm font-medium text-gray-500">Users</span>
-                            @if($user>1)
-                                <h5 class="font-bold text-gray-700 text-lg">{{ $user }} Users</h5>
-                            @elseif($user==1)
-                                <h5 class="font-bold text-gray-700 text-lg">{{ $user }} User</h5>
+                            @if($users>1)
+                                <h5 class="font-bold text-gray-700 text-lg">{{ $users }} Users</h5>
+                            @elseif($users==1)
+                                <h5 class="font-bold text-gray-700 text-lg">{{ $users }} User</h5>
                             @endif
                         </div>
                         <div class="w-1/5 grid place-items-center">

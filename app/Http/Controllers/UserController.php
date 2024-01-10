@@ -72,7 +72,7 @@ class UserController extends Controller
     }
 
     public function index(){
-        $user = User::all();
+        $user = Auth::user()->count();
         $worker = Worker::all();
         return view('user.index', [
             'users' => $user,
