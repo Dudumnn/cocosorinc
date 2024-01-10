@@ -28,7 +28,6 @@ class WorkerController extends Controller
     public function addEmployee(Request $request){
         $validated = $request->validate([
             'name' => ['required', 'min:4', 'unique:workers'],
-            'middle_name' => 'required',
             'extension_name' => 'required',
             'birthdate' => 'required',
             'age' => 'required',
@@ -50,7 +49,6 @@ class WorkerController extends Controller
 
         $validated = $request->validate([
             'name' => 'required',
-            'middle_name' => 'required',
             'extension_name' => 'required',
             'birthdate' => 'required',
             'age' => 'required',

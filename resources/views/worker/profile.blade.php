@@ -87,29 +87,6 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="flex flex-col w-1/4 text-black p-6 shadow-2xl border border-gray-500 rounded-md">
-                    <div class="flex justify-between border-b-2 border-gray-500 pb-3">
-                        <p class="font-bold text-xl">{{$employee->name}}</p>
-                        <a x-data x-on:click="$dispatch('open-modal')" class="text-sm mt-1 cursor-pointer">Edit</a>
-                    </div>
-                    <div class="pt-3">
-                        <p class="text-xs font-medium">SHIFT</p>
-                        <p class="text-xs pb-2">{{$employee->shift}}</p>
-                        <p class="text-xs font-medium">ADDRESS</p>
-                        <p class="text-xs pb-2">{{$employee->address}}</p>
-                        <p class="text-xs font-medium">POSITION</p>
-                        <p class="text-xs pb-2">{{$employee->position}}</p>
-                    </div>
-                </div>
-                <div class="flex flex-col w-3/4 text-black p-6 shadow-2xl border border-gray-500 rounded">
-                    <div class="flex justify-between pb-10">
-                        <p class="font-bold text-xl">{{$employee->name}}</p>
-                    </div>
-                    <div class="">
-                        {{ QrCode::size(250)->generate("$employee->name") }}
-                    </div>
-                </div>
-            -->
             <div
                 x-data = "{ show: false }"
                 x-show = "show"
@@ -139,21 +116,6 @@
                                                 class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
                                                 sm:leading-6">
                                                 @error('name')
-                                                    <p class="text-red-500 text-xs p-1">
-                                                        {{$message}}
-                                                    </p>
-                                                @enderror
-                                        </div>
-                                        <div class="sm:col-span-6">
-                                            <label class="block text-xs font-medium pl-1 text-gray-600 uppercase pb-1">Middle Name</label>
-                                            <input 
-                                                type="text" 
-                                                name="middle_name"  
-                                                value="{{ $employee->middle_name }}" 
-                                                autocomplete="off" 
-                                                class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
-                                                sm:leading-6">
-                                                @error('middle_name')
                                                     <p class="text-red-500 text-xs p-1">
                                                         {{$message}}
                                                     </p>
@@ -196,7 +158,7 @@
                                                 name="birthdate"
                                                 value="{{ $employee->birthdate }}" 
                                                 autocomplete="off" 
-                                                class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
+                                                class="block w-full border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
                                                 sm:leading-6">
                 
                                             @error('birthdate')
@@ -213,7 +175,7 @@
                                                 min="18"
                                                 value="{{ $employee->age }}" 
                                                 autocomplete="off" 
-                                                class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
+                                                class="block w-full border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm 
                                                 sm:leading-6">
                                             @error('age')
                                                 <p class="text-red-500 text-xs p-1">
@@ -224,8 +186,17 @@
                                         <div class="sm:col-span-6">
                                             <label class="block text-xs font-medium pl-1 text-gray-600 uppercase pb-1">Gender</label>
                                             <select name="gender" class="block w-full border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
+                                                @if ($employee->gender == null)
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                @else
+                                                    <option value="{{ $employee->gender }}">{{ $employee->gender }}</option>
+                                                    @if ($employee->gender == 'Male')
+                                                        <option value="Female">Female</option>
+                                                    @else
+                                                        <option value="Male">Male</option>
+                                                    @endif
+                                                @endif
                                             </select>
                                             @error('gender')
                                                 <p class="text-red-500 text-xs p-1">
