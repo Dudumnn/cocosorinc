@@ -110,11 +110,5 @@
             passwordInput2.type = showPasswordCheckbox.checked ? 'text' : 'password';
         });
     </script>
-    <script>
-        // Listen for the $refresh event and reload the page
-        Livewire.on('$refresh', function () {
-            location.reload();
-        });
-    </script>
 </body>
 </html>
