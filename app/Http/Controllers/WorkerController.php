@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Worker;
+use Maatwebsite\Excel\Facades\Excel;
 use View;
+use App\Exports\ExportWorker;
 
 class WorkerController extends Controller
 {
@@ -70,5 +72,9 @@ class WorkerController extends Controller
         $data = Worker::findorfail($id);
         $data->delete();
         return back()->with('message', 'Successfully Deleted!');
+    }
+
+    public function export() {
+        return Excel::download(new ExportWorker, 'workers.xlsx');
     }
 }

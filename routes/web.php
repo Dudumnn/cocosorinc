@@ -49,6 +49,8 @@ Route::controller(WorkerController::class)->group(function(){
     Route::get('/worker/profile/{id}', 'profile')->middleware('auth');
     Route::put('/editWorker/profile/{id}', 'update')->middleware('auth');
     Route::delete('/delete/profile/{id}', 'destroy')->middleware('auth');
+    //Export List of Employees
+    Route::get('/excelExport', 'export')->middleware('auth');
 });
 
 Route::controller(PerfController::class)->group(function(){

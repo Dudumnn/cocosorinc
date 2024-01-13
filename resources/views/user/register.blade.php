@@ -22,7 +22,7 @@
         <div class="bg-white shadow-lg rounded-md w-2/5 p-10 flex flex-col justify-center">
             {{-- Head Part --}}
             <div class="w-full flex justify-center">
-                <img src="{{ asset('/icons/logo.png') }}" alt="" class="w-56 h-20">
+                <img src="{{ asset('/icons/logo.jpg') }}" alt="" class="w-56 h-20">
             </div>
             <form action="/store" method="POST"  class="px-8 pt-8">
                 @csrf
