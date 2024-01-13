@@ -22,7 +22,7 @@
         <div class="bg-white shadow-lg rounded-md w-2/5 p-10 flex flex-col justify-center">
             {{-- Head Part --}}
             <div class="w-full flex justify-center">
-                <img src="{{ asset('/icons/logo.jpg') }}" alt="" class="w-56 h-25 border-2">
+                <img src="{{ asset('/icons/logo.jpg') }}" alt="" class="w-56 h-25">
             </div>
             <form action="/login/process" method="POST"  class="px-8 pt-8">
                 @csrf
@@ -65,16 +65,12 @@
         </div>
     </section>
     <x-messages />
-    <!-- Your Livewire component view content -->
     <script>
-        // JavaScript to toggle password visibility
         const passwordInput = document.getElementById('password');
-        const passwordInput2 = document.getElementById('password_confirmation');
         const showPasswordCheckbox = document.getElementById('show-password');
     
         showPasswordCheckbox.addEventListener('change', () => {
             passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
-            passwordInput2.type = showPasswordCheckbox.checked ? 'text' : 'password';
         });
     </script>
 </body>

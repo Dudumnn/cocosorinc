@@ -9,8 +9,8 @@
                     </svg>
                 </button>
                 
-                <a href="/dashboard" class="flex ml-1 md:mr-24 border-2">
-                    <img src="{{ asset('/icons/logo.jpg') }}" alt="" class="w-50 h-12 mx-auto">
+                <a href="/dashboard" class="flex ml-1 md:mr-24">
+                    <img src="{{ asset('/icons/logo.png') }}" alt="" class="w-50 h-12 mx-auto">
                 </a>
             </div>
 
