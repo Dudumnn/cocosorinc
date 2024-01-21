@@ -412,7 +412,11 @@
     
                                     @php
                                         if (!isset($found)) {
-                                            echo "<span class='text-red-500'>$value</span>";
+                                            if ($value == '0') {
+                                                echo $value;
+                                            }else {
+                                                echo "<span class='text-red-500'>$value</span>";
+                                            }
                                             
                                         }
                                         unset($found);
