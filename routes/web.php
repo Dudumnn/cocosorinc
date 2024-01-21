@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\leaveController;
 use App\Http\Controllers\PerfController;
 use App\Http\Controllers\SchedController;
 use App\Http\Controllers\UserController;
@@ -68,4 +69,11 @@ Route::controller(SchedController::class)->group(function(){
     Route::get('/editSched/{id}', 'edit')->middleware('auth');
     Route::put('/editSched/{id}', 'update')->middleware('auth');
     Route::delete('/delete/sched/{id}', 'destroy')->middleware('auth');
+});
+
+Route::controller(leaveController::class)->group(function(){
+    Route::get('/leave', 'index')->middleware('auth');
+    Route::post('/addLeave', 'addLeave')->middleware('auth');
+    Route::put('/editLeave/{id}', 'updateme')->middleware('auth');
+    Route::delete('/deleteLeave/{id}', 'destroy')->middleware('auth');
 });

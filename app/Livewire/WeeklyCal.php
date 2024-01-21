@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Leave;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
@@ -54,7 +55,8 @@ class WeeklyCal extends Component
                      ->where('output.date', '<=', 'schedules.end_date');
             })
             ->orWhere('schedules.id',  $this->sched)
-            ->get()
+            ->get(),
+            'leaves' => Leave::all()
         ]
         );
     }
