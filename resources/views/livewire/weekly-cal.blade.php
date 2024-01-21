@@ -412,7 +412,7 @@
     
                                     @php
                                         if (!isset($found)) {
-                                            echo $value;
+                                            echo "<span style='color: blue; font-weight: bold;'>$value</span>";
                                             
                                         }
                                         unset($found);
