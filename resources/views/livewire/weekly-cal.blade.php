@@ -397,7 +397,7 @@
                                         @endif
                                     @endforeach
                                     
-                                    @if ($found = true)
+                                    {{--@if ($found = true)
                                         @foreach ($leaves as $leave)
                                             @if ($leave->full_name == $output->name)
                                                 @if ($leave->leave_date == $currentDate->format('Y-m-d'))
@@ -412,9 +412,9 @@
                                                 @endif
                                             @endif
                                         @endforeach
-                                    @endif
+                                    @endif--}}
     
-                                    {{--@php
+                                    @php
                                         if (!isset($found)) {
                                             echo '0';
                                             
@@ -423,7 +423,7 @@
                                         $currentDate->addDay();
                                         $dayCount++;
                                         $sum += $outputValue;
-                                    @endphp--}}
+                                    @endphp
                                 </td>
                             @endwhile
                             
