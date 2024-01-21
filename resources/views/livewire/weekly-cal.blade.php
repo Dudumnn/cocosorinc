@@ -397,26 +397,33 @@
                                         @endif
                                     @endforeach
                                     
+                                    @if ($found = true)
+                                        @foreach ($leaves as $leave)
+                                            @if ($leave->full_name == $output->name)
+                                                @if ($leave->leave_date == $currentDate->format('Y-m-d'))
+                                                    On Leave
+                                                    @php
+                                                        $found = false; 
+                                                        break;
+                                                        $currentDate->addDay();
+                                                        $dayCount++;
+                                                        $sum += $outputValue;
+                                                    @endphp
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    @endif
     
-                                    @php
+                                    {{--@php
                                         if (!isset($found)) {
                                             echo '0';
-                                            echo 'On Leave';
-                                            foreach ($leaves as $leave) {
-                                                if ($leave->full_name == $output->name) {
-                                                    if ($leave->leave_date == $currentDate->format('Y-m-d')) {
-                                                        echo 'On Leave';
-                                                        break;
-                                                    }
-                                                }
-                                            }
                                             
                                         }
                                         unset($found);
                                         $currentDate->addDay();
                                         $dayCount++;
                                         $sum += $outputValue;
-                                    @endphp
+                                    @endphp--}}
                                 </td>
                             @endwhile
                             
