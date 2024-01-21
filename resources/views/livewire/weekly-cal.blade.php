@@ -391,8 +391,16 @@
                                         @if ($output->name == $emp->name)
                                             @if ($output->date == $currentDate->format('Y-m-d'))
                                                 {{ $output->output }}
-                                                @php $max++; $outputValue = $output->output; $found = true; break; @endphp
+                                                @php $max++; $outputValue = $output->output; break; @endphp
                                             @else
+                                                @foreach ($leaves as $leave)
+                                                    @if ($leave->full_name == $output->name)
+                                                        @if ($leave->leave_date == $currentDate->format('Y-m-d'))
+                                                            On Leave
+                                                            @php $max++; $outputValue = $output->output; $found = true; break; @endphp
+                                                        @endif
+                                                    @endif
+                                                @endforeach
                                             @endif
                                         @endif
                                     @endforeach
