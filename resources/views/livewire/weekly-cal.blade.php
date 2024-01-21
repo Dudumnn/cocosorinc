@@ -415,7 +415,7 @@
                                             if ($value == '0') {
                                                 echo $value;
                                             }else {
-                                                echo "<span class='text-red-500'>$value</span>";
+                                                echo "<span class='bg-red-500 p-2 text-white'>$value</span>";
                                             }
                                             
                                         }
