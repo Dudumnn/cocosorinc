@@ -412,7 +412,7 @@
     
                                     @php
                                         if (!isset($found)) {
-                                            echo $value;
+                                            echo $value "<div class='text-red-500'>$value</div>";
                                             
                                         }
                                         unset($found);
