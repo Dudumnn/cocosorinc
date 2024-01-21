@@ -396,27 +396,23 @@
                                             @endif
                                         @endif
                                     @endforeach
-                                    
-                                    {{--@if ($found = true)
-                                        @foreach ($leaves as $leave)
-                                            @if ($leave->full_name == $output->name)
-                                                @if ($leave->leave_date == $currentDate->format('Y-m-d'))
-                                                    On Leave
-                                                    @php
-                                                        $found = false; 
-                                                        break;
-                                                        $currentDate->addDay();
-                                                        $dayCount++;
-                                                        $sum += $outputValue;
-                                                    @endphp
-                                                @endif
+                                    @php
+                                        $value = '0';
+                                    @endphp
+                                    @foreach ($leaves as $leave)
+                                        @if ($leave->full_name == $emp->name)
+                                            @if ($leave->leave_date == $currentDate->format('Y-m-d'))
+                                                @php
+                                                    $value = 'On Leave';
+                                                    break;
+                                                @endphp
                                             @endif
-                                        @endforeach
-                                    @endif--}}
+                                        @endif
+                                    @endforeach
     
                                     @php
                                         if (!isset($found)) {
-                                            echo '0';
+                                            echo $value;
                                             
                                         }
                                         unset($found);
