@@ -409,14 +409,6 @@
                                             @endif
                                         @endif
                                     @endforeach
-
-                                    @if ($value !== '0' && $found !== true)
-                                        <div class="bg-red-500 p-2 text-white">
-                                            @php
-                                                echo $value;
-                                            @endphp
-                                        </div>
-                                    @endif
     
                                     @php
                                         if (!isset($found)) {
