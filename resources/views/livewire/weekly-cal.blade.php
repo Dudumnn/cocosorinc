@@ -401,6 +401,7 @@
                                     @php
                                         if (!isset($found)) {
                                             echo '0';
+                                            echo 'On Leave';
                                             foreach ($leaves as $leave) {
                                                 if ($leave->full_name == $output->name) {
                                                     if ($leave->leave_date == $currentDate->format('Y-m-d')) {
