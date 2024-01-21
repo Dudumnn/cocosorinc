@@ -12,7 +12,6 @@
         });
     </script>
     <script>
-        // Listen for the $refresh event and reload the page
         Livewire.on('$refresh', function () {
             location.reload();
         });

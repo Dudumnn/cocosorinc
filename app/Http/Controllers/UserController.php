@@ -100,4 +100,12 @@ class UserController extends Controller
         //    'reg' => $reg
         //]);
     }
+    public function staff(){
+        return view('staff.index');
+    }
+    public function destroy(Request $request, User $worker,$id){
+        $data = User::findorfail($id);
+        $data->delete();
+        return back()->with('message', 'Successfully Deleted!');
+    }
 } 
