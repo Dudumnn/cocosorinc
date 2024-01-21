@@ -396,20 +396,13 @@
                                             @endif
                                         @endif
                                     @endforeach
-
-                                    @if (!isset($found))
-                                        0
-                                        @php
-                                            unset($found);
-                                        @endphp
-                                    @endif
     
                                     @php
-                                        /**if (!isset($found)) {
+                                        if (!isset($found)) {
                                             echo '0';
                                             
                                         }
-                                        unset($found);*/
+                                        unset($found);
                                         $currentDate->addDay();
                                         $dayCount++;
                                         $sum += $outputValue;
