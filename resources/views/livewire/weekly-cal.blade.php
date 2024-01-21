@@ -397,9 +397,11 @@
                                         @endif
                                     @endforeach
 
-                                    @if ({{!isset($found)}})
+                                    @if (!isset($found))
                                         0
-                                        {{unset($found)}}
+                                        @php
+                                            unset($found);
+                                        @endphp
                                     @endif
     
                                     @php
