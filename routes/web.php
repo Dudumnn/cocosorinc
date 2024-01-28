@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\leaveController;
 use App\Http\Controllers\mobileController;
 use App\Http\Controllers\PerfController;
@@ -40,7 +41,10 @@ Route::controller(UserController::class)->group(function(){
     Route::post('/logout', 'logout')->middleware('auth');
 
     Route::get('/staff', 'staff')->middleware('auth');
+    Route::put('/editHR/{id}', 'update')->middleware('auth');
     Route::delete('/deleteHR/{id}', 'destroy')->middleware('auth');
+
+    Route::post('/addUser/hr', 'addUser')->middleware('auth');
 });
 
 Route::get('/generate-pdf', [PDFController::class, 'generatePDF'])->middleware('auth');
@@ -83,5 +87,7 @@ Route::controller(leaveController::class)->group(function(){
 });
 
 Route::controller(mobileController::class)->group(function(){
+    Route::put('/editChecker/{id}', 'update')->middleware('auth');
     Route::delete('/deleteChecker/{id}', 'destroy')->middleware('auth');
+    Route::post('/addUser/checker', 'addUser')->middleware('auth');
 });

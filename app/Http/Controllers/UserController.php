@@ -61,6 +61,24 @@ class UserController extends Controller
 
         return redirect('/dashboard')->with('message', 'Welcome User!');
     }
+    public function addUser(Request $request){
+        $validated = $request->validate([
+            "name" => ['required', 'min:4'],
+            "username" => ['required', 'min:4', 'unique:users'],
+            "email" => ['required', 'email', Rule::unique('users', 'email')],
+            "password" => 'required|confirmed|min:6'
+        ]);
+
+        $validated['password'] = Hash::make($validated['password']);
+
+        $user = User::create($validated);
+
+        if($user){
+            return back()->with('message', 'Successfully Added!');
+        }else{
+            return back()->with('message', 'Failed!');
+        }
+    }
 
     public function logout(Request $request){
         auth()->logout();
@@ -86,5 +104,23 @@ class UserController extends Controller
         $data = User::findorfail($id);
         $data->delete();
         return back()->with('message', 'Successfully Deleted!');
+    }
+    public function update(Request $request, User $worker,$id){
+        $user = User::findorfail($id);
+        $user->name = $request->input('name');
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
+
+        if (!empty($request->input('password')))
+        {
+            $user->password = bcrypt($request->input('password'));
+        }
+
+
+        if ($user->save()) {
+            return back()->with('message', 'Successfully Updated!');
+        }else {
+            return back()->with('message', 'Failed to Update!');
+        }
     }
 } 

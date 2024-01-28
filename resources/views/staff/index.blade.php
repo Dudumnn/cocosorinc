@@ -41,33 +41,56 @@
                                 <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
                                 <div class="flex w-full justify-center pt-16">
                                     <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-6/12">
-                                        <form method="POST" action="/addUser" class="w-full h-fit shadow-lg border border-gray-300 rounded-md">
-                                            @method('PUT')
+                                        <form id="userForm" method="POST" action="/addUser" class="w-full h-fit shadow-lg border border-gray-300 rounded-md">
                                             @csrf
-                                            <h2 class="bg-gray-50 rounded-t-md text-base font-semibold leading-7 text-gray-900 px-6 py-3 border-b">Add Schedule</h2>
+                                            <h2 class="bg-gray-50 rounded-t-md text-base font-semibold leading-7 text-gray-900 px-6 py-3 border-b">Add User</h2>
                                             <div class="w-full grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-12 px-6 py-4 pb-6">
+                                                <div class="sm:col-span-12">
+                                                    <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
+                                                    <div>
+                                                        <select id="role" required class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                            <option value="">Select role</option>
+                                                            <option value="hr">HR</option>
+                                                            <option value="checker">Checker</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                                 <div class="sm:col-span-6">
                                                     <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
                                                     <div>
-                                                        <input name="description"  type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                        <input name="name" required type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                     </div>
                                                 </div>
                                                 <div class="sm:col-span-6">
                                                     <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
                                                     <div>
-                                                        <input name="description"  type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                        <input name="username" required type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                     </div>
                                                 </div>
                                                 <div class="sm:col-span-12">
                                                     <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
                                                     <div>
-                                                        <input name="description"  type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                        <input name="email" required type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                                     </div>
                                                 </div>
                                                 <div class="sm:col-span-12">
-                                                    <label for="address" class="block text-sm font-medium leading-6 text-gray-900">New Password</label>
+                                                    <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
                                                     <div>
-                                                        <input name="description" placeholder="**********" type="password" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                        <input id="password" required name="password" placeholder="**********" type="password" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                    </div>
+                                                </div>
+                                                <div class="sm:col-span-12">
+                                                    <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Confirm Password</label>
+                                                    <div>
+                                                        <input id="password_confirmation" required name="password_confirmation" placeholder="**********" type="password" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                    </div>
+                                                    <div class="flex items-start pt-2">
+                                                        <div class="flex items-center h-5">
+                                                          <input id="show-password" aria-describedby="show-password" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50">
+                                                        </div>
+                                                        <div class="ml-3 text-sm">
+                                                          <label for="show-password" class="text-gray-500 dark:text-gray-300">Show Password</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -91,5 +114,30 @@
             </section>
         </div>
     </div>
+
+    <script>
+        // JavaScript to toggle password visibility
+        const passwordInput = document.getElementById('password');
+        const passwordInput2 = document.getElementById('password_confirmation');
+        const showPasswordCheckbox = document.getElementById('show-password');
+    
+        showPasswordCheckbox.addEventListener('change', () => {
+            passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
+            passwordInput2.type = showPasswordCheckbox.checked ? 'text' : 'password';
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var roleSelect = document.getElementById("role");
+            var form = document.getElementById("userForm");
+    
+            roleSelect.addEventListener("change", function () {
+                var selectedRole = roleSelect.value;
+                var newAction = "/addUser/" + selectedRole;
+                form.action = newAction;
+            });
+        });
+    </script>
+    
     
 @include('partials.footer')
