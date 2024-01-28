@@ -1,23 +1,140 @@
 <div class="relative">
-    <div class="w-full px-5 py-4 mx-6 my-6 grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12">
-        <div class="sm:col-span-3 flex flex-col py-3 space-x-2 w-full bg-white rounded-lg shadow-xl border border-gray-200">
-            <div class="my-2 text-center text-gray-500">
-                No. of employees
-            </div>
-            <div class="text-center text-4xl font-bold">5</div>
-        </div>
-        <div class="sm:col-span-3 flex flex-col py-3 space-x-2 w-full bg-white rounded-lg shadow-xl border border-gray-200">
-            <div class="my-2 text-center text-gray-500">
-                No. of parer
-            </div>
-            <div class="text-center text-4xl font-bold">5</div>
-        </div>
-        <div class="sm:col-span-3 flex flex-col py-3 space-x-2 w-full bg-white rounded-lg shadow-xl border border-gray-200">
-            <div class="my-2 text-center text-gray-500">
-                No. of sheller
-            </div>
-            <div class="text-center text-4xl font-bold">5</div>
-        </div>
+    <div class="hidden">
+        @php
+            $total = 0;
+            $rate1 = 0;
+            $rate2 = 0;
+            $rate3 = 0;
+            $rate4 = 0;
+            $rate5 = 0;
+            $rate6 = 0;
+            $rate7 = 0;
+            $rate8 = 0;
+            $rate9 = 0;
+
+            $sike1 = 0;
+            $sike2 = 0;
+            $sike3 = 0;
+            $sike4 = 0;
+            $sike5 = 0;
+            $sike6 = 0;
+            $sike7 = 0;
+        @endphp
+        @foreach ($emps as $employee)
+            @php
+                $currentDate = \Carbon\Carbon::parse($date->start_date);
+                $endDate = \Carbon\Carbon::parse($date->end_date);
+                $dayCount = 0;
+                $sum = 0;
+            @endphp
+            @while ($currentDate->lte($endDate))
+                @php
+                    $outputValue = 0;
+                @endphp
+                @foreach ($outputs as $output)
+                    @if ($output->name == $employee->name)
+                        @if ($output->date == $currentDate->format('Y-m-d'))
+                            @php $outputValue = $output->output; $found = true; break; @endphp
+                        @else
+                        @endif
+                    @endif
+                @endforeach
+                @php
+                    unset($found);
+                    $currentDate->addDay();
+                    $dayCount++;
+                    $sum += $outputValue;
+                @endphp
+            @endwhile
+            @php
+                $average = ($dayCount > 0) ? number_format($sum / $dayCount, 2) : 0;
+            @endphp
+            @if ($employee->position == 'Parer')
+                @if ($average <= 100){
+                    @php
+                        $rate1++;
+                    @endphp
+                }
+                @endif
+                @if ($average > 100 && $average < 401)
+                    @php
+                        $rate2++;
+                    @endphp
+                @endif
+                @if ($average > 400 && $average < 601)
+                    @php
+                        $rate3++;
+                    @endphp
+                @endif
+                @if ($average > 600 && $average < 801)
+                    @php
+                        $rate4++;
+                    @endphp
+                @endif
+                @if ($average > 800 && $average < 875)
+                    @php
+                        $rate5++;
+                    @endphp
+                @endif
+                @if ($average > 874 && $average < 1001)
+                    @php
+                        $rate6++;
+                    @endphp
+                @endif
+                @if ($average > 1000 && $average < 1201)
+                    @php
+                        $rate7++;
+                    @endphp
+                @endif
+                @if ($average > 1200 && $average < 1401)
+                    @php
+                        $rate8++;
+                    @endphp
+                @endif
+                @if ($average > 1400 && $average < 1601)
+                    @php
+                        $rate9++;
+                    @endphp
+                @endif
+            @endif
+            @if ($employee->position == 'Sheller')
+                @if ($average <= 500)
+                    @php
+                        $sike1++;
+                    @endphp
+                @endif
+                @if ($average > 500 && $average < 1001)
+                    @php
+                        $sike2++;
+                    @endphp
+                @endif
+                @if ($average > 1000 && $average < 1500)
+                    @php
+                        $sike3++;
+                    @endphp
+                @endif
+                @if ($average > 1499 && $average < 2001)
+                    @php
+                        $sike4++;
+                    @endphp
+                @endif
+                @if ($average > 2000 && $average < 2501)
+                    @php
+                        $sike5++;
+                    @endphp
+                @endif
+                @if ($average > 2500 && $average < 3001)
+                    @php
+                        $sike6++;
+                    @endphp
+                @endif
+                @if ($average > 3000 && $average < 3501)
+                    @php
+                        $sike7++;
+                    @endphp
+                @endif
+            @endif
+        @endforeach
     </div>
     <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3 flex flex-col">
         <div class="w-full flex justify-center p-8">
@@ -46,11 +163,11 @@
                         name: "Employees",
                         color: "#FDBA8C",
                         data: [
-                        { x: "1-100", y: 3 },
-                        { x: "100-400", y: 41 },
-                        { x: "401-600", y: 34 },
-                        { x: "601-800", y: 38 },
-                        { x: "801-874", y: 18 },
+                        { x: "1-100", y: {{ $rate1 }} },
+                        { x: "101-400", y: {{ $rate2 }} },
+                        { x: "401-600", y: {{ $rate3 }} },
+                        { x: "601-800", y: {{ $rate4 }} },
+                        { x: "801-874", y: {{ $rate5 }} },
                         ],
                     },
                     ],
@@ -145,10 +262,10 @@
                         name: "Employees",
                         color: "#1A56DB",
                         data: [
-                        { x: "875-1000", y: 16 },
-                        { x: "1001-1200", y: 17 },
-                        { x: "1201-1400", y: 7 },
-                        { x: "1401-1600", y: 3 },
+                        { x: "875-1000", y: {{ $rate6 }} },
+                        { x: "1001-1200", y: {{ $rate7 }} },
+                        { x: "1201-1400", y: {{ $rate8 }} },
+                        { x: "1401-1600", y: {{ $rate9 }} },
                         ],
                     },
                     ],
@@ -262,9 +379,9 @@
                         name: "Employees",
                         color: "#FDBA8C",
                         data: [
-                        { x: "1-500", y: 6 },
-                        { x: "501-1000", y: 19 },
-                        { x: "1001-1499", y: 21 },
+                        { x: "1-500", y: {{ $sike1 }} },
+                        { x: "501-1000", y: {{ $sike2 }} },
+                        { x: "1001-1499", y: {{ $sike3 }} },
                         ],
                     },
                     ],
@@ -359,10 +476,10 @@
                         name: "Employees",
                         color: "#1A56DB",
                         data: [
-                        { x: "1500-2000", y: 26 },
-                        { x: "2001-2500", y: 8 },
-                        { x: "2501-3000", y: 2 },
-                        { x: "3001-3500", y: 1 },
+                        { x: "1500-2000", y: {{ $sike4 }} },
+                        { x: "2001-2500", y: {{ $sike5 }} },
+                        { x: "2501-3000", y: {{ $sike6 }} },
+                        { x: "3001-3500", y: {{ $sike7 }} },
                         ],
                     },
                     ],
@@ -508,6 +625,8 @@
                 <tbody>
                     @php
                         $total = 0;
+                        $rate1 = 0;
+                        $rate2 = 0;
                     @endphp
                     @forelse ($emps as $emp)
                         <tr class="border-b">
@@ -574,11 +693,6 @@
                             @php
                                 $average = ($dayCount > 0) ? number_format($sum / $dayCount, 2) : 0;
                             @endphp
-                            {{--<p class="hidden">
-                                @if ($average >= 100 && $average <= 400 || $average < 100)
-                                    {{$no1++}}
-                                @endif
-                            </p>--}}
                             <td class="px-4 py-4 bg-red-200">
                                 {{ $average }}
                             </td>
