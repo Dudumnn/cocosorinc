@@ -100,30 +100,13 @@
                                                 <form method="POST" action="/editLeave/{{ $leave->id }}" class="w-full h-fit shadow-lg border border-gray-300 rounded-md">
                                                     @method('PUT')
                                                     @csrf
-                                                    <h2 class="bg-gray-50 rounded-t-md text-base font-semibold leading-7 text-gray-900 px-6 py-3 border-b">Add Schedule</h2>
+                                                    <h2 class="bg-gray-50 rounded-t-md text-base font-semibold leading-7 text-gray-900 px-6 py-3 border-b">Edit Leave</h2>
                                                     <div class="w-full grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-12 px-6 py-4 pb-6">
                                                         <div class="sm:col-span-12">
-                                                            <label class="block text-sm font-medium leading-6 text-gray-900">Shift</label>
-                                                            <div>
-                                                                <select name="emp_id" id="empSelect" value={{ $leave->id }} class="block w-full border-0 py-2 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                                                    <option value={{ $leave->emp_id }}>{{ $leave->full_name }}</option>
-                                                                    @foreach ($emps as $emp)
-                                                                        <option value="{{ $emp->id }}">{{ $emp->name }}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                                {{--<div id="placeholderDisplay"></div>
-                                                                <input name="full_name" type="text" id="empNameInput" value="{{ $leave->full_name }}" class="hidden">--}}
-                                                                {{--<script>
-                                                                    document.getElementById('empSelect').addEventListener('change', function () {
-                                                                        var selectedIndex = this.selectedIndex;
-                                                                        var selectedOption = this.options[selectedIndex];
-                                                                        var placeholderText = selectedOption.text;
-                                                                
-                                                                        // Display the placeholder text below the select element
-                                                                        document.getElementById('placeholderDisplay').innerText = placeholderText;
-                                                                        document.getElementById('empNameInput').value = placeholderText;
-                                                                    });
-                                                                </script>--}}
+                                                            <label class="block text-sm font-medium leading-6 text-gray-900">Employee</label>
+                                                            <div class="block w-full border-0 py-2 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                                <input name="emp_id" type="text" value={{ $leave->emp_id }} class="hidden">
+                                                                {{ $leave->full_name }}
                                                             </div>
                                                         </div>
                                                         <div class="sm:col-span-12">

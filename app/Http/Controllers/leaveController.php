@@ -14,14 +14,14 @@ class leaveController extends Controller
     }
 
     public function addLeave(Request $request){
-        $data = Worker::findorfail($request->emp_id);
-        $name = $data->name;
+        $data = Worker::where('name', $request->full_name)->firstOrFail();
+        $empId = $data->id;
         $validated = $request->validate([
-            'emp_id' => 'required',
+            'full_name' => 'required',
             'leave_date' => 'required',
             'description' => 'required',
         ]);
-        $validated['full_name'] = $name;
+        $validated['emp_id'] = $empId;
         
         Leave::create($validated);
 

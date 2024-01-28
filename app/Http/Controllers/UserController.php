@@ -78,27 +78,6 @@ class UserController extends Controller
             'user' => $user,
             'workers' => $worker
         ]);
-        
-        //$shift = Worker::distinct('shift')->count('shift');
-        //$total = Worker::count();
-        //$user = Auth::user()->count();
-        //$greenShift = Worker::where('shift', 'green')->count();
-        //$redShift = Worker::where('shift', 'red')->count();
-        //$yellowShift = Worker::where('shift', 'yellow')->count();
-        //$proba = Worker::where('status', 'probationary')->count();
-        //$reg = Worker::where('status', 'regular')->count();
-
-
-        //return view('user.index', [
-        //    'shift' => $shift, 
-        //    'total' => $total, 
-        //    'user' => $user, 
-        //    'greenShift' => $greenShift,
-        //    'redShift' => $redShift,
-        //    'yellowShift' => $yellowShift,
-        //    'proba' => $proba,
-        //    'reg' => $reg
-        //]);
     }
     public function staff(){
         return view('staff.index');

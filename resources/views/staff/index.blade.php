@@ -33,12 +33,55 @@
                         </ol>
                     </div>
                     <div class="flex flex-row gap-x-2">
-                        <button x-data x-on:click="$dispatch('open-modal')" title="Create" class="w-28 flex justify-center bg-gray-500 hover:bg-gray-600 rounded text-sm p-1.5 px-3 text-white gap-2">
-                            <span class="font-semibold">Add HR</span>
-                        </button>
-                        <button x-data x-on:click="$dispatch('open-modal')" title="Create" class="w-28 flex justify-center bg-gray-500 hover:bg-gray-600 rounded text-sm p-1.5 px-3 text-white gap-2">
-                            <span class="font-semibold">Add Checker</span>
-                        </button>
+                        <div x-data="{ show: false }">
+                            <button x-on:click="show = ! show" title="Create" class="w-28 flex justify-center bg-gray-500 hover:bg-gray-600 rounded text-sm p-1.5 px-3 text-white gap-2">
+                                <span class="font-semibold">Add User</span>
+                            </button>
+                            <div x-show="show" class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                                <div class="flex w-full justify-center pt-16">
+                                    <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-6/12">
+                                        <form method="POST" action="/addUser" class="w-full h-fit shadow-lg border border-gray-300 rounded-md">
+                                            @method('PUT')
+                                            @csrf
+                                            <h2 class="bg-gray-50 rounded-t-md text-base font-semibold leading-7 text-gray-900 px-6 py-3 border-b">Add Schedule</h2>
+                                            <div class="w-full grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-12 px-6 py-4 pb-6">
+                                                <div class="sm:col-span-6">
+                                                    <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
+                                                    <div>
+                                                        <input name="description"  type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                    </div>
+                                                </div>
+                                                <div class="sm:col-span-6">
+                                                    <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                                                    <div>
+                                                        <input name="description"  type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                    </div>
+                                                </div>
+                                                <div class="sm:col-span-12">
+                                                    <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+                                                    <div>
+                                                        <input name="description"  type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                    </div>
+                                                </div>
+                                                <div class="sm:col-span-12">
+                                                    <label for="address" class="block text-sm font-medium leading-6 text-gray-900">New Password</label>
+                                                    <div>
+                                                        <input name="description" placeholder="**********" type="password" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center gap-x-6 w-full px-10 pb-6 flex justify-end">
+                                                <a x-on:click="show = ! show"  class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+                                                    <span>Cancel</span>
+                                                </a>
+                                                <button type="submit" class="w-1/5 rounded-md bg-gray-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </nav>
             </section>

@@ -1,310 +1,454 @@
 <div class="relative">
-    {{--<div class="hidden">
-        @php
-            $row = [];
-            $nn = [];
-            $no1 = 0;
-            $no2 = 0;
-            $no3 = 0;
-            $no4 = 0;
-            $no5 = 0;
-            $no6 = 0;
-            $no7 = 0;
-            $no8 = 0;
-
-            $q = [];
-            $a = [];
-            $ford = [];
-            $gord = [];
-
-            $na1 = 0;
-            $na2 = 0;
-            $na3 = 0;
-            $na4 = 0;
-            $na5 = 0;
-        @endphp
-        @foreach ($emps as $emp)
-            @php
-                $currentDate = \Carbon\Carbon::parse($date->start_date);
-                $endDate = \Carbon\Carbon::parse($date->end_date);
-                $dayCount = 0;
-                $sum = 0;
-                $max = 0;
-                $outputValue = 0;
-            @endphp
-
-            @while ($currentDate->lte($endDate))
-                @foreach ($outputs as $output)
-                    @if ($output->name == $emp->name)
-                        @if ($output->date == $currentDate->format('Y-m-d'))
-                            @php  $datee[] = $currentDate->format('Y-m-d'); $max++; $outputValue = $output->output; break; @endphp
-                        @else
-                        @endif
-                    @endif
-                @endforeach
-
-                @php
-                    $currentDate->addDay();
-                    $dayCount++;
-                    $sum += $outputValue;
-                @endphp
-            @endwhile
-            
-            @php
-                $average = ($dayCount > 0) ? number_format($sum / $dayCount, 2) : 0;
-            @endphp
-            @if ($emp->position == 'Sheller')
-                @if ($average >= 100 && $average <= 400)
-                    @php
-                        $no1++;
-                        $q[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 401 && $average <= 600)
-                    @php
-                        $no2++;
-                        $q[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 601 && $average <= 800)
-                    @php
-                        $no3++;
-                        $q[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 800 && $average <= 874)
-                    @php
-                        $no4++;
-                        $q[] = [
-                            'name' => $emp->name,
-                            'ave' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 875 && $average <= 1000)
-                    @php
-                        $no5++;
-                        $a[] = [
-                            'nam' => $emp->name,
-                            'av' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 1001 && $average <= 1200)
-                    @php
-                        $no6++;
-                        $a[] = [
-                            'nam' => $emp->name,
-                            'av' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 1201 && $average <= 1400)
-                    @php
-                        $no7++;
-                        $a[] = [
-                            'nam' => $emp->name,
-                            'av' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 1401 && $average <= 1600)
-                    @php
-                        $no8++;
-                        $a[] = [
-                            'nam' => $emp->name,
-                            'av' => $average
-                        ];
-                    @endphp
-                @endif
-            @else
-                @if ($average >= 500 && $average <= 1000)
-                    {{$na1++}}
-                    @php
-                        $ford[] = [
-                            'fname' => $emp->name,
-                            'aver' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 1001 && $average <= 1499)
-                    {{$na2++}}
-                    @php
-                        $ford[] = [
-                            'fname' => $emp->name,
-                            'aver' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 1500 && $average <= 2000)
-                    {{$na3++}}
-                    @php
-                        $gord[] = [
-                            'fame' => $emp->name,
-                            'rave' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 2001 && $average <= 2500)
-                    {{$na4++}}
-                    @php
-                        $gord[] = [
-                            'fame' => $emp->name,
-                            'rave' => $average
-                        ];
-                    @endphp
-                @endif
-                @if ($average >= 2501 && $average <= 3000)
-                    {{$na5++}}
-                    @php
-                        $gord[] = [
-                            'fame' => $emp->name,
-                            'rave' => $average
-                        ];
-                    @endphp
-                @endif
-            @endif
-        @endforeach
-        @php
-            $chart = [
-                '100 - 400', '401 - 600', '601 - 800', '801 - 874', '875 - 1000', '1001 - 1200', '1201 - 1400', '1401 - 1600'
-            ];
-            $chartVar = [
-                $no1, $no2, $no3, $no4, $no5, $no6, $no7, $no8
-            ];
-            $bar = [
-                '500 - 1000', '1001 - 1499', '1500 - 2000', '2001 - 2500', '2501 - 3000'
-            ];
-            $barVar = [
-                $na1, $na2, $na3, $na4, $na5
-            ];
-        @endphp
-    </div>
-    <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
-        <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
-            <div class="sm:col-span-12 sm:flex sm:flex-col sm:items-center text-center text-lg font-bold mb-6">
-                <span>{{$emp->shift}} Shift Sheller Quota</span>
-                <span class="text-base">{{ \Carbon\Carbon::parse($date->start_date)->format('M d, Y')}}, {{\Carbon\Carbon::parse($date->end_date)->format('M d, Y')}}</span>
-                <span class="text-base">{{$date->time_in}}, {{$date->time_out}}</span>
+    <div class="w-full px-5 py-4 mx-6 my-6 grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12">
+        <div class="sm:col-span-3 flex flex-col py-3 space-x-2 w-full bg-white rounded-lg shadow-xl border border-gray-200">
+            <div class="my-2 text-center text-gray-500">
+                No. of employees
             </div>
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
-                <div class="w-full">
-                    <livewire:chart :chart="$chart" :chartVar="$chartVar"/>
-                </div>
+            <div class="text-center text-4xl font-bold">5</div>
+        </div>
+        <div class="sm:col-span-3 flex flex-col py-3 space-x-2 w-full bg-white rounded-lg shadow-xl border border-gray-200">
+            <div class="my-2 text-center text-gray-500">
+                No. of parer
             </div>
-            
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
-                <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Employees Below Quota</span>
-                </div>
-                <div class="w-full p-2">
-                    <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">Employee Name</div>
-                        <div class="sm:col-span-5">Average Output</div>
-                    </div>
-                    @forelse ($q as $itemm)
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$itemm['name']}}</div>
-                            <div class="sm:col-span-5">{{$itemm['ave']}}</div>
-                        </div>
-                    @empty
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
-                        </div>
-                    @endforelse
-                </div>
+            <div class="text-center text-4xl font-bold">5</div>
+        </div>
+        <div class="sm:col-span-3 flex flex-col py-3 space-x-2 w-full bg-white rounded-lg shadow-xl border border-gray-200">
+            <div class="my-2 text-center text-gray-500">
+                No. of sheller
             </div>
-
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
-                <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Employees Above Quota</span>
-                </div>
-                <div class="w-full p-2">
-                    <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">Employee Name</div>
-                        <div class="sm:col-span-5">Average Output</div>
-                    </div>
-                    @forelse ($a as $emm)
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$emm['nam']}}</div>
-                            <div class="sm:col-span-5">{{$emm['av']}}</div>
-                        </div>
-                    @empty
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
-                        </div>
-                    @endforelse
-                </div>
-            </div>
-            
+            <div class="text-center text-4xl font-bold">5</div>
         </div>
     </div>
-    <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-5">
-        <div class="grid grid-cols-1 gap-x-3 w-full sm:grid-cols-12 p-2">
-            <div class="sm:col-span-12 sm:flex sm:flex-col sm:items-center text-center text-lg font-bold mb-6">
-                <span>{{$emp->shift}} Shift Parer Quota</span>
-                <span class="text-base">{{ \Carbon\Carbon::parse($date->start_date)->format('M d, Y')}}, {{\Carbon\Carbon::parse($date->end_date)->format('M d, Y')}}</span>
-                <span class="text-base">{{$date->time_in}}, {{$date->time_out}}</span>
-            </div>
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
-                <div class="w-full">
-                    <livewire:bar-chart :bar="$bar" :barVar="$barVar"/>
-                </div>
-            </div>
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
-                <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Employees Below Quota</span>
-                </div>
-                <div class="w-full p-2">
-                    <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">Employee Name</div>
-                        <div class="sm:col-span-5">Average Output</div>
-                    </div>
-                    @forelse ($ford as $for)
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$for['fname']}}</div>
-                            <div class="sm:col-span-5">{{$for['aver']}}</div>
-                        </div>
-                    @empty
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
-                        </div>
-                    @endforelse
-                </div>
-            </div>
-            <div class="sm:col-span-4 border border-gray-200 rounded-sm text-xs">
-                <div class="w-full border-b px-3 py-2 ">
-                    <span class="text-sm font-medium text-gray-500">Employees Above Quota</span>
-                </div>
-                <div class="w-full p-2">
-                    <div class="w-full bg-gray-700 grid grid-cols-1 p-2 text-white font-semibold gap-x-3 sm:grid-cols-12">
-                        <div class="sm:col-span-7">Employee Name</div>
-                        <div class="sm:col-span-5">Average Output</div>
-                    </div>
-                    @forelse ($gord as $fame)
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-7">{{$fame['fame']}}</div>
-                            <div class="sm:col-span-5">{{$fame['rave']}}</div>
-                        </div>
-                    @empty
-                        <div class="w-full grid grid-cols-1 border-b-2 p-2 gap-x-3 sm:grid-cols-12">
-                            <div class="sm:col-span-12 flex justify-center">Nothing to show</div>
-                        </div>
-                    @endforelse
-                </div>
-            </div>
-            
+    <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3 flex flex-col">
+        <div class="w-full flex justify-center p-8">
+            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parer Performance Analysis</h5>
         </div>
-    </div>--}}
+        <div class="grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12 pb-3">
+            <div class="sm:col-span-6 flex justify-center">
+                <div class="w-full bg-white rounded-lg shadow-xl border border-gray-200 p-4 md:p-6">
+                    <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parers Below Quota</h5>
+                    <div id="column-chart1"></div>
+                </div>
+            </div>
+            <div class="sm:col-span-6 flex justify-center">
+                <div class="w-full bg-white rounded-lg shadow-xl border border-gray-200 p-4 md:p-6">
+                    <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parers Above Quota</h5>
+                    <div id="column-chart2"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.addEventListener("load", function() {
+            const options = {
+                    colors: ["#1A56DB","#FDBA8C"],
+                    series: [
+                    {
+                        name: "Employees",
+                        color: "#FDBA8C",
+                        data: [
+                        { x: "1-100", y: 3 },
+                        { x: "100-400", y: 41 },
+                        { x: "401-600", y: 34 },
+                        { x: "601-800", y: 38 },
+                        { x: "801-874", y: 18 },
+                        ],
+                    },
+                    ],
+                    chart: {
+                    type: "bar",
+                    height: "320px",
+                    width: "100%",
+                    fontFamily: "Inter, sans-serif",
+                    toolbar: {
+                        show: false,
+                    },
+                    },
+                    plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: "70%",
+                        borderRadiusApplication: "end",
+                        borderRadius: 8,
+                    },
+                    },
+                    tooltip: {
+                    shared: true,
+                    intersect: false,
+                    style: {
+                        fontFamily: "Inter, sans-serif",
+                    },
+                    },
+                    states: {
+                    hover: {
+                        filter: {
+                        type: "darken",
+                        value: 1,
+                        },
+                    },
+                    },
+                    stroke: {
+                    show: true,
+                    width: 0,
+                    colors: ["transparent"],
+                    },
+                    grid: {
+                    show: false,
+                    strokeDashArray: 4,
+                    padding: {
+                        left: 2,
+                        right: 2,
+                        top: -14
+                    },
+                    },
+                    dataLabels: {
+                    enabled: false,
+                    },
+                    legend: {
+                    show: false,
+                    },
+                    xaxis: {
+                    floating: false,
+                    labels: {
+                        show: true,
+                        style: {
+                        fontFamily: "Inter, sans-serif",
+                        cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                        }
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false,
+                    },
+                    },
+                    yaxis: {
+                    show: false,
+                    },
+                    fill: {
+                    opacity: 1,
+                    },
+                }
+        
+                if(document.getElementById("column-chart1") && typeof ApexCharts !== 'undefined') {
+                    const chart = new ApexCharts(document.getElementById("column-chart1"), options);
+                    chart.render();
+                }
+            });
+        </script>
+        <script>
+            window.addEventListener("load", function() {
+            const options = {
+                    colors: ["#1A56DB","#FDBA8C"],
+                    series: [
+                    {
+                        name: "Employees",
+                        color: "#1A56DB",
+                        data: [
+                        { x: "875-1000", y: 16 },
+                        { x: "1001-1200", y: 17 },
+                        { x: "1201-1400", y: 7 },
+                        { x: "1401-1600", y: 3 },
+                        ],
+                    },
+                    ],
+                    chart: {
+                    type: "bar",
+                    height: "320px",
+                    width: "100%",
+                    fontFamily: "Inter, sans-serif",
+                    toolbar: {
+                        show: false,
+                    },
+                    },
+                    plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: "70%",
+                        borderRadiusApplication: "end",
+                        borderRadius: 8,
+                    },
+                    },
+                    tooltip: {
+                    shared: true,
+                    intersect: false,
+                    style: {
+                        fontFamily: "Inter, sans-serif",
+                    },
+                    },
+                    states: {
+                    hover: {
+                        filter: {
+                        type: "darken",
+                        value: 1,
+                        },
+                    },
+                    },
+                    stroke: {
+                    show: true,
+                    width: 0,
+                    colors: ["transparent"],
+                    },
+                    grid: {
+                    show: false,
+                    strokeDashArray: 4,
+                    padding: {
+                        left: 2,
+                        right: 2,
+                        top: -14
+                    },
+                    },
+                    dataLabels: {
+                    enabled: false,
+                    },
+                    legend: {
+                    show: false,
+                    },
+                    xaxis: {
+                    floating: false,
+                    labels: {
+                        show: true,
+                        style: {
+                        fontFamily: "Inter, sans-serif",
+                        cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                        }
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false,
+                    },
+                    },
+                    yaxis: {
+                    show: false,
+                    },
+                    fill: {
+                    opacity: 1,
+                    },
+                }
+        
+                if(document.getElementById("column-chart2") && typeof ApexCharts !== 'undefined') {
+                    const chart = new ApexCharts(document.getElementById("column-chart2"), options);
+                    chart.render();
+                }
+            });
+        </script>
+    </div>
+    <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3 flex flex-col">
+        <div class="w-full flex justify-center p-8">
+            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Sheller Performance Analysis</h5>
+        </div>
+        <div class="grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12 pb-3">
+            <div class="sm:col-span-6 flex justify-center">
+                <div class="w-full bg-white rounded-lg shadow-xl border border-gray-200 p-4 md:p-6">
+                    <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Sheller Below Quota</h5>
+                    <div id="column-chart3"></div>
+                </div>
+            </div>
+            <div class="sm:col-span-6 flex justify-center">
+                <div class="w-full bg-white rounded-lg shadow-xl border border-gray-200 p-4 md:p-6">
+                    <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Sheller Above Quota</h5>
+                    <div id="column-chart4"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.addEventListener("load", function() {
+            const options = {
+                    colors: ["#1A56DB","#FDBA8C"],
+                    series: [
+                    {
+                        name: "Employees",
+                        color: "#FDBA8C",
+                        data: [
+                        { x: "1-500", y: 6 },
+                        { x: "501-1000", y: 19 },
+                        { x: "1001-1499", y: 21 },
+                        ],
+                    },
+                    ],
+                    chart: {
+                    type: "bar",
+                    height: "320px",
+                    width: "100%",
+                    fontFamily: "Inter, sans-serif",
+                    toolbar: {
+                        show: false,
+                    },
+                    },
+                    plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: "70%",
+                        borderRadiusApplication: "end",
+                        borderRadius: 8,
+                    },
+                    },
+                    tooltip: {
+                    shared: true,
+                    intersect: false,
+                    style: {
+                        fontFamily: "Inter, sans-serif",
+                    },
+                    },
+                    states: {
+                    hover: {
+                        filter: {
+                        type: "darken",
+                        value: 1,
+                        },
+                    },
+                    },
+                    stroke: {
+                    show: true,
+                    width: 0,
+                    colors: ["transparent"],
+                    },
+                    grid: {
+                    show: false,
+                    strokeDashArray: 4,
+                    padding: {
+                        left: 2,
+                        right: 2,
+                        top: -14
+                    },
+                    },
+                    dataLabels: {
+                    enabled: false,
+                    },
+                    legend: {
+                    show: false,
+                    },
+                    xaxis: {
+                    floating: false,
+                    labels: {
+                        show: true,
+                        style: {
+                        fontFamily: "Inter, sans-serif",
+                        cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                        }
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false,
+                    },
+                    },
+                    yaxis: {
+                    show: false,
+                    },
+                    fill: {
+                    opacity: 1,
+                    },
+                }
+        
+                if(document.getElementById("column-chart3") && typeof ApexCharts !== 'undefined') {
+                    const chart = new ApexCharts(document.getElementById("column-chart3"), options);
+                    chart.render();
+                }
+            });
+        </script>
+        <script>
+            window.addEventListener("load", function() {
+            const options = {
+                    colors: ["#1A56DB","#FDBA8C"],
+                    series: [
+                    {
+                        name: "Employees",
+                        color: "#1A56DB",
+                        data: [
+                        { x: "1500-2000", y: 26 },
+                        { x: "2001-2500", y: 8 },
+                        { x: "2501-3000", y: 2 },
+                        { x: "3001-3500", y: 1 },
+                        ],
+                    },
+                    ],
+                    chart: {
+                    type: "bar",
+                    height: "320px",
+                    width: "100%",
+                    fontFamily: "Inter, sans-serif",
+                    toolbar: {
+                        show: false,
+                    },
+                    },
+                    plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: "70%",
+                        borderRadiusApplication: "end",
+                        borderRadius: 8,
+                    },
+                    },
+                    tooltip: {
+                    shared: true,
+                    intersect: false,
+                    style: {
+                        fontFamily: "Inter, sans-serif",
+                    },
+                    },
+                    states: {
+                    hover: {
+                        filter: {
+                        type: "darken",
+                        value: 1,
+                        },
+                    },
+                    },
+                    stroke: {
+                    show: true,
+                    width: 0,
+                    colors: ["transparent"],
+                    },
+                    grid: {
+                    show: false,
+                    strokeDashArray: 4,
+                    padding: {
+                        left: 2,
+                        right: 2,
+                        top: -14
+                    },
+                    },
+                    dataLabels: {
+                    enabled: false,
+                    },
+                    legend: {
+                    show: false,
+                    },
+                    xaxis: {
+                    floating: false,
+                    labels: {
+                        show: true,
+                        style: {
+                        fontFamily: "Inter, sans-serif",
+                        cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                        }
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false,
+                    },
+                    },
+                    yaxis: {
+                    show: false,
+                    },
+                    fill: {
+                    opacity: 1,
+                    },
+                }
+        
+                if(document.getElementById("column-chart4") && typeof ApexCharts !== 'undefined') {
+                    const chart = new ApexCharts(document.getElementById("column-chart4"), options);
+                    chart.render();
+                }
+            });
+        </script>
+    </div>
     
     <div class="bg-white relative shadow-xl border border-gray-200 sm:rounded-sm overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3">
         <div class="flex items-center justify-between d p-4">

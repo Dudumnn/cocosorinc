@@ -1,5 +1,5 @@
-<div class="overflow-hidden w-11/12 px-5 py-4 mx-6 my-6 mb-3 pb-20">
-    <div class="font-semibold text-slate-800 text-lg text-left pb-4">HR Users</div>
+<div class="overflow-hidden w-11/12 px-5 mx-6 mb-6 mb-3 pb-20">
+    <div class="font-semibold text-lg text-teal-700 text-left pb-4">HR Users</div>
     <div class="grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12">
         @foreach ($hrUsers as $hrUser)
             <div class="sm:col-span-3 flex flex-col px-3 py-3 shadow-lg border border-gray-200 rounded-md">
@@ -15,8 +15,55 @@
                         </div>
                         <div :class="open ? '' : 'hidden'" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                             <div class="py-1" role="none">
-                                <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" id="menu-item-0">Edit</a>
+                                <div x-data="{ show: false }">
+                                    <button x-on:click="show = ! show" class="w-full text-left text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" id="menu-item-0">
+                                        Edit
+                                    </button>
+                                    <div x-show="show" class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                                        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                                        <div class="flex w-full justify-center pt-16">
+                                            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-6/12">
+                                                <form method="POST" action="/editHR/{{ $hrUser->id }}" class="w-full h-fit shadow-lg border border-gray-300 rounded-md">
+                                                    @method('PUT')
+                                                    @csrf
+                                                    <h2 class="bg-gray-50 rounded-t-md text-base font-semibold leading-7 text-gray-900 px-6 py-3 border-b">Add Schedule</h2>
+                                                    <div class="w-full grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-12 px-6 py-4 pb-6">
+                                                        <div class="sm:col-span-6">
+                                                            <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
+                                                            <div>
+                                                                <input name="description" value="{{ $hrUser->name }}" type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                            </div>
+                                                        </div>
+                                                        <div class="sm:col-span-6">
+                                                            <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                                                            <div>
+                                                                <input name="description" value="{{ $hrUser->username }}" type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                            </div>
+                                                        </div>
+                                                        <div class="sm:col-span-12">
+                                                            <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+                                                            <div>
+                                                                <input name="description" value="{{ $hrUser->email }}" type="text" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                            </div>
+                                                        </div>
+                                                        <div class="sm:col-span-12">
+                                                            <label for="address" class="block text-sm font-medium leading-6 text-gray-900">New Password</label>
+                                                            <div>
+                                                                <input name="description" placeholder="**********" type="password" class="block w-full border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-x-6 w-full px-10 pb-6 flex justify-end">
+                                                        <a x-on:click="show = ! show"  class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+                                                            <span>Cancel</span>
+                                                        </a>
+                                                        <button type="submit" class="w-1/5 rounded-md bg-gray-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <form method="POST" action="/deleteHR/{{ $hrUser->id }}">
                                     @method('delete')
                                     @csrf
@@ -34,7 +81,7 @@
                     </svg>
                 </div>
                 <div class="w-full flex justify-center font-semibold text-slate-800 text-base">
-                    {{ $hrUser->username }}
+                    {{ $hrUser->name }}
                 </div>
                 <div class="w-full flex justify-center font-normal text-black text-xs mb-4">
                     HR
@@ -43,7 +90,7 @@
         @endforeach
     </div>
 
-    <div class="font-semibold text-slate-800 text-lg text-left pb-4 pt-4">Checker Users</div>
+    <div class="font-semibold text-orange-400 text-lg text-left pb-4 pt-4">Checker Users</div>
     <div class="grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12">
         @foreach ($checkers as $checker)
             <div class="sm:col-span-3 flex flex-col px-3 py-3 shadow-lg border border-gray-200 rounded-md">
@@ -78,7 +125,7 @@
                     </svg>
                 </div>
                 <div class="w-full flex justify-center font-semibold text-slate-800 text-base">
-                    {{ $checker->username }}
+                    {{ $checker->name }}
                 </div>
                 <div class="w-full flex justify-center font-normal text-black text-xs mb-4">
                     Checker

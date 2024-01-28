@@ -75,7 +75,10 @@
             <table class="w-full border border-gray-200 text-sm text-left text-gray-500">
                 <thead class="text-xs uppercase text-white bg-gray-700">
                     <tr>
-                        <th scope="col" class="px-4 py-3" wire:click="setSortBy('name')">
+                        <th scope="col" class="px-4 py-3">
+                            No.
+                        </th>
+                        <th scope="col" class="pr-4 py-3" wire:click="setSortBy('name')">
                             <button class="flex items-center gap-1">
                                 Name
                                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
@@ -113,9 +116,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $count = 0;
+                    @endphp
                     @forelse ($users as $emp)
+                    @php
+                        $count++;
+                    @endphp
                     <tr class="border-b">
-                        <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
+                        <th scope="row" class="pl-4 py-3 font-medium text-gray-900 whitespace-nowrap">
+                            {{ $count }}
+                        </th>
+                        <th scope="row" class="pr-4 py-3 font-medium text-gray-900 whitespace-nowrap">
                             {{ $emp->name }}
                         </th>
                         <td class="px-4 py-3 text-green-500">

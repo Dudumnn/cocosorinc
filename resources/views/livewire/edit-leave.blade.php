@@ -14,20 +14,12 @@ class="fixed inset-0 z-10 w-screen overflow-y-auto">
                 <h2 class="bg-gray-50 rounded-t-md text-base font-semibold leading-7 text-gray-900 px-6 py-3 border-b">Add Schedule</h2>
                 <div class="w-full grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-12 px-6 py-4 pb-6">
                     <div class="sm:col-span-12">
-                        <label class="block text-sm font-medium leading-6 text-gray-900">Shift</label>
-                        <div>
-                            <select name="emp_id" class="block w-full border-0 py-2 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                <option value="">Select Employee</option>
-                                @foreach ($emps as $emp)
-                                    <option value={{ $emp->id }}>{{ $emp->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('shift')
-                                <p class="text-red-500 text-xs p-1">
-                                    {{$message}}
-                                </p>
-                            @enderror
+                        <label class="block text-sm font-medium leading-6 text-gray-900">Employee</label>
+                        <div class="block w-full border-0 py-2 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" value={{ $emp->id }} class="hidden">
+                            {{ $emp->name }}
                         </div>
+
                     </div>
                     <div class="sm:col-span-12">
                         <label class="block text-sm font-medium leading-6 text-gray-900">Leave Date</label>
