@@ -136,8 +136,8 @@
             @endif
         @endforeach
     </div>
-    <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3 flex flex-col">
-        <div class="w-full flex justify-center p-8">
+    <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 mb-3 flex flex-col">
+        <div class="w-full flex justify-center pb-8">
             <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parer Performance Analysis</h5>
         </div>
         <div class="grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12 pb-3">
@@ -352,8 +352,8 @@
             });
         </script>
     </div>
-    <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 my-6 mb-3 flex flex-col">
-        <div class="w-full flex justify-center p-8">
+    <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 mb-3 flex flex-col">
+        <div class="w-full flex justify-center pb-8">
             <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Sheller Performance Analysis</h5>
         </div>
         <div class="grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12 pb-3">
