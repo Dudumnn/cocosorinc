@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        \View::share('title', 'Cocosor Inc.');
+        \View::share('title', 'Cocosor');
 
         \View::composer('user.index', function($view){
             $view->with('users', Worker::all());
