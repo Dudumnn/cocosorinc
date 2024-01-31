@@ -634,11 +634,11 @@
                     @endphp
                     @forelse ($emps as $emp)
                         @php
-                            {{ $count }}
+                            $count++;
                         @endphp
                         <tr class="border-b">
                             <td class="px-4 py-4">
-                                {{ $emp->name }}
+                                {{ $count }}
                             </td>
                             <td class="px-4 py-4">
                                 {{ $emp->name }}
