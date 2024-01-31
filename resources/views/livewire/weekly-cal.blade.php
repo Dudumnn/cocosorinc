@@ -768,7 +768,7 @@
             </table>
         </div>
     
-        <div class="py-4 px-3">
+        {{--<div class="py-4 px-3">
             <div class="flex items-center justify-space-between">
                 <div class="flex pt-3 space-x-4 items-center mb-3">
                     <label class="w-32 text-sm font-medium text-gray-900">Per Page</label>
@@ -782,6 +782,6 @@
                 </div>
                 {{ $emps->links()}}
             </div>
-        </div>
+        </div>--}}
     </div>
 </div>
