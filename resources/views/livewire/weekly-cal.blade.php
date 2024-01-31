@@ -1,4 +1,4 @@
-<div class="relative">
+<div class="relative w-11/12">
     <div class="hidden">
         @php
             $total = 0;
