@@ -1,5 +1,5 @@
 <div class="relative w-11/12">
-    <div class="hidden">
+    <div class="">
         @php
             $total = 0;
             $rate1 = 0;
