@@ -592,6 +592,9 @@
                 <thead class="text-xs uppercase text-white bg-gray-700">
                     <tr>
                         <th scope="col" class="px-4 py-3 min-w-24">
+                            No.
+                        </th>
+                        <th scope="col" class="px-4 py-3 min-w-24">
                             Employee
                         </th>
                         <th scope="col" class="px-4 py-3 min-w-24">
@@ -627,9 +630,16 @@
                         $total = 0;
                         $rate1 = 0;
                         $rate2 = 0;
+                        $count = 0;
                     @endphp
                     @forelse ($emps as $emp)
+                        @php
+                            {{ $count }}
+                        @endphp
                         <tr class="border-b">
+                            <td class="px-4 py-4">
+                                {{ $emp->name }}
+                            </td>
                             <td class="px-4 py-4">
                                 {{ $emp->name }}
                             </td>
