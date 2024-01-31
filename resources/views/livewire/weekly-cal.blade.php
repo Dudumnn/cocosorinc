@@ -76,6 +76,9 @@
                         $rate5++;
                     @endphp
                 @endif
+               
+            @endif
+            @if ($employee->position == 'Parer')
                 @if ($average > 874 && $average < 1001)
                     @php
                         $rate6++;
