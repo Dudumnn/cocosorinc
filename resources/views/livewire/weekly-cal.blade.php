@@ -1,5 +1,5 @@
 <div class="relative w-11/12">
-    <div class="">
+    <div class="hidden">
         @php
             $total = 0;
             $rate1 = 0;
@@ -78,19 +78,16 @@
                 @endif
                 
                 @if ($average > 874 && $average < 1001)
-                    <p>{{$average}}</p>
                     @php
                         $rate6++;
                     @endphp
                 @endif
                 @if ($average > 1000 && $average < 1201)
-                    <p>{{$average}}</p>
                     @php
                         $rate7++;
                     @endphp
                 @endif
                 @if ($average > 1200 && $average < 1401)
-                <p>{{$average}}</p>
                     @php
                         $rate8++;
                     @endphp
@@ -172,6 +169,10 @@
                         { x: "401-600", y: {{ $rate3 }} },
                         { x: "601-800", y: {{ $rate4 }} },
                         { x: "801-874", y: {{ $rate5 }} },
+                        { x: "875-1000", y: {{ $rate6 }} },
+                        { x: "1001-1200", y: {{ $rate7 }} },
+                        { x: "1201-1400", y: {{ $rate8 }} },
+                        { x: "1401-1600", y: {{ $rate9 }} },
                         ],
                     },
                     ],
@@ -269,7 +270,7 @@
                         { x: "875-1000", y: {{ $rate6 }} },
                         { x: "1001-1200", y: {{ $rate7 }} },
                         { x: "1201-1400", y: {{ $rate8 }} },
-                        { x: "1401-1600", y: 1 },
+                        { x: "1401-1600", y: {{ $rate9 }} },
                         ],
                     },
                     ],
