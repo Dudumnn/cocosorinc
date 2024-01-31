@@ -135,6 +135,9 @@
                     @endphp
                 @endif
             @endif
+            @php
+                $rat6 = $rate6;
+            @endphp
         @endforeach
     </div>
     <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 mb-3 flex flex-col">
@@ -263,7 +266,7 @@
                         name: "Employees",
                         color: "#1A56DB",
                         data: [
-                        { x: "875-1000", y: {{ $rate6 }} },
+                        { x: "875-1000", y: {{ $rat6 }} },
                         { x: "1001-1200", y: {{ $rate7 }} },
                         { x: "1201-1400", y: {{ $rate8 }} },
                         { x: "1401-1600", y: {{ $rate9 }} },
