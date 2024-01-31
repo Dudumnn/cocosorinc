@@ -594,7 +594,7 @@
                         <th scope="col" class="px-4 py-3 min-w-24">
                             No.
                         </th>
-                        <th scope="col" class="px-4 py-3 min-w-24">
+                        <th scope="col" class="pr-4 py-3 min-w-24">
                             Employee
                         </th>
                         <th scope="col" class="px-4 py-3 min-w-24">
@@ -637,7 +637,7 @@
                             $count++;
                         @endphp
                         <tr class="border-b">
-                            <td class="px-4 py-4">
+                            <td class="pl-4 py-4">
                                 {{ $count }}
                             </td>
                             <td class="px-4 py-4">
