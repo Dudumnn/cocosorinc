@@ -22,6 +22,7 @@ class PerfTrack extends Component
             ->when($this->shift !== '',function($query){
                 $query->where('shift',$this->shift);
             })
+            ->orderBy('created_at', 'desc')
             ->paginate($this->perPage)
         ]
         );
