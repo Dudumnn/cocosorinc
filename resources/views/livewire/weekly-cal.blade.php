@@ -137,6 +137,7 @@
             @endif
             @php
                 $rat6 = $rate6;
+                $rat7 = $rate7;
             @endphp
         @endforeach
     </div>
@@ -267,7 +268,7 @@
                         color: "#1A56DB",
                         data: [
                         { x: "875-1000", y: {{ $rat6 }} },
-                        { x: "1001-1200", y: {{ $rate7 }} },
+                        { x: "1001-1200", y: {{ $rat7 }} },
                         { x: "1201-1400", y: {{ $rate8 }} },
                         { x: "1401-1600", y: {{ $rate9 }} },
                         ],
