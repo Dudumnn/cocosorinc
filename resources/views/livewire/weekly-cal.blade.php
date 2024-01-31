@@ -640,7 +640,7 @@
                             <td class="pl-4 py-4">
                                 {{ $count }}
                             </td>
-                            <td class="px-4 py-4">
+                            <td class="pr-4 py-4">
                                 {{ $emp->name }}
                             </td>
                             <td class="px-4 py-4">
@@ -730,7 +730,7 @@
                         <th scope="col" class="px-4 py-3">
                             No.
                         </th>
-                        <th scope="col" class="pr-4 py-3">
+                        <th scope="col" class="px-4 py-3">
                             Employee
                         </th>
                         <th scope="col" class="px-4 py-3">
