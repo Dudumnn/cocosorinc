@@ -23,6 +23,7 @@ class Schedule extends Component
             ->when($this->shift !== '',function($query){
                 $query->where('shift',$this->shift);
             })
+            ->orderBy('start_date', 'desc')
             ->paginate($this->perPage)
         ]
         );
