@@ -263,7 +263,7 @@
                         color: "#1A56DB",
                         data: [
                         { x: "875-1000", y: {{ $rate6 }} },
-                        { x: "1001-1200", y: {{ $rate7 }} },
+                        { x: "1001-1200", y: 5 },
                         { x: "1201-1400", y: {{ $rate8 }} },
                         { x: "1401-1600", y: {{ $rate9 }} },
                         ],
@@ -587,7 +587,7 @@
                 </div>
             </div>
         </div>
-        <div class=" overflow-x-auto overflow-hidden">
+        <div class=" overflow-x-auto overflow-hidden ">
             <table class="w-full border border-gray-200 text-xs text-left text-gray-500">
                 <thead class="text-xs uppercase text-white bg-gray-700">
                     <tr>
