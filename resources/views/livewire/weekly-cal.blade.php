@@ -78,16 +78,19 @@
                 @endif
                 
                 @if ($average > 874 && $average < 1001)
+                    <p>{{$average}}</p>
                     @php
                         $rate6++;
                     @endphp
                 @endif
                 @if ($average > 1000 && $average < 1201)
+                    <p>{{$average}}</p>
                     @php
                         $rate7++;
                     @endphp
                 @endif
                 @if ($average > 1200 && $average < 1401)
+                <p>{{$average}}</p>
                     @php
                         $rate8++;
                     @endphp
