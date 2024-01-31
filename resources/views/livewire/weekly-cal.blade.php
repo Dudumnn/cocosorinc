@@ -76,7 +76,7 @@
                         $rate5++;
                     @endphp
                 @endif
-                @if ($average > 874 && $average < 1001)
+                {{--@if ($average > 874 && $average < 1001)
                     @php
                         $rate6++;
                     @endphp
@@ -95,7 +95,23 @@
                     @php
                         $rate9++;
                     @endphp
-                @endif
+                @endif--}}
+                @php
+                    switch (true) {
+                        case ($average > 874 && $average < 1001):
+                            $rate6++;
+                            break;
+                        case ($average > 1000 && $average < 1201):
+                            $rate7++;
+                            break;
+                        case ($average > 1200 && $average < 1401):
+                            $rate8++;
+                            break;
+                        case ($average > 1400 && $average < 1601):
+                            $rate9++;
+                            break;
+                    }
+                @endphp
             @endif
             @if ($employee->position == 'Sheller')
                 @if ($average <= 500)
