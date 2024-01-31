@@ -77,7 +77,7 @@
                     @endphp
                 @endif
                 
-                @if ($average > 874 && $average < 1001)
+                @if ($average > 874.00 && $average < 1001.00)
                     @php
                         $rate6++;
                     @endphp
