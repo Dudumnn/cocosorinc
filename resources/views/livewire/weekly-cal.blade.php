@@ -76,7 +76,7 @@
                         $rate5++;
                     @endphp
                 @endif
-                {{--@if ($average > 874 && $average < 1001)
+                @if ($average > 874 && $average < 1001)
                     @php
                         $rate6++;
                     @endphp
@@ -95,23 +95,7 @@
                     @php
                         $rate9++;
                     @endphp
-                @endif--}}
-                @php
-                    switch (true) {
-                        case ($average > 874 && $average < 1001):
-                            $rate6++;
-                            break;
-                        case ($average > 1000 && $average < 1201):
-                            $rate7++;
-                            break;
-                        case ($average > 1200 && $average < 1401):
-                            $rate8++;
-                            break;
-                        case ($average > 1400 && $average < 1601):
-                            $rate9++;
-                            break;
-                    }
-                @endphp
+                @endif
             @endif
             @if ($employee->position == 'Sheller')
                 @if ($average <= 500)
@@ -154,7 +138,7 @@
     </div>
     <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 mb-3 flex flex-col">
         <div class="w-full flex justify-center pb-8">
-            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parer Performance Analysis {{$rate6}} {{$rate7}} {{$rate8}} {{$rate9}}</h5>
+            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parer Performance Analysis {{$rate2}} {{$rate3}} {{$rate4}} {{$rate5}}</h5>
         </div>
         <div class="grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12 pb-3">
             <div class="sm:col-span-6 flex justify-center">
