@@ -47,6 +47,7 @@
                 @endphp
             @endwhile
             @php
+                $average = 0;
                 $average = ($dayCount > 0) ? ($sum / $dayCount) : 0;
             @endphp
             @if ($employee->position == 'Parer')
@@ -782,9 +783,6 @@
                     </tr>
                 </tfoot>
             </table>
-        </div>
-        <div>
-            {{$rate7}}
         </div>
     
         {{--<div class="py-4 px-3">
