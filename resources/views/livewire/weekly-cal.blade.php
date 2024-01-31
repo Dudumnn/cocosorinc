@@ -136,15 +136,11 @@
                     @endphp
                 @endif
             @endif
-            @php
-                $rat6 = $rate6;
-                $rat7 = $rate7;
-            @endphp
         @endforeach
     </div>
     <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 mb-3 flex flex-col">
         <div class="w-full flex justify-center pb-8">
-            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parer Performance Analysis {{$rate6}} {{$rate7}} {{$rate8}} {{$rate9}}</h5>
+            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parer Performance Analysis</h5>
         </div>
         <div class="grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12 pb-3">
             <div class="sm:col-span-6 flex justify-center">
@@ -268,8 +264,8 @@
                         name: "Employees",
                         color: "#1A56DB",
                         data: [
-                        { x: "875-1000", y: {{ $rat6 }} },
-                        { x: "1001-1200", y: {{ $rat7 }} },
+                        { x: "875-1000", y: {{ $rate6 }} },
+                        { x: "1001-1200", y: {{ $rate7 }} },
                         { x: "1201-1400", y: {{ $rate8 }} },
                         { x: "1401-1600", y: {{ $rate9 }} },
                         ],
