@@ -99,10 +99,13 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $count = 0;
+                @endphp
                 @forelse ($scheds as $sched)
                     <tr class="border-b">
                         <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
-                            {{ $sched->id }}
+                            {{ $count }}
                         </th>
                         <td class="px-4 py-3">
                             {{ $sched->shift }}
