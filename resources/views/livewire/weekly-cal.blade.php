@@ -47,7 +47,7 @@
                 @endphp
             @endwhile
             @php
-                $average = ($dayCount > 0) ? number_format($sum / $dayCount, 2) : 0;
+                $average = ($dayCount > 0) ? ($sum / $dayCount) : 0;
             @endphp
             @if ($employee->position == 'Parer')
                 @if ($average <= 100){
