@@ -728,6 +728,9 @@
                 <tfoot class="text-xs uppercase text-white bg-gray-700">
                     <tr>
                         <th scope="col" class="px-4 py-3">
+                            No.
+                        </th>
+                        <th scope="col" class="pr-4 py-3">
                             Employee
                         </th>
                         <th scope="col" class="px-4 py-3">
