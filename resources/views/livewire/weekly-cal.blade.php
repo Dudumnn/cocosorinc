@@ -587,7 +587,7 @@
                 </div>
             </div>
         </div>
-        <div class=" overflow-x-auto ">
+        <div class=" overflow-x-auto overflow-hidden">
             <table class="w-full border border-gray-200 text-xs text-left text-gray-500">
                 <thead class="text-xs uppercase text-white bg-gray-700">
                     <tr>
