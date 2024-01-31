@@ -103,6 +103,9 @@
                     $count = 0;
                 @endphp
                 @forelse ($scheds as $sched)
+                    @php
+                        $count++;
+                    @endphp
                     <tr class="border-b">
                         <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
                             {{ $count }}
