@@ -632,21 +632,6 @@
                         $rate1 = 0;
                         $rate2 = 0;
                         $count = 0;
-                        $rate3 = 0;
-                        $rate4 = 0;
-                        $rate5 = 0;
-                        $rate6 = 0;
-                        $rate7 = 0;
-                        $rate8 = 0;
-                        $rate9 = 0;
-
-                        $sike1 = 0;
-                        $sike2 = 0;
-                        $sike3 = 0;
-                        $sike4 = 0;
-                        $sike5 = 0;
-                        $sike6 = 0;
-                        $sike7 = 0;
                     @endphp
                     @forelse ($emps as $emp)
                         @php
@@ -732,92 +717,6 @@
                             <td class="px-4 py-4">
                                 {{ $max }}
                             </td>
-                            @if ($employee->position == 'Parer')
-                                @if ($average <= 100){
-                                    @php
-                                        $rate1++;
-                                    @endphp
-                                }
-                                @endif
-                                @if ($average > 100 && $average < 401)
-                                    @php
-                                        $rate2++;
-                                    @endphp
-                                @endif
-                                @if ($average > 400 && $average < 601)
-                                    @php
-                                        $rate3++;
-                                    @endphp
-                                @endif
-                                @if ($average > 600 && $average < 801)
-                                    @php
-                                        $rate4++;
-                                    @endphp
-                                @endif
-                                @if ($average > 800 && $average < 875)
-                                    @php
-                                        $rate5++;
-                                    @endphp
-                                @endif
-                                
-                                @if ($average > 874 && $average < 1001)
-                                    @php
-                                        $rate6++;
-                                    @endphp
-                                @endif
-                                @if ($average >= 1001 && $average <= 1200)
-                                    @php
-                                        $rate7++;
-                                    @endphp
-                                @endif
-                                @if ($average > 1200 && $average < 1401)
-                                    @php
-                                        $rate8++;
-                                    @endphp
-                                @endif
-                                @if ($average > 1400 && $average < 1601)
-                                    @php
-                                        $rate9++;
-                                    @endphp
-                                @endif
-                            @endif
-                            @if ($employee->position == 'Sheller')
-                                @if ($average <= 500)
-                                    @php
-                                        $sike1++;
-                                    @endphp
-                                @endif
-                                @if ($average > 500 && $average < 1001)
-                                    @php
-                                        $sike2++;
-                                    @endphp
-                                @endif
-                                @if ($average > 1000 && $average < 1500)
-                                    @php
-                                        $sike3++;
-                                    @endphp
-                                @endif
-                                @if ($average > 1499 && $average < 2001)
-                                    @php
-                                        $sike4++;
-                                    @endphp
-                                @endif
-                                @if ($average > 2000 && $average < 2501)
-                                    @php
-                                        $sike5++;
-                                    @endphp
-                                @endif
-                                @if ($average > 2500 && $average < 3001)
-                                    @php
-                                        $sike6++;
-                                    @endphp
-                                @endif
-                                @if ($average > 3000 && $average < 3501)
-                                    @php
-                                        $sike7++;
-                                    @endphp
-                                @endif
-                            @endif
                         </tr>
                     @empty
                         <tr>
@@ -869,7 +768,7 @@
         <div class="py-4 px-3">
             <div class="flex items-center justify-space-between">
                 <div class="flex pt-3 space-x-4 items-center mb-3">
-                    <label class="w-32 text-sm font-medium text-gray-900">Per Page {{$rate6}} {{$rate7}} {{$rate8}} {{$rate9}}</label>
+                    <label class="w-32 text-sm font-medium text-gray-900">Per Page</label>
                     <select wire:model.live='perPage' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2 ">
                         <option value="5">5</option>
                         <option value="10">10</option>
