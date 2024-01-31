@@ -143,7 +143,7 @@
     </div>
     <div class="bg-white relative overflow-hidden w-full px-5 py-4 mx-6 mb-3 flex flex-col">
         <div class="w-full flex justify-center pb-8">
-            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parer Performance Analysis rate6:{{$rate6}} {{$rate7}} {{$rate8}} {{$rate9}}</h5>
+            <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">Parer Performance Analysis {{$rate6}} {{$rate7}} {{$rate8}} {{$rate9}}</h5>
         </div>
         <div class="grid grid-cols-1 gap-x-3 gap-y-3 w-full sm:grid-cols-12 pb-3">
             <div class="sm:col-span-6 flex justify-center">
@@ -721,6 +721,21 @@
                             <td class="px-4 py-4">
                                 {{ $max }}
                             </td>
+                            @if ($average > 1000.00 && $average < 1201.00)
+                                @php
+                                    $rate7++;
+                                @endphp
+                            @endif
+                            @if ($average > 1200 && $average < 1401)
+                                @php
+                                    $rate8++;
+                                @endphp
+                            @endif
+                            @if ($average > 1400 && $average < 1601)
+                                @php
+                                    $rate9++;
+                                @endphp
+                            @endif
                         </tr>
                     @empty
                         <tr>
@@ -767,6 +782,9 @@
                     </tr>
                 </tfoot>
             </table>
+        </div>
+        <div>
+            {{$rate7}}
         </div>
     
         {{--<div class="py-4 px-3">
