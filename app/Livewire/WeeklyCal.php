@@ -47,7 +47,7 @@ class WeeklyCal extends Component
                 $query->where('workers.name', 'like', '%' . $this->search . '%');
             })
             ->orderBy('created_at', 'asc')
-            ->paginate($this->perPage),
+            ->get(),
             //getting the workers output throughout the whole shift
             'outputs' => DB::table('schedules')
             ->join('output', function ($join) {
