@@ -863,14 +863,13 @@
                         </th>
                     </tr>
                 </tfoot>
-                <p>{{$rate6}} {{$rate7}} {{$rate8}} {{$rate9}}</p>
             </table>
         </div>
     
         <div class="py-4 px-3">
             <div class="flex items-center justify-space-between">
                 <div class="flex pt-3 space-x-4 items-center mb-3">
-                    <label class="w-32 text-sm font-medium text-gray-900">Per Page</label>
+                    <label class="w-32 text-sm font-medium text-gray-900">Per Page {{$rate6}} {{$rate7}} {{$rate8}} {{$rate9}}</label>
                     <select wire:model.live='perPage' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2 ">
                         <option value="5">5</option>
                         <option value="10">10</option>
