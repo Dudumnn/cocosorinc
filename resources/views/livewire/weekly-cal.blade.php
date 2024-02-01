@@ -690,7 +690,7 @@
                                             if ($value == '0') {
                                                 echo $value;
                                             }else {
-                                                echo "<span class='bg-red-500 p-2 text-white rounded-md'>$value</span>";
+                                                echo "<span class='bg-red-500 p-1 text-white rounded-md'>$value</span>";
                                             }
                                             
                                         }
